@@ -1,0 +1,31 @@
+/*
+CSS tranasition reference
+	-webkit-transition: [shorthand for the below, but only one CSS property can be in this list]
+	-webkit-transition-property: all [multiple CSS properties allowed, separated by commas]
+	-webkit-transition-duration: [example values: 1s 500ms]
+	-webkit-transition-timing-function: [default ease-in ease-out ease-in-out linear cubic-bezier]
+
+example properties that can be animated
+	left, right, top, bottom, margin, border, padding
+	opacity
+	-webkit-transform: rotate, rotateX, rotateY, rotateZ, translateX, translateY, translateZ, scale, skew
+	-webkit-transform-style: preserve-3d, flat
+*/
+.movable
+{
+	position: absolute;
+}
+
+.begin
+{
+	top: 10px;
+	left: 10px;
+}
+
+.end
+{
+	top:200px;
+	left: 200px;
+}
+
+

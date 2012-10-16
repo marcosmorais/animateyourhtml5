@@ -1,0 +1,94 @@
+/*
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original version: Martin Gorner (mgorner@google.com)
+*/
+.stage
+{
+	width: 900px;
+	height: 600px;
+	-webkit-perspective: 500px;
+	/*background-color: blue;*/
+	/* -webkit-perspective-origin: 50% 50%;*/ /* this is the default*/
+}
+
+.cube
+{
+	/*background-color: blue;*/
+	position: relative;
+	left: 300px;
+	top: 150px;
+	width: 300px;
+	height: 300px;
+	-webkit-transform-style: preserve-3d;
+	-webkit-animation: rotate-cube 15s linear infinite;
+}
+
+.cubeface
+{
+	position: absolute;
+	-webkit-transition: all 600ms ease-in;
+	top: 15px;
+	left: 15px;
+}
+
+@-webkit-keyframes rotate-cube
+{
+	from
+	{
+	}
+	to
+	{
+		-webkit-transform: rotateZ(1080Deg) rotateY(360Deg);
+	}
+}
+
+#tile_bberry   { -webkit-transform: translateZ(150px); }
+#tile_world    { -webkit-transform: translateX(150px) rotateY(90Deg); }
+#tile_user     { -webkit-transform: translateX(-150px) rotateY(-90Deg); }
+#tile_usb      { -webkit-transform: translateZ(-150px); }
+#tile_computer { -webkit-transform: translateY(150px) rotateX(90Deg); }
+#tile_game     { -webkit-transform: translateY(-150px) rotateX(-90Deg); }
+
+:hover > #tile_bberry   { -webkit-transform: translateZ(250px); }
+:hover > #tile_world    { -webkit-transform: translateX(250px) rotateY(90Deg); }
+:hover > #tile_user     { -webkit-transform: translateX(-250px) rotateY(-90Deg); }
+:hover > #tile_usb      { -webkit-transform: translateZ(-250px); }
+:hover > #tile_computer { -webkit-transform: translateY(250px) rotateX(90Deg); }
+:hover > #tile_game     { -webkit-transform: translateY(-250px) rotateX(-90Deg); }
+
+
+/*************************************/
+/*        caption decorations        */
+.caption
+{
+	margin: 10px;
+	font-size: xx-large;
+	font-style: normal;
+	font-variant: small-caps;
+	font-family: sans-serif;
+	font-weight: 900;
+	-webkit-text-fill-color: white;
+  	-webkit-text-stroke-color: grey;
+  	-webkit-text-stroke-width: 1px;
+	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
+}
+.title
+{
+	margin: 10px;
+	text-align: left;
+	font-size: 50px;
+	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<!--
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original version: Martin Gorner (mgorner@google.com)
+-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Animate Your HTML - Part 3</title>
+<link rel="stylesheet" type="text/css" href="P3/stylesheet.css" />
+<script type="text/javascript" src="P3/jsmultimove.js" ></script>
+</head>
+<body style="background-image: url('img/chromebg.png');">
+<!-- captions -->
+<div class="caption" style="left: 300px; top: 10px">Click on the tiles!</div>
+<div class="caption" style="left: 10px; top: 10px">Reload the page<br/>to restart</div>
+<div class="caption title" style="left:1180px; top:10px;">CUSTOM animations using RequestAnimationFrame</div>
+
+<!-- tiles -->
+<img class="movable" onclick="move_to('tile_bberry',   300, 10, 1000)" id="tile_bberry" src="img/tile_bberry.png"/>
+<img class="movable" onclick="move_to('tile_browser',  580, 10, 1000)" id="tile_browser" src="img/tile_browser.png"/>
+<img class="movable" onclick="move_to('tile_computer', 860, 10, 1000)" id="tile_computer" src="img/tile_computer.png"/>
+<img class="movable" onclick="move_to('tile_console',  300, 290, 800)" id="tile_console" src="img/tile_console.png"/>
+<img class="movable" onclick="move_to('tile_world',    580, 290, 800)" id="tile_world" src="img/tile_world.png"/>
+<img class="movable" onclick="move_to('tile_game',     860, 290, 800)" id="tile_game" src="img/tile_game.png"/>
+<img class="movable" onclick="move_to('tile_phone',    300, 570, 600)" id="tile_phone" src="img/tile_phone.png"/>
+<img class="movable" onclick="move_to('tile_usb',      580, 570, 600)" id="tile_usb" src="img/tile_usb.png"/>
+<img class="movable" onclick="move_to('tile_user',     860, 570, 600)" id="tile_user" src="img/tile_user.png"/>
+</body>
+</html>

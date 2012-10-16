@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original version: Martin Gorner (mgorner@google.com)
+  
+-->
+<html>
+<head>
+<title>Animate Your HTML5 codelab</title>
+<style type="text/css">
+	.tile
+	{
+		position: absolute;
+		width: 270px;
+		height: 270px;
+		-webkit-transition: 150ms linear;
+	}
+	.tile:hover
+	{
+		-webkit-transform: rotate(-10Deg);
+	}
+	/*************************************/
+	/*        caption decorations        */
+	.caption
+	{
+		margin: 10px;
+		font-size: xx-large;
+		font-style: normal;
+		font-variant: small-caps;
+		font-family: sans-serif;
+		font-weight: 900;
+		-webkit-text-fill-color: white;
+	  	-webkit-text-stroke-color: grey;
+	  	-webkit-text-stroke-width: 1px;
+		text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
+	}
+	.caption a:visited
+	{
+		-webkit-text-fill-color: white;
+	  	-webkit-text-stroke-color: grey;
+	  	-webkit-text-stroke-width: 1px;
+	}
+	.caption a
+	{
+		text-decoration: none;
+	}
+	.title
+	{
+		margin: 10px;
+		text-align: left;
+		font-size: 40px;
+		text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
+	}
+	.title2
+	{
+		position: absolute;
+		width: 810px;
+		left: 1170px;
+		top: 10px;
+		margin: 10px;
+		-webkit-transform-origin: 0% 0%;
+		-webkit-transform: rotate(90Deg);
+	}
+	.whitebox
+	{
+		background-color: white;
+		opacity: 0.8;
+		font-family: sans-serif;
+		padding: 10px;
+		position: absolute;
+		width:400px;
+	}
+</style>
+</head>
+<body style="background-image: url('img/chromebg.png')">
+<div class="caption title">Animate Your HTML5 codelab</div>
+<div class="caption title2">CSS animations, CSS in 3D, Javascript animation LOOPS, RequestAnimationFrame</div>
+<div class="tile caption" style="left: 460px; top: 100px;"><a href="part1.html">Part 1<br /><img src="img/tile_user.png" /></a></div>
+<div class="tile caption" style="left: 780px; top: 100px;"><a href="part2.html">Part 2<br /><img src="img/tile_computer.png" /></a></div>
+<div class="tile caption" style="left: 460px; top: 430px;"><a href="part3.html">Part 3<br /><img src="img/tile_game.png" /></a></div>
+<div class="tile caption" style="left: 780px; top: 430px;"><a href="part4.html">Part 4<br /><img src="img/tile_browser.png" /></a></div>
+
+<div  class="whitebox" style="top: 90px">
+<H2>Codelab setup</H2>
+<ol>
+<li>Download and install <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-javascript-web-developers/indigor">Eclipse-js</a>, or any other web developemnt tools that offer javascript validation as you type. Life is too short to waste it on syntax errors.</li>
+<li>Download ans install the latest <a href="http://www.google.com/chrome">public version of Chrome</a>.</li>
+<li>Download the <a href="AnimateYourHTML5codelab.zip">ZIP of this codelab</a> and open it in eclipse by following this procedure:
+	<ul>
+	<li>unzip the file to a temporary folder of your choice</li>
+	<li>in eclipse, do File > New > New Javascript project</li>
+	<li>in the new project dialog, choose "create project from existing source" and select the temp folder where you unzipped the files</li>
+	</ul>
+<li>Test: you should have syntax highlighting in HTML, CSS and Javascript files. Also try to make a syntax error in a javascript file and save. Eclipse should complain.</li>
+</ol>
+<h2>What now ?</h2>
+The codelab is divided in 4 parts that will show you different animation techniques and best practices. You can click on the 4 tiles here to see the end result of each part.
+During the codelab, you will code in files called "partN playground.XXX" (found in the codelab zip). By following the teacher's step by step explanations, you will arrive at the final results presented here, and hopefully find it easy. 
+<br/>&nbsp;
+<h2>Presentation</h2>
+There is also a <a href="pres/index.html?lang=en">presentation available in english</a> and <a href="pres/index.html?lang=fr">in french</a> for parts 1 and 2 of the codelab. It is written in HTML5 itself.
+</div>
+
+</body>
