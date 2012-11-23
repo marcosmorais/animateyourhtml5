@@ -631,7 +631,7 @@ function addPageNumbers(slides)
 	{
 		var articleElement = slides[slide];
 		var el = document.createElement('div');
-		el.innerHTML = slide +"/"+slides.length;
+		el.innerHTML = slide+1 +"/"+slides.length;
 		el.classList.add("pagenumber");
 		articleElement.appendChild(el);
 	}
