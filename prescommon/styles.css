@@ -52,7 +52,6 @@ body {
   display: block;
 
   position: absolute;
-  overflow: hidden;
 
   width: 900px;
   height: 700px;
@@ -99,16 +98,9 @@ body {
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
   background:   url(template-images/colorbar.png) 0 600px repeat-x,
   				url(template-images/html5-logo-65x65.png) 15px 620px no-repeat,
-  				url(template-images/google-logo-small.png) 96% 630px no-repeat;  
+  				url(template-images/google-logo-small.png) 96% 630px no-repeat;
    
   background-color: white;  
-}
-
-.slides.template-chromebg > article:not(.nobackground):not(.biglogo) {
-  background:   url(template-images/colorbar.png) 0 600px repeat-x,
-  				url(template-images/html5-logo-65x65.png) 15px 620px no-repeat,
-  				url(template-images/google-logo-small.png) 96% 630px no-repeat,
-  				url('images/chromebg.png');
 }
 
 .slides.layout-widescreen > article:not(.nobackground):not(.biglogo),
@@ -116,6 +108,16 @@ body {
   background-position-x: 0, 840px;
 }
 
+.pagenumber
+{
+	position: absolute;
+	top:690px;
+	left:0px;
+	width: 100%;
+	text-align: right;
+	font-size: medium;
+	color: white;
+}
 /* Clickable/tappable areas */
 
 .slide-area {
@@ -607,4 +609,4 @@ article.smaller q::after {
 .prettyprint .dec, 
 .prettyprint .var { /* a declaration; a variable name */
   color: rgb(127, 0, 127);
-}  
+}

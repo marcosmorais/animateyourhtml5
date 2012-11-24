@@ -25,7 +25,8 @@ function modelshow(el, modelURL)
 	if (animation !== null)
 		return;
 	
-	el.classList.add('modellaunch');	
+	el.classList.add('modellaunch-central');
+    document.body.classList.add('modellaunch');
 	el.onclick = function()
 	{
 		modelhide(el, modelURL);
@@ -97,7 +98,8 @@ function modelshow(el, modelURL)
 function modelhide(el, modelURL)
 {
 	var canvascontainer = document.getElementById('modelcontainer');
-	el.classList.remove('modellaunch');
+	el.classList.remove('modellaunch-central');
+    document.body.classList.remove('modellaunch');
 	el.onclick = function() {modelshow(el, modelURL);};
 	
 	// kill the 3D canvas too

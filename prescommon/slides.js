@@ -25,8 +25,9 @@
    To leave a string untranslated, use --self--
 */
 
-var PERMANENT_URL_PREFIX = '';
+var PERMANENT_URL_PREFIX = '../prescommon/';
 
+var SLIDE_CLASSES_NB = 5;
 var SLIDE_CLASSES = ['far-past', 'past', 'current', 'next', 'far-next'];
 
 var PM_TOUCH_SENSITIVITY = 15;
@@ -176,7 +177,7 @@ function updateSlideClass(slideNo, className) {
     el.classList.add(className);
   }
     
-  for (var i in SLIDE_CLASSES) {
+  for (var i=0; i< SLIDE_CLASSES_NB; i++) {
     if (className != SLIDE_CLASSES[i]) {
       el.classList.remove(SLIDE_CLASSES[i]);
     }
@@ -396,6 +397,7 @@ function setupFrames() {
 function setupInteraction() {
   /* Clicking and tapping */
   
+	/*
   var el = document.createElement('div');
   el.className = 'slide-area';
   el.id = 'prev-slide-area';  
@@ -407,7 +409,7 @@ function setupInteraction() {
   el.id = 'next-slide-area';  
   el.addEventListener('click', nextSlide, false);
   document.querySelector('section.slides').appendChild(el);  
-  
+  */
   /* Swiping */
   
   document.body.addEventListener('touchstart', handleTouchStart, false);
@@ -508,7 +510,7 @@ function handleBodyKeyDown(event) {
       break;
 
     case 37: // left arrow
-    case 8: // Backspace
+    //case 8: // Backspace
     case 33: // PgUp
       prevSlide();
       event.preventDefault();
@@ -535,7 +537,12 @@ function handleBodyKeyDown(event) {
 };
 
 function addEventListeners() {
-  document.addEventListener('keydown', handleBodyKeyDown, false);  
+  document.addEventListener('keydown', handleBodyKeyDown, false);
+  window.addEventListener('popstate', function(e)
+		  {
+		  	getCurSlideFromHash();
+		  	updateSlides();
+		  });
 };
 
 /* Initialization */
@@ -600,6 +607,7 @@ function handleDomLoaded() {
   slideEls = document.querySelectorAll('section.slides > article');
 
   localizeAllSlides(slideEls, getQueryVariable('lang'));
+  addPageNumbers(slideEls);
   
   setupFrames();
 
@@ -614,6 +622,19 @@ function handleDomLoaded() {
   makeBuildLists();
 
   document.body.classList.add('loaded');
+}
+
+/* page numbers */
+function addPageNumbers(slides)
+{
+	for (var slide=1;  slide<slides.length; slide++)
+	{
+		var articleElement = slides[slide];
+		var el = document.createElement('div');
+		el.innerHTML = slide+1 +"/"+slides.length;
+		el.classList.add("pagenumber");
+		articleElement.appendChild(el);
+	}
 }
 
 /* localization helpers */
