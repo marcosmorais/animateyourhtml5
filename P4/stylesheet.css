@@ -54,7 +54,6 @@ html, body
   	-webkit-text-stroke-color: grey;
   	-webkit-text-stroke-width: 1px;
 	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
-	transition: 600ms linear;
 }
 .title
 {

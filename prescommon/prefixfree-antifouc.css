@@ -1,0 +1,19 @@
+/*
+
+To prevent unwanted CSS transitions to appear when the document is
+loading and you are using prefixfree use the following body tag:
+
+<body class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
+
+It does not really work: avoid objects with transition & transform properties in their initial state
+*/
+
+.prefixfreeload *
+{
+    display: none;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    background: red !important;
+}

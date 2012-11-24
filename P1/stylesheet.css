@@ -212,12 +212,12 @@ example properties that can be animated
 {
 	left: 580px;
 	top: 290px;
-	transform: rotateX(360Deg);
 }
 #tile_phone.end
 {
 	left: 10px;
 	top: 10px;
+    transform: rotateX(360Deg);
 }
 
 /*************************************/

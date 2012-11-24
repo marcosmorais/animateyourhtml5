@@ -41,7 +41,7 @@ function move (id, relx, rely, duration)
 		animations[id].startx = nod.offsetLeft; // the starting position 
 		animations[id].starty = nod.offsetTop;
 		
-		webkitRequestAnimationFrame(on_move);
+		requestAnimationFrame(on_move);
 	}
 }
 
@@ -87,7 +87,7 @@ function on_move(time)
 	}
 	
 	if (need_another_frame)
-		webkitRequestAnimationFrame(on_move);
+		requestAnimationFrame(on_move);
 }
 
 //move an HTML object with smooth animation

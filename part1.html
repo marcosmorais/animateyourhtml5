@@ -21,10 +21,12 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>Animate Your HTML - Part 1</title>
 <link rel="stylesheet" type="text/css" href="P1/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="prescommon/prefixfree-antifouc.css" />
 <script type="text/javascript" src="prescommon/prefixfree.min.js" ></script>
-<script type="text/javascript" src="P1/jsmove.js" ></script>
 </head>
-<body style="background-image: url('images/chromebg.png')">
+<body style="background-image: url('images/chromebg.png')" class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
+
+<script type="text/javascript" src="P1/jsmove.js" ></script>
 
 <!-- captions -->
 <div class="caption title" style="left:1180px; top:10px;">CSS3 transforms, transitions and animations</div>

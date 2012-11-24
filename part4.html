@@ -17,106 +17,108 @@
   Original version: Martin Gorner (mgorner@google.com)
 -->
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<script type="text/javascript" src="prescommon/prefixfree.min.js" ></script>
-<title>Animate Your HTML - Part 4</title>
-<link rel="stylesheet" type="text/css" href="P4/stylesheet.css" />
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Animate Your HTML - Part 4</title>
 
-<!-- required by box2djs -->
-<script src="./P4/libBox2DJS/prototype-1.6.0.2.js"></script>
-<!-- box2djs -->
-<script src="./P4/libBox2DJS/b2Settings.js"></script>
-<script src="./P4/libBox2DJS/b2Vec2.js"></script>
-<script src="./P4/libBox2DJS/b2Mat22.js"></script>
-<script src="./P4/libBox2DJS/b2Math.js"></script>
-<script src="./P4/libBox2DJS/b2AABB.js"></script>
-<script src="./P4/libBox2DJS/b2Bound.js"></script>
-<script src="./P4/libBox2DJS/b2BoundValues.js"></script>
-<script src="./P4/libBox2DJS/b2Pair.js"></script>
-<script src="./P4/libBox2DJS/b2PairCallback.js"></script>
-<script src="./P4/libBox2DJS/b2BufferedPair.js"></script>
-<script src="./P4/libBox2DJS/b2PairManager.js"></script>
-<script src="./P4/libBox2DJS/b2BroadPhase.js"></script>
-<script src="./P4/libBox2DJS/b2Collision.js"></script>
-<script src="./P4/libBox2DJS/Features.js"></script>
-<script src="./P4/libBox2DJS/b2ContactID.js"></script>
-<script src="./P4/libBox2DJS/b2ContactPoint.js"></script>
-<script src="./P4/libBox2DJS/b2Distance.js"></script>
-<script src="./P4/libBox2DJS/b2Manifold.js"></script>
-<script src="./P4/libBox2DJS/b2OBB.js"></script>
-<script src="./P4/libBox2DJS/b2Proxy.js"></script>
-<script src="./P4/libBox2DJS/ClipVertex.js"></script>
-<script src="./P4/libBox2DJS/b2Shape.js"></script>
-<script src="./P4/libBox2DJS/b2ShapeDef.js"></script>
-<script src="./P4/libBox2DJS/b2BoxDef.js"></script>
-<script src="./P4/libBox2DJS/b2CircleDef.js"></script>
-<script src="./P4/libBox2DJS/b2CircleShape.js"></script>
-<script src="./P4/libBox2DJS/b2MassData.js"></script>
-<script src="./P4/libBox2DJS/b2PolyDef.js"></script>
-<script src="./P4/libBox2DJS/b2PolyShape.js"></script>
-<script src="./P4/libBox2DJS/b2Body.js"></script>
-<script src="./P4/libBox2DJS/b2BodyDef.js"></script>
-<script src="./P4/libBox2DJS/b2CollisionFilter.js"></script>
-<script src="./P4/libBox2DJS/b2Island.js"></script>
-<script src="./P4/libBox2DJS/b2TimeStep.js"></script>
-<script src="./P4/libBox2DJS/b2ContactNode.js"></script>
-<script src="./P4/libBox2DJS/b2Contact.js"></script>
-<script src="./P4/libBox2DJS/b2ContactConstraint.js"></script>
-<script src="./P4/libBox2DJS/b2ContactConstraintPoint.js"></script>
-<script src="./P4/libBox2DJS/b2ContactRegister.js"></script>
-<script src="./P4/libBox2DJS/b2ContactSolver.js"></script>
-<script src="./P4/libBox2DJS/b2CircleContact.js"></script>
-<script src="./P4/libBox2DJS/b2Conservative.js"></script>
-<script src="./P4/libBox2DJS/b2NullContact.js"></script>
-<script src="./P4/libBox2DJS/b2PolyAndCircleContact.js"></script>
-<script src="./P4/libBox2DJS/b2PolyContact.js"></script>
-<script src="./P4/libBox2DJS/b2ContactManager.js"></script>
-<script src="./P4/libBox2DJS/b2World.js"></script>
-<script src="./P4/libBox2DJS/b2WorldListener.js"></script>
-<script src="./P4/libBox2DJS/b2JointNode.js"></script>
-<script src="./P4/libBox2DJS/b2Joint.js"></script>
-<script src="./P4/libBox2DJS/b2JointDef.js"></script>
-<script src="./P4/libBox2DJS/b2DistanceJoint.js"></script>
-<script src="./P4/libBox2DJS/b2DistanceJointDef.js"></script>
-<script src="./P4/libBox2DJS/b2Jacobian.js"></script>
-<script src="./P4/libBox2DJS/b2GearJoint.js"></script>
-<script src="./P4/libBox2DJS/b2GearJointDef.js"></script>
-<script src="./P4/libBox2DJS/b2MouseJoint.js"></script>
-<script src="./P4/libBox2DJS/b2MouseJointDef.js"></script>
-<script src="./P4/libBox2DJS/b2PrismaticJoint.js"></script>
-<script src="./P4/libBox2DJS/b2PrismaticJointDef.js"></script>
-<script src="./P4/libBox2DJS/b2PulleyJoint.js"></script>
-<script src="./P4/libBox2DJS/b2PulleyJointDef.js"></script>
-<script src="./P4/libBox2DJS/b2RevoluteJoint.js"></script>
-<script src="./P4/libBox2DJS/b2RevoluteJointDef.js"></script>
+        <link rel="stylesheet" type="text/css" href="P4/stylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="prescommon/prefixfree-antifouc.css" />
+        <script type="text/javascript" src="prescommon/prefixfree.min.js" ></script>
+        <script type="text/javascript" src="prescommon/requestAnimationFrame.js" ></script>
+    </head>
+    <body style="background-image: url(images/chromebg.png)" class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
 
-<!-- Box2D helpers -->
-<script src="./P4/libBox2DJS/demo_base.js"></script>
-<script src="./P4/libBox2DJS/draw_world.js"></script>
-  
- <!-- our code -->  
-<script type="text/javascript" src="P4/jsmove.js" ></script>
-<script type="text/javascript" src="P4/modelanim.js" ></script>
+        <!-- required by box2djs -->
+        <script src="./P4/libBox2DJS/prototype-1.6.0.2.js"></script>
+        <!-- box2djs -->
+        <script src="./P4/libBox2DJS/b2Settings.js"></script>
+        <script src="./P4/libBox2DJS/b2Vec2.js"></script>
+        <script src="./P4/libBox2DJS/b2Mat22.js"></script>
+        <script src="./P4/libBox2DJS/b2Math.js"></script>
+        <script src="./P4/libBox2DJS/b2AABB.js"></script>
+        <script src="./P4/libBox2DJS/b2Bound.js"></script>
+        <script src="./P4/libBox2DJS/b2BoundValues.js"></script>
+        <script src="./P4/libBox2DJS/b2Pair.js"></script>
+        <script src="./P4/libBox2DJS/b2PairCallback.js"></script>
+        <script src="./P4/libBox2DJS/b2BufferedPair.js"></script>
+        <script src="./P4/libBox2DJS/b2PairManager.js"></script>
+        <script src="./P4/libBox2DJS/b2BroadPhase.js"></script>
+        <script src="./P4/libBox2DJS/b2Collision.js"></script>
+        <script src="./P4/libBox2DJS/Features.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactID.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactPoint.js"></script>
+        <script src="./P4/libBox2DJS/b2Distance.js"></script>
+        <script src="./P4/libBox2DJS/b2Manifold.js"></script>
+        <script src="./P4/libBox2DJS/b2OBB.js"></script>
+        <script src="./P4/libBox2DJS/b2Proxy.js"></script>
+        <script src="./P4/libBox2DJS/ClipVertex.js"></script>
+        <script src="./P4/libBox2DJS/b2Shape.js"></script>
+        <script src="./P4/libBox2DJS/b2ShapeDef.js"></script>
+        <script src="./P4/libBox2DJS/b2BoxDef.js"></script>
+        <script src="./P4/libBox2DJS/b2CircleDef.js"></script>
+        <script src="./P4/libBox2DJS/b2CircleShape.js"></script>
+        <script src="./P4/libBox2DJS/b2MassData.js"></script>
+        <script src="./P4/libBox2DJS/b2PolyDef.js"></script>
+        <script src="./P4/libBox2DJS/b2PolyShape.js"></script>
+        <script src="./P4/libBox2DJS/b2Body.js"></script>
+        <script src="./P4/libBox2DJS/b2BodyDef.js"></script>
+        <script src="./P4/libBox2DJS/b2CollisionFilter.js"></script>
+        <script src="./P4/libBox2DJS/b2Island.js"></script>
+        <script src="./P4/libBox2DJS/b2TimeStep.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactNode.js"></script>
+        <script src="./P4/libBox2DJS/b2Contact.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactConstraint.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactConstraintPoint.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactRegister.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactSolver.js"></script>
+        <script src="./P4/libBox2DJS/b2CircleContact.js"></script>
+        <script src="./P4/libBox2DJS/b2Conservative.js"></script>
+        <script src="./P4/libBox2DJS/b2NullContact.js"></script>
+        <script src="./P4/libBox2DJS/b2PolyAndCircleContact.js"></script>
+        <script src="./P4/libBox2DJS/b2PolyContact.js"></script>
+        <script src="./P4/libBox2DJS/b2ContactManager.js"></script>
+        <script src="./P4/libBox2DJS/b2World.js"></script>
+        <script src="./P4/libBox2DJS/b2WorldListener.js"></script>
+        <script src="./P4/libBox2DJS/b2JointNode.js"></script>
+        <script src="./P4/libBox2DJS/b2Joint.js"></script>
+        <script src="./P4/libBox2DJS/b2JointDef.js"></script>
+        <script src="./P4/libBox2DJS/b2DistanceJoint.js"></script>
+        <script src="./P4/libBox2DJS/b2DistanceJointDef.js"></script>
+        <script src="./P4/libBox2DJS/b2Jacobian.js"></script>
+        <script src="./P4/libBox2DJS/b2GearJoint.js"></script>
+        <script src="./P4/libBox2DJS/b2GearJointDef.js"></script>
+        <script src="./P4/libBox2DJS/b2MouseJoint.js"></script>
+        <script src="./P4/libBox2DJS/b2MouseJointDef.js"></script>
+        <script src="./P4/libBox2DJS/b2PrismaticJoint.js"></script>
+        <script src="./P4/libBox2DJS/b2PrismaticJointDef.js"></script>
+        <script src="./P4/libBox2DJS/b2PulleyJoint.js"></script>
+        <script src="./P4/libBox2DJS/b2PulleyJointDef.js"></script>
+        <script src="./P4/libBox2DJS/b2RevoluteJoint.js"></script>
+        <script src="./P4/libBox2DJS/b2RevoluteJointDef.js"></script>
 
-</head>
-<body style="background-image: url('images/chromebg.png')">
+        <!-- Box2D helpers -->
+        <script src="./P4/libBox2DJS/demo_base.js"></script>
+        <script src="./P4/libBox2DJS/draw_world.js"></script>
 
-<!-- the stage -->
-<canvas id="canvas" class="canvas" width="100" height="100" onclick="run(); move('cap_ohno');move('cap_click')">
-Canvas not supported !
-</canvas>
+        <!-- our code -->
+        <script type="text/javascript" src="P4/jsmove.js" ></script>
+        <script type="text/javascript" src="P4/modelanim.js" ></script>
 
-<!-- trick: display images off the screen and start when they are all loaded -->
-<img class="off-screen" src="images/tile_bberry.png" onload="startup()"/>
-<img class="off-screen" src="images/tile_user.png" onload="startup()"/>
-<img class="off-screen" src="images/tile_computer.png" onload="startup()"/>
-<img class="off-screen" src="images/tile_world.png" onload="startup()"/>
+        <!-- the stage -->
+        <canvas id="canvas" class="canvas" width="100" height="100" onclick="run(); move('cap_ohno');move('cap_click')">
+        Canvas not supported !
+        </canvas>
 
-<!-- captions -->
-<div class="caption" id="cap_click" style="left: 10px; top: 10px">Click on the tiles!</div>
-<div class="caption ohno" id="cap_ohno" style="left: 300px; top: 10px">OH No!</div>
-<div class="caption" style="left: 10px; top: 300px">Reload the page<br/>to restart</div>
-<div class="caption title" style="left: 1080px; top: 10px">Custom ANIMATION using a physics-based MODEL.</div>
-</body>
+        <!-- trick: display images off the screen and start when they are all loaded -->
+        <img class="off-screen" src="images/tile_bberry.png" onload="startup()"/>
+        <img class="off-screen" src="images/tile_user.png" onload="startup()"/>
+        <img class="off-screen" src="images/tile_computer.png" onload="startup()"/>
+        <img class="off-screen" src="images/tile_world.png" onload="startup()"/>
+
+        <!-- captions -->
+        <div class="caption" id="cap_click" style="left: 10px; top: 10px">Click on the tiles!</div>
+        <div class="caption ohno" id="cap_ohno" style="left: 300px; top: 10px">OH No!</div>
+        <div class="caption" style="left: 10px; top: 300px">Reload the page<br/>to restart</div>
+        <div class="caption title" style="left: 1080px; top: 10px">Custom ANIMATION using a physics-based MODEL.</div>
+    </body>
 </html>

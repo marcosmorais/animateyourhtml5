@@ -54,7 +54,7 @@ function runAnimation()
 	if (!IsWorldAsleep(physicalWorld))
 	{
 		drawWorldIn(physicalWorld, drawingCanvas);
-		webkitRequestAnimationFrame(runAnimation);
+		requestAnimationFrame(runAnimation);
 	}
 }
 
