@@ -9,7 +9,7 @@ function slide_canvas_images1_draw()
 	
 	var img = new Image();
 	img.onload = function() { context.drawImage(img, 100, 100); };
-	img.src = "images/tile_user.png";
+	img.src = "../images/tile_user.png";
 }
 
 //drawing for slide canvas: drawing pictures

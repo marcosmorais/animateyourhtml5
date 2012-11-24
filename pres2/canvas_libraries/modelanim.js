@@ -26,13 +26,13 @@ var drawingCanvas = null;
 var nbModelAnimToLoad = 4;
 
 var modelImage1 = new Image();
-modelImage1.src = "images/tile_bberry.png";
+modelImage1.src = "../images/tile_bberry.png";
 var modelImage2 = new Image();
-modelImage2.src = "images/tile_user.png";
+modelImage2.src = "../images/tile_user.png";
 var modelImage3 = new Image();
-modelImage3.src = "images/tile_computer.png";
+modelImage3.src = "../images/tile_computer.png";
 var modelImage4 = new Image();
-modelImage4.src = "images/tile_world.png";
+modelImage4.src = "../images/tile_world.png";
 
 var tileScale = 0.6;
 var scale = 50;

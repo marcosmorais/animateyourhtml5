@@ -234,7 +234,7 @@
 		➛ <a onclick="document.location.hash='#31'; getCurSlideFromHash(); updateSlides()">Canvas</a><br/>
 		➛ <a onclick="document.location.hash='#38'; getCurSlideFromHash(); updateSlides()">WebGL</a>
 		</div>
-		<div style="margin-top: 60px; width: 100%; text-align: center">précédent<img style="vertical-align: -240px" src="images/keyboard.svg" width="350"/>suivant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+		<div style="margin-top: 60px; width: 100%; text-align: center">précédent<img style="vertical-align: -240px" src="../prescommon/images/keyboard.svg" width="350"/>suivant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 		action
 		<br/><br/><br/>action = sur la plupart des slides, il se passe quelque chose quand on clique (surtout les slides 4, 9, 19, 31 et 38 :-)</div>
 		
@@ -331,16 +331,16 @@
 			<div class="caption" style="left:555px; top:445px; TranslateZ(-200px)">3D rotate</div>
 			
 			<!-- tiles -->
-			<img class="movable begin" onclick="move('tile_user'); arguments[0].stopPropagation();" id="tile_user" src="images/tile_user.png"/>
-			<img class="movable begin" onclick="move('tile_console'); arguments[0].stopPropagation();"id="tile_console" src="images/tile_console.png" />
-			<img class="movable begin" onclick="move('tile_browser'); arguments[0].stopPropagation();" id="tile_browser" src="images/tile_browser.png"/>
-			<img class="movable begin" onclick="move('tile_usb'); arguments[0].stopPropagation();" id="tile_usb" src="images/tile_usb.png"/>
-			<img class="movable begin" onclick="move('tile_phone'); arguments[0].stopPropagation();" id="tile_phone" src="images/tile_phone.png"/>
-			<img class="movable begin" onclick="move('tile_game'); arguments[0].stopPropagation();" id="tile_game" src="images/tile_game.png"/>
-			<img class="movable" onclick="move('tile_computer'); arguments[0].stopPropagation();" id="tile_computer" src="images/tile_computer.png"/>
-			<img class="movable" onclick="move('tile_world'); arguments[0].stopPropagation();" id="tile_world" src="images/tile_world.png"/>
+			<img class="movable begin" onclick="move('tile_user'); arguments[0].stopPropagation();" id="tile_user" src="../images/tile_user.png"/>
+			<img class="movable begin" onclick="move('tile_console'); arguments[0].stopPropagation();"id="tile_console" src="../images/tile_console.png" />
+			<img class="movable begin" onclick="move('tile_browser'); arguments[0].stopPropagation();" id="tile_browser" src="../images/tile_browser.png"/>
+			<img class="movable begin" onclick="move('tile_usb'); arguments[0].stopPropagation();" id="tile_usb" src="../images/tile_usb.png"/>
+			<img class="movable begin" onclick="move('tile_phone'); arguments[0].stopPropagation();" id="tile_phone" src="../images/tile_phone.png"/>
+			<img class="movable begin" onclick="move('tile_game'); arguments[0].stopPropagation();" id="tile_game" src="../images/tile_game.png"/>
+			<img class="movable" onclick="move('tile_computer'); arguments[0].stopPropagation();" id="tile_computer" src="../images/tile_computer.png"/>
+			<img class="movable" onclick="move('tile_world'); arguments[0].stopPropagation();" id="tile_world" src="../images/tile_world.png"/>
 			<div class="movable begin" id="tile_bberry" onclick="move('tile_bberry'); arguments[0].stopPropagation();">
-				<img src="images/tile_bberry.png" />
+				<img src="../images/tile_bberry.png" />
 			</div>
 			
 			<translation lang="en">
@@ -378,7 +378,7 @@
 <article onclick="move('im3')">
       <h3 style="margin-bottom: 40px;">Transitions CSS3</h3>
         <div class="animcontainer">
-        <img id="im3" class="begin" src="images/tile_user.png" />
+        <img id="im3" class="begin" src="../images/tile_user.png" />
         </div>
         <table class="table-noborders" style="margin-top: 20px;">
         <tr>
@@ -389,7 +389,7 @@
 -webkit-transition: 1s;</pre>
         </td>
         <td style="text-align: center; vertical-align: middle;">
-         onclick<br/><img src="images/arrow.png" />
+         onclick<br/><img src="../prescommon/images/arrow.png" />
         </td>
         <td width="40%">        
 <pre><b>left: 500px;
@@ -430,7 +430,7 @@
 <article onclick="move('imB')">
         <H3>Animations CSS3</H3>
         <div class="animcontainer">
-        <img class="end" id="imB" src="images/tile_world.png" />
+        <img class="end" id="imB" src="../images/tile_world.png" />
         </div>
 <pre>
 .move {<b>-webkit-animation</b>: anim2 ease-in-out 3s infinite alternate; }
@@ -513,9 +513,9 @@
  
         <p>
         <table id="tab1" width="100%" class="table-noborders"><tr>
-        <td style="text-align: left;  "><img id="imC" height="200px" class="end" onclick="move('imD');move('imE');" src="images/tile_bberry.png" /></td>
-        <td style="text-align: center;"><img id="imD" height="200px" class="end" onclick="move('imC');move('imE');" src="images/tile_game.png" /></td>
-        <td style="text-align: right; "><img id="imE" height="200px" class="end" onclick="move('imC');move('imD');" src="images/tile_usb.png" /></td>
+        <td style="text-align: left;  "><img id="imC" height="200px" class="end" onclick="move('imD');move('imE');" src="../images/tile_bberry.png" /></td>
+        <td style="text-align: center;"><img id="imD" height="200px" class="end" onclick="move('imC');move('imE');" src="../images/tile_game.png" /></td>
+        <td style="text-align: right; "><img id="imE" height="200px" class="end" onclick="move('imC');move('imD');" src="../images/tile_usb.png" /></td>
         </tr>
         <tr>
         <td><pre>-webkit-transform:<br/> rotate(90deg);</pre></td>
@@ -674,12 +674,12 @@
          <div class="blind"></div>
          <div class="binterobj3d">
            <div class="bobj3d">
-             <img class="bface3d" src="images/tile_browser.png" id="bim2E" />
-             <img class="bface3d" src="images/tile_phone.png" id="bim2F" />
-             <img class="bface3d" src="images/tile_bberry.png" id="bim30" />
-             <img class="bface3d" src="images/tile_user.png" id="bim31" />
-             <img class="bface3d" src="images/tile_console.png" id="bim32" />
-             <img class="bface3d" src="images/tile_world.png" id="bim33" />
+             <img class="bface3d" src="../images/tile_browser.png" id="bim2E" />
+             <img class="bface3d" src="../images/tile_phone.png" id="bim2F" />
+             <img class="bface3d" src="../images/tile_bberry.png" id="bim30" />
+             <img class="bface3d" src="../images/tile_user.png" id="bim31" />
+             <img class="bface3d" src="../images/tile_console.png" id="bim32" />
+             <img class="bface3d" src="../images/tile_world.png" id="bim33" />
            </div>
          </div>
          
@@ -715,8 +715,8 @@
         <p>translateX, Y, Z, &nbsp;&nbsp;&nbsp;&nbsp;rotateX, Y, Z, &nbsp;&nbsp;&nbsp;&nbsp;matrix3d</p>
         <div class="scene3d" style="margin-top: 30px;">
            <div class="object3d begin" id="obj1">
-             <img class="face3d" src="images/tile_browser.png" id="im14" />
-             <img class="face3d" src="images/tile_phone.png" id="im15" />
+             <img class="face3d" src="../images/tile_browser.png" id="im14" />
+             <img class="face3d" src="../images/tile_phone.png" id="im15" />
            </div>
         </div>
         
@@ -764,8 +764,8 @@
         </h3>
         <div class="scene3d begin" id="sce2" style="margin-top: 40px;">
            <div class="object3d" id="obj2">
-             <img class="face3d" src="images/tile_browser.png" id="im16" />
-             <img class="face3d" src="images/tile_phone.png" id="im17" />
+             <img class="face3d" src="../images/tile_browser.png" id="im16" />
+             <img class="face3d" src="../images/tile_phone.png" id="im17" />
              <!-- 
              <img class="face3d" src="images/tile_bberry.png" id="im18" />
              <img class="face3d" src="images/tile_user.png" id="im19" />
@@ -801,7 +801,7 @@
           La perspective
         </h3>
         <p style="text-align: center;">
-        <img src="images/perspective.png" />
+        <img src="../prescommon/images/perspective.png" />
         </p>
         <p style="text-align: right;">-webkit-perspective: <i style="color: red">f</i></p>
         
@@ -852,12 +852,12 @@
         </h3>
         <div class="scene3d begin" style="margin-top: 80px" id="sce3">
            <div class="object3d" id="obj3">
-             <img class="face3d" src="images/tile_browser.png" id="im1C" />
-             <img class="face3d" src="images/tile_phone.png" id="im1D" />
-             <img class="face3d" src="images/tile_bberry.png" id="im1E" />
-             <img class="face3d" src="images/tile_user.png" id="im1F" />
-             <img class="face3d" src="images/tile_console.png" id="im20" />
-             <img class="face3d" src="images/tile_world.png" id="im21" />
+             <img class="face3d" src="../images/tile_browser.png" id="im1C" />
+             <img class="face3d" src="../images/tile_phone.png" id="im1D" />
+             <img class="face3d" src="../images/tile_bberry.png" id="im1E" />
+             <img class="face3d" src="../images/tile_user.png" id="im1F" />
+             <img class="face3d" src="../images/tile_console.png" id="im20" />
+             <img class="face3d" src="../images/tile_world.png" id="im21" />
            </div>
         </div>
        <pre style="margin-top: 50px"><big>-webkit-transform-style: <b>flat</b>; /* default value */</big></pre>
@@ -907,12 +907,12 @@
         </h3>
         <div class="scene3d begin" style="margin-top: 80px" id="sce4">
            <div class="object3d begin" id="obj4">
-             <img class="face3d" src="images/tile_browser.png" id="im22" />
-             <img class="face3d" src="images/tile_phone.png" id="im23" />
-             <img class="face3d" src="images/tile_bberry.png" id="im24" />
-             <img class="face3d" src="images/tile_user.png" id="im25" />
-             <img class="face3d" src="images/tile_console.png" id="im26" />
-             <img class="face3d" src="images/tile_world.png" id="im27" />
+             <img class="face3d" src="../images/tile_browser.png" id="im22" />
+             <img class="face3d" src="../images/tile_phone.png" id="im23" />
+             <img class="face3d" src="../images/tile_bberry.png" id="im24" />
+             <img class="face3d" src="../images/tile_user.png" id="im25" />
+             <img class="face3d" src="../images/tile_console.png" id="im26" />
+             <img class="face3d" src="../images/tile_world.png" id="im27" />
            </div>
         </div>
        <pre style="margin-top: 50px"><big>-webkit-transform-style:           <b>preserve-3d</b>;</big></pre>
@@ -947,7 +947,7 @@
 		transform: translateX(50px) rotateX(30deg) rotateY(30deg) rotateZ(10deg);
 		border: 3px solid blue;
 		color: navy;
-		background-image: url('images/bgblue.png');
+		background-image: url('../prescommon/images/bgblue.png');
 		border-radius: 40px;
 		height: 40px;
 		width: 610px;
@@ -959,7 +959,7 @@
 	{
 		border: 3px solid lime;
 		color: green;
-		background-image: url('images/bggreen.png');
+		background-image: url('../prescommon/images/bggreen.png');
 		height: 450px;
 		width: 700px;
 		text-shadow: 2px 2px 2px white, -2px 2px 2px white, 2px -2px 2px white, -2px -2px 2px white;
@@ -988,12 +988,12 @@
            <div class="object3d begin build" id="obj5">
            OBJECT {-webkit-transform-style:&nbsp;preserve-3d&nbsp;&nbsp;
            -webkit-transform:&nbsp;rotateX(30deg)&nbsp;...;}
-             <div class="face3d" id="im28" style="padding-top:225px; color: black; width:270px; text-align: left;"><img style="position:absolute; left:0; top:0px; z-index:-1" src="images/tile_browser.png" />&nbsp;FACE<br/>{-webkit-transform: translateZ(150px);}</div>
-             <img class="face3d" src="images/tile_phone.png" id="im29" />
-             <img class="face3d" src="images/tile_bberry.png" id="im2A" />
-             <img class="face3d" src="images/tile_user.png" id="im2B" />
-             <img class="face3d" src="images/tile_console.png" id="im2C" />
-             <img class="face3d" src="images/tile_world.png" id="im2D" />
+             <div class="face3d" id="im28" style="padding-top:225px; color: black; width:270px; text-align: left;"><img style="position:absolute; left:0; top:0px; z-index:-1" src="../images/tile_browser.png" />&nbsp;FACE<br/>{-webkit-transform: translateZ(150px);}</div>
+             <img class="face3d" src="../images/tile_phone.png" id="im29" />
+             <img class="face3d" src="../images/tile_bberry.png" id="im2A" />
+             <img class="face3d" src="../images/tile_user.png" id="im2B" />
+             <img class="face3d" src="../images/tile_console.png" id="im2C" />
+             <img class="face3d" src="../images/tile_world.png" id="im2D" />
            </div>
         </div>
         </div>
@@ -1093,12 +1093,12 @@
         </h3>
         <div class="scene3d" style="margin-top: 60px" id="sce6">
            <div class="object3d" id="obj6">
-             <img class="face3d" src="images/tile_browser.png" id="im2E" />
-             <img class="face3d" src="images/tile_phone.png" id="im2F" />
-             <img class="face3d" src="images/tile_bberry.png" id="im30" />
-             <img class="face3d" src="images/tile_user.png" id="im31" />
-             <img class="face3d" src="images/tile_console.png" id="im32" />
-             <img class="face3d" src="images/tile_world.png" id="im33" />
+             <img class="face3d" src="../images/tile_browser.png" id="im2E" />
+             <img class="face3d" src="../images/tile_phone.png" id="im2F" />
+             <img class="face3d" src="../images/tile_bberry.png" id="im30" />
+             <img class="face3d" src="../images/tile_user.png" id="im31" />
+             <img class="face3d" src="../images/tile_console.png" id="im32" />
+             <img class="face3d" src="../images/tile_world.png" id="im33" />
            </div>
         </div>
         
@@ -1143,42 +1143,42 @@
         	
       		<g>
 				<!-- clouds -->
-				<image xlink:href="images/s0-cloud.png" width="204" height="100" transform="translate(1200, 250)">
+				<image xlink:href="../prescommon/images/s0-cloud.png" width="204" height="100" transform="translate(1200, 250)">
 					<animateTransform begin="0s" dur="4s" attributeName="transform" type="translate" values="1200, 250; -800,250" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s0-cloud.png" width="204" height="100" transform="translate(1400, 100)">
+				<image xlink:href="../prescommon/images/s0-cloud.png" width="204" height="100" transform="translate(1400, 100)">
 					<animateTransform begin="0s" dur="4s" attributeName="transform" type="translate" values="1400, 100; -700,100" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s0-cloud.png" width="204" height="100" transform="translate(1800, 500)">
+				<image xlink:href="../prescommon/images/s0-cloud.png" width="204" height="100" transform="translate(1800, 500)">
 					<animateTransform begin="0s" dur="4s" attributeName="transform" type="translate" values="1800, 500; -400,500" repeatCount="indefinite"/>
 				</image>
 				
-				<image xlink:href="images/s1-cloud.png" width="168" height="85" transform="translate(1800, 600)">
+				<image xlink:href="../prescommon/images/s1-cloud.png" width="168" height="85" transform="translate(1800, 600)">
 					<animateTransform begin="0s" dur="5s" attributeName="transform" type="translate" values="1800, 600; -400,600" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s1-cloud.png" width="168" height="85" transform="translate(1700, 400)">
+				<image xlink:href="../prescommon/images/s1-cloud.png" width="168" height="85" transform="translate(1700, 400)">
 					<animateTransform begin="0s" dur="5s" attributeName="transform" type="translate" values="1700, 400; -500,400" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s1-cloud.png" width="168" height="85" transform="translate(1600, 200)">
+				<image xlink:href="../prescommon/images/s1-cloud.png" width="168" height="85" transform="translate(1600, 200)">
 					<animateTransform begin="0s" dur="5s" attributeName="transform" type="translate" values="1600, 200; -600,200" repeatCount="indefinite"/>
 				</image>
 				
-				<image xlink:href="images/s2-cloud.png" width="132" height="71" transform="translate(1200, 300)">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71" transform="translate(1200, 300)">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1200, 300; -800,300" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s2-cloud.png" width="132" height="71" transform="translate(1100, 480)">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71" transform="translate(1100, 480)">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1100, 480; -300,480" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s2-cloud.png" width="132" height="71" transform="translate(1600, 700)">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71" transform="translate(1600, 700)">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1600, 700; -400,750" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s2-cloud.png" width="132" height="71" transform="translate(1750, 50)">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71" transform="translate(1750, 50)">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1750, 50; -450,50" repeatCount="indefinite"/>
 				</image>
 				
 				<g transform="scale(0.5) translate (520,235)" >
 				
-				<image xlink:href="images/tile_user_noguy.png" x="0" y="0" width="740" height="740" opacity="1"
+				<image xlink:href="../prescommon/images/tile_user_noguy.png" x="0" y="0" width="740" height="740" opacity="1"
 				onclick="document.getElementById('allsvg7').unpauseAnimations()">
 					<animate begin="0s" dur="1s" attributeName="opacity" values="1;0" fill="freeze"/>
 					<animateMotion begin="0s" dur="1s" fill="freeze" keyTimes="0;1" keySplines="0.5 0 1 1" calcMode="spline">
@@ -1438,21 +1438,7 @@
         <p style="margin-bottom:64px">pauseAnimations()</p>
         <p>setCurrentTime(0)</div>
         -->
-        
-        <translation lang='en'>
-        SVG: controlling the animation in javascript
-        --self--
-        --self--
-        --self--
-        --self--
-        </translation>
-        <translation lang='pt'>
-        SVG: controlando a animação em javascript
-        --self--
-        --self--
-        --self--
-        --self--
-        </translation>
+
       </article>
       
 
@@ -1505,7 +1491,7 @@
 	        <pre  style="margin-bottom:25px; margin-top:25px; font-size:x-large; width:36ex">&lt;image x y width height xlink:href&gt;</pre>
 	        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 			     style="position: absolute; left:690px; top:220px; width:150px; height:150px;" >
-			     <image xlink:href="images/tile_user.png" x="0" y="0" width="150" height="150" />
+			     <image xlink:href="../images/tile_user.png" x="0" y="0" width="150" height="150" />
 			</svg>   
 	        </div>
 
@@ -1595,7 +1581,7 @@
 	&lt;path d="<b>M</b> 30,240 <b>C</b> 70,90 210,150 260,230" stroke="#F00" /&gt;
 &lt;/svg&gt;</pre>
 
-			<p><center>utilisez: <img valign="middle" src="images/inkscape.png" height="70px" /> INKSCAPE</center></p> 
+			<p><center>utilisez: <img valign="middle" src="../prescommon/images/inkscape.png" height="70px" /> INKSCAPE</center></p>
       
       <translation lang='en'>
       SVG: path - the all-purpose tool
@@ -1674,13 +1660,13 @@
 			     style="width:100%; height:270px;" >
 			     
 			     <g transform="translate(10,35)">
-			     <image xlink:href="images/tile_user.png" x="0" y="0" width="200" height="200">
+			     <image xlink:href="../images/tile_user.png" x="0" y="0" width="200" height="200">
 			     	<animateTransform dur="2.5s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="translate" values="0, 0; 40, 0; 0,0; 0,0; 0,0" repeatCount="indefinite"/>
 			     </image>
 			     </g>
 			     
 			     <g transform="translate(290, 35)">
-			     <image xlink:href="images/tile_bberry.png" x="0" y="0" width="200" height="200" >
+			     <image xlink:href="../images/tile_bberry.png" x="0" y="0" width="200" height="200" >
 			     <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="rotate" values="0,100,100; 90,100,100; 0,100,100; 0,100,100; 0,100,100" repeatCount="indefinite"/>
 			     </image>
 			     </g>
@@ -1689,7 +1675,7 @@
 			     <g transform="translate(100,100)">
 			     <g>
 			     <g transform="translate(-100,-100)">
-			     <image xlink:href="images/tile_world.png" x="0" y="0" width="200" height="200" />
+			     <image xlink:href="../images/tile_world.png" x="0" y="0" width="200" height="200" />
 			      </g>
 			     <animateTransform dur="2.2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 0.5; 1.1; 1; 1" repeatCount="indefinite"/>
 			     </g>
@@ -2727,42 +2713,42 @@ Grupos primitivos SVG
         	
       		<g>
 				<!-- clouds -->
-				<image xlink:href="images/s0-cloud.png" width="204" height="100">
+				<image xlink:href="../prescommon/images/s0-cloud.png" width="204" height="100">
 					<animateTransform begin="0s" dur="4s" attributeName="transform" type="translate" values="1200, 250; -800,250" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s0-cloud.png" width="204" height="100">
+				<image xlink:href="../prescommon/images/s0-cloud.png" width="204" height="100">
 					<animateTransform begin="0s" dur="4s" attributeName="transform" type="translate" values="1400, 100; -700,100" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s0-cloud.png" width="204" height="100">
+				<image xlink:href="../prescommon/images/s0-cloud.png" width="204" height="100">
 					<animateTransform begin="0s" dur="4s" attributeName="transform" type="translate" values="1800, 500; -400,500" repeatCount="indefinite"/>
 				</image>
 				
-				<image xlink:href="images/s1-cloud.png" width="168" height="85">
+				<image xlink:href="../prescommon/images/s1-cloud.png" width="168" height="85">
 					<animateTransform begin="0s" dur="5s" attributeName="transform" type="translate" values="1800, 600; -400,600" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s1-cloud.png" width="168" height="85">
+				<image xlink:href="../prescommon/images/s1-cloud.png" width="168" height="85">
 					<animateTransform begin="0s" dur="5s" attributeName="transform" type="translate" values="1700, 400; -500,400" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s1-cloud.png" width="168" height="85">
+				<image xlink:href="../prescommon/images/s1-cloud.png" width="168" height="85">
 					<animateTransform begin="0s" dur="5s" attributeName="transform" type="translate" values="1600, 200; -600,200" repeatCount="indefinite"/>
 				</image>
 				
-				<image xlink:href="images/s2-cloud.png" width="132" height="71">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1200, 300; -800,300" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s2-cloud.png" width="132" height="71">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1100, 480; -300,480" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s2-cloud.png" width="132" height="71">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1600, 700; -400,750" repeatCount="indefinite"/>
 				</image>
-				<image xlink:href="images/s2-cloud.png" width="132" height="71">
+				<image xlink:href="../prescommon/images/s2-cloud.png" width="132" height="71">
 					<animateTransform begin="0s" dur="6s" attributeName="transform" type="translate" values="1750, 50; -450,50" repeatCount="indefinite"/>
 				</image>
 				
 				<g transform="scale(0.5) translate (80,240)" >
 				
-				<image xlink:href="images/tile_user_noguy.png" x="0" y="0" width="740" height="740" opacity="1">
+				<image xlink:href="../prescommon/images/tile_user_noguy.png" x="0" y="0" width="740" height="740" opacity="1">
 					<animate begin="0s" dur="1s" attributeName="opacity" values="1;0" fill="freeze"/>
 					<animateMotion begin="0s" dur="1s" fill="freeze" keyTimes="0;1" keySplines="0.5 0 1 1" calcMode="spline">
 				          		<mpath xlink:href="#wave" />
@@ -3104,9 +3090,9 @@ Grupos primitivos SVG
         <H3>Les 4 techniques d'animation en HTML5</H3>
         
         <table id="tabsum" style="margin-top: 20px">
-        	<tr><td style="color: black; font-weight: bold; width:170px">CSS3</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/scrshot2.png); width:150px; height:100px">déclaratif</td><td style="font-size:smaller;">objets HTML uniquement, aucun contrôle de trajectoire</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/scrshot1.png); width:100px; height:100px">déclaratif</td><td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/scrshot3.png); width:100px; height:100px">programmatique</td><td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td></tr>
+        	<tr><td style="color: black; font-weight: bold; width:170px">CSS3</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot2.png); width:150px; height:100px">déclaratif</td><td style="font-size:smaller;">objets HTML uniquement, aucun contrôle de trajectoire</td></tr>
+        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot1.png); width:100px; height:100px">déclaratif</td><td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td></tr>
+        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot3.png); width:100px; height:100px">programmatique</td><td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td></tr>
         	<tr><td style="color: black; font-weight: bold;">WebGL + Three.js</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/gingerbread3d.png); width:100px; height:100px">program-<br/>matique</td><td style="font-size:smaller;">full 3D</td></tr>
         </table>
         
@@ -3761,14 +3747,14 @@ function animate(t)
      window.requestAnimationFrame(animate);
 }</pre>
 	  
-	  <img src="images/c.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Cupcake.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/d.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Donut.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/e.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Eclair.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/f.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Froyo.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/g.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Gingerbread.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/h.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Honeycomb.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/i.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/IceCreamSandwich.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/j.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/JellyBean.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_c.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Cupcake.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_d.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Donut.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_e.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Eclair.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_f.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Froyo.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_g.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Gingerbread.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_h.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Honeycomb.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_i.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/IceCreamSandwich.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_j.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/JellyBean.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
 	  
 	  <translation lang='en'>
 	  WebGL+ THREE.js: summary
@@ -3808,9 +3794,9 @@ function animate(t)
         <H3>Les 4 techniques d'animation en HTML5</H3>
         
         <table id="tabsum2" style="margin-top: 20px">
-        	<tr><td style="color: black; font-weight: bold; width:170px">CSS3</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/scrshot2.png); width:150px; height:100px">déclaratif</td><td style="font-size:smaller;">objets HTML uniquement, aucun contrôle de trajectoire</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/scrshot1.png); width:100px; height:100px">déclaratif</td><td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/scrshot3.png); width:100px; height:100px">programmatique</td><td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td></tr>
+        	<tr><td style="color: black; font-weight: bold; width:170px">CSS3</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot2.png); width:150px; height:100px">déclaratif</td><td style="font-size:smaller;">objets HTML uniquement, aucun contrôle de trajectoire</td></tr>
+        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot1.png); width:100px; height:100px">déclaratif</td><td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td></tr>
+        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot3.png); width:100px; height:100px">programmatique</td><td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td></tr>
         	<tr><td style="color: black; font-weight: bold;">WebGL + Three.js</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/gingerbread3d.png); width:100px; height:100px">program-<br/>matique</td><td style="font-size:smaller;">full 3D</td></tr>
         </table>
         
@@ -3911,7 +3897,7 @@ function animate(t)
       <article>
         
         <p style="text-align: center; font-size: 4em; margin-top: 160px; color: #777777">
-        <img height="200px;" src="images/chrome.png" style="vertical-align: middle"/> chrome
+        <img height="200px;" src="../prescommon/images/chrome.png" style="vertical-align: middle"/> chrome
         </p>
         <translation lang='en'>
         --self--
