@@ -37,9 +37,9 @@
 	font-variant: small-caps;
 	font-family: sans-serif;
 	font-weight: 900;
-	-webkit-text-fill-color: white;
-  	-webkit-text-stroke-color: grey;
-  	-webkit-text-stroke-width: 1px;
+	text-fill-color: white;
+  	text-stroke-color: grey;
+  	text-stroke-width: 1px;
 	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
 }
 .title
@@ -49,7 +49,7 @@
 	margin: 10px;
 	text-align: left;
 	font-size: 35px;
-	-webkit-transform-origin: 0% 0%;
-	-webkit-transform: rotate(90Deg);
+	transform-origin: 0% 0%;
+	transform: rotate(90Deg);
 	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
 }

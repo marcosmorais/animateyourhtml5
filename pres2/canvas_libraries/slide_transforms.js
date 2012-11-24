@@ -31,7 +31,7 @@ function drawLittleGuy(context)
 	//right eye
 	context.save();
 	context.beginPath();
-	context.fillStyle = "ffd400";
+	context.fillStyle = "#ffd400";
 	context.arc(205, 90, 38, 0, 2*Math.PI);
 	context.fill();
 	
@@ -47,7 +47,7 @@ function drawLittleGuy(context)
 	
 	//left eye
 	context.beginPath();
-	context.fillStyle = "ffd400";
+	context.fillStyle = "#ffd400";
 	context.arc(105, 90, 55, 0, 2*Math.PI);
 	context.fill();
 	
@@ -351,8 +351,8 @@ function slide_canvas_transforms()
 
 function onmousemove_slide_transforms(e)
 {
-	mouseX = e.offsetX;
-	mouseY = e.offsetY;
+	mouseX = e.offsetX || e.layerX;
+	mouseY = e.offsetY || e.layerY;
 	return false;
 }
 

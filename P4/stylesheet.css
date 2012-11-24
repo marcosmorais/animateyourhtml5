@@ -18,7 +18,8 @@
 
 html, body
 {
-	width, height: inherit;
+	width: inherit;
+    height: inherit;
 }
 
 .canvas
@@ -49,11 +50,11 @@ html, body
 	font-family: sans-serif;
 	font-weight: 900;
 	z-index: -1;
-	-webkit-text-fill-color: white;
+	-webkit-text-fill-color: white; /* not supported on Firefox, opera, ... */
   	-webkit-text-stroke-color: grey;
   	-webkit-text-stroke-width: 1px;
 	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
-	-webkit-transition: 600ms linear;
+	transition: 600ms linear;
 }
 .title
 {
@@ -62,8 +63,8 @@ html, body
 	margin: 10px;
 	text-align: left;
 	font-size: 35px;
-	-webkit-transform-origin: 0% 0%;
-	-webkit-transform: rotate(90Deg);
+	transform-origin: 0% 0%;
+	transform: rotate(90Deg);
 	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
 }
 .ohno
@@ -71,11 +72,11 @@ html, body
 	height: 45px;
 	font-size: 45px;
 	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
-	-webkit-transition: 600ms linear;
+	transition: 600ms linear;
 }
 #cap_ohno.end
 {
-	-webkit-transform: rotate(340Deg);
+	transform: rotate(340Deg);
 }
 #cap_click.end
 {

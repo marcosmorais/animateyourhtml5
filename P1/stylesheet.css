@@ -37,9 +37,9 @@ example properties that can be animated
 
 #tile_bberry
 {
-	-webkit-transition: 1000ms ease-out;
-	-webkit-transition-property: all;
-	-webkit-transform-style: preserve-3d;
+	transition: 1000ms ease-out;
+	transition-property: all;
+	transform-style: preserve-3d;
 	/*background-color: red;*/ /* uncomment to show background - makes understanding easier*/
 	height: 270px; /* bad: chrome adds 4 stray pixels without this */
 }
@@ -52,12 +52,12 @@ example properties that can be animated
 {
 	left: 10px;
 	top: 10px;
-	-webkit-transform: rotateY(180Deg) rotateX(360Deg) rotateZ(180Deg);
+	transform: rotateY(180Deg) rotateX(360Deg) rotateZ(180Deg);
 }
 #tile_bberry img
 {
 	position: relative;
-	-webkit-transform: TranslateZ(-150px);
+	transform: TranslateZ(-150px);
 }
 
 /*************************************/
@@ -66,20 +66,20 @@ example properties that can be animated
 {
 	left: 580px;
 	top: 570px;
-	-webkit-transform-origin: 0 100%;
+	transform-origin: 0 100%;
 }
 #tile_world.begin
 {
-	-webkit-animation: skewanim2 1s cubic-bezier(0,0.5,0.3,1);
+	animation: skewanim2 1s cubic-bezier(0,0.5,0.3,1);
 }
 #tile_world.end
 {
 	left: 10px;
 	top: 10px;
-	-webkit-animation: skewanim 1s cubic-bezier(0,0.5,0.3,1);
+	animation: skewanim 1s cubic-bezier(0,0.5,0.3,1);
 }
 
-@-webkit-keyframes skewanim
+@keyframes skewanim
 {
 	from
 	{
@@ -90,7 +90,7 @@ example properties that can be animated
 	{
 		left: 10px;
 		top: 10px;
-		-webkit-transform: skew(10Deg, 0Deg);
+		transform: skew(10Deg, 0Deg);
 	}
 	to
 	{
@@ -99,7 +99,7 @@ example properties that can be animated
 	}
 }
 
-@-webkit-keyframes skewanim2
+@keyframes skewanim2
 {
 	from
 	{
@@ -110,7 +110,7 @@ example properties that can be animated
 	{
 		left: 580px;
 		top: 570px;
-		-webkit-transform: skew(-10Deg, 0Deg);
+		transform: skew(-10Deg, 0Deg);
 	}
 	to
 	{
@@ -128,20 +128,20 @@ example properties that can be animated
 }
 #tile_computer.begin
 {
-	-webkit-animation: scaleanim2 1s;
+	animation: scaleanim2 1s;
 }
 #tile_computer.end
 {
 	left: 10px;
 	top: 10px;
-	-webkit-animation-name: scaleanim;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-iteration-count: 1; /* 2, 3, ... infinite */
-    -webkit-animation-timing-function: default; /* ease-in, ease-out, ...*/
-    -webkit-animation-direction: normal; /* normal, alternate */
-    /*-webkit-animation-delay: */
+	animation-name: scaleanim;
+    animation-duration: 1s;
+    animation-iteration-count: 1; /* 2, 3, ... infinite */
+    animation-timing-function: default; /* ease-in, ease-out, ...*/
+    animation-direction: normal; /* normal, alternate */
+    /*animation-delay: */
 }
-@-webkit-keyframes scaleanim
+@keyframes scaleanim
 {
 	from
 	{
@@ -152,7 +152,7 @@ example properties that can be animated
 	{
 		left: 10px;
 		top: 10px;
-		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
 	}
 	to
 	{
@@ -161,7 +161,7 @@ example properties that can be animated
 	}
 }
 
-@-webkit-keyframes scaleanim2
+@keyframes scaleanim2
 {
 	from
 	{
@@ -172,7 +172,7 @@ example properties that can be animated
 	{
 		left: 300px;
 		top: 570px;
-		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
 	}
 	to
 	{
@@ -185,9 +185,9 @@ example properties that can be animated
 
 #tile_game
 {
-	-webkit-transition: 1000ms ease-out;
-	-webkit-transition-property: all;
-	-webkit-transform-origin: 0 0;
+	transition: 1000ms ease-out;
+	transition-property: all;
+	transform-origin: 0 0;
 }
 #tile_game.begin
 {
@@ -198,21 +198,21 @@ example properties that can be animated
 {
 	left: 10px;
 	top: 10px;
-	-webkit-transform: rotate(360Deg);
+	transform: rotate(360Deg);
 }
 
 /*************************************/
 
 #tile_phone
 {
-	-webkit-transition: 1000ms ease-out;
-	-webkit-transition-property: all;
+	transition: 1000ms ease-out;
+	transition-property: all;
 }
 #tile_phone.begin
 {
 	left: 580px;
 	top: 290px;
-	-webkit-transform: rotateX(360Deg);
+	transform: rotateX(360Deg);
 }
 #tile_phone.end
 {
@@ -224,8 +224,8 @@ example properties that can be animated
 
 #tile_usb
 {
-	-webkit-transition: 1000ms ease-out;
-	-webkit-transition-property: all;
+	transition: 1000ms ease-out;
+	transition-property: all;
 }
 #tile_usb.begin
 {
@@ -236,15 +236,15 @@ example properties that can be animated
 {
 	left: 10px;
 	top: 10px;
-	-webkit-transform: rotate(360Deg);
+	transform: rotate(360Deg);
 	
 }
 /*************************************/
 
 #tile_browser
 {
-	-webkit-transition: 1000ms ease-out;
-	-webkit-transition-property: all;
+	transition: 1000ms ease-out;
+	transition-property: all;
 }
 #tile_browser.begin
 {
@@ -263,8 +263,8 @@ example properties that can be animated
 
 #tile_console
 {
-	-webkit-transition: 1000ms cubic-bezier(0, 0.7, 1, 0.3);
-	-webkit-transition-property: all;
+	transition: 1000ms cubic-bezier(0, 0.7, 1, 0.3);
+	transition-property: all;
 }
 #tile_console.begin
 {
@@ -281,8 +281,8 @@ example properties that can be animated
 
 #tile_user
 {
-	-webkit-transition: 500ms ease-out;
-	-webkit-transition-property: all;
+	transition: 500ms ease-out;
+	transition-property: all;
 }
 #tile_user.begin
 {
@@ -310,9 +310,9 @@ example properties that can be animated
 	font-variant: small-caps;
 	font-family: sans-serif;
 	font-weight: 900;
-	-webkit-text-fill-color: white;
-  	-webkit-text-stroke-color: grey;
-  	-webkit-text-stroke-width: 1px;
+	text-fill-color: white;
+  	text-stroke-color: grey;
+  	text-stroke-width: 1px;
 	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
 }
 .title
@@ -322,7 +322,7 @@ example properties that can be animated
 	margin: 10px;
 	text-align: left;
 	font-size: 40px;
-	-webkit-transform-origin: 0% 0%;
-	-webkit-transform: rotate(90Deg);
+	transform-origin: 0% 0%;
+	transform: rotate(90Deg);
 	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
 }

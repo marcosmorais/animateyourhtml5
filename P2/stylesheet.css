@@ -19,9 +19,9 @@
 {
 	width: 900px;
 	height: 600px;
-	-webkit-perspective: 500px;
+	perspective: 500px;
 	/*background-color: blue;*/
-	/* -webkit-perspective-origin: 50% 50%;*/ /* this is the default*/
+	/* perspective-origin: 50% 50%;*/ /* this is the default*/
 }
 
 .cube
@@ -32,42 +32,42 @@
 	top: 150px;
 	width: 300px;
 	height: 300px;
-	-webkit-transform-style: preserve-3d;
-	-webkit-animation: rotate-cube 15s linear infinite;
+	transform-style: preserve-3d;
+	animation: rotate-cube 15s linear infinite;
 }
 
 .cubeface
 {
 	position: absolute;
-	-webkit-transition: all 600ms ease-in;
+	transition: all 600ms ease-in;
 	top: 15px;
 	left: 15px;
 }
 
-@-webkit-keyframes rotate-cube
+@keyframes rotate-cube
 {
 	from
 	{
 	}
 	to
 	{
-		-webkit-transform: rotateZ(1080Deg) rotateY(360Deg);
+		transform: rotateZ(1080Deg) rotateY(360Deg);
 	}
 }
 
-#tile_bberry   { -webkit-transform: translateZ(150px); }
-#tile_world    { -webkit-transform: translateX(150px) rotateY(90Deg); }
-#tile_user     { -webkit-transform: translateX(-150px) rotateY(-90Deg); }
-#tile_usb      { -webkit-transform: translateZ(-150px); }
-#tile_computer { -webkit-transform: translateY(150px) rotateX(90Deg); }
-#tile_game     { -webkit-transform: translateY(-150px) rotateX(-90Deg); }
+#tile_bberry   { transform: translateZ(150px); }
+#tile_world    { transform: translateX(150px) rotateY(90Deg); }
+#tile_user     { transform: translateX(-150px) rotateY(-90Deg); }
+#tile_usb      { transform: translateZ(-150px); }
+#tile_computer { transform: translateY(150px) rotateX(90Deg); }
+#tile_game     { transform: translateY(-150px) rotateX(-90Deg); }
 
-:hover > #tile_bberry   { -webkit-transform: translateZ(250px); }
-:hover > #tile_world    { -webkit-transform: translateX(250px) rotateY(90Deg); }
-:hover > #tile_user     { -webkit-transform: translateX(-250px) rotateY(-90Deg); }
-:hover > #tile_usb      { -webkit-transform: translateZ(-250px); }
-:hover > #tile_computer { -webkit-transform: translateY(250px) rotateX(90Deg); }
-:hover > #tile_game     { -webkit-transform: translateY(-250px) rotateX(-90Deg); }
+:hover > #tile_bberry   { transform: translateZ(250px); }
+:hover > #tile_world    { transform: translateX(250px) rotateY(90Deg); }
+:hover > #tile_user     { transform: translateX(-250px) rotateY(-90Deg); }
+:hover > #tile_usb      { transform: translateZ(-250px); }
+:hover > #tile_computer { transform: translateY(250px) rotateX(90Deg); }
+:hover > #tile_game     { transform: translateY(-250px) rotateX(-90Deg); }
 
 
 /*************************************/
@@ -80,9 +80,9 @@
 	font-variant: small-caps;
 	font-family: sans-serif;
 	font-weight: 900;
-	-webkit-text-fill-color: white;
-  	-webkit-text-stroke-color: grey;
-  	-webkit-text-stroke-width: 1px;
+	text-fill-color: white;
+  	text-stroke-color: grey;
+  	text-stroke-width: 1px;
 	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
 }
 .title
