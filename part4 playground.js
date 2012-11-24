@@ -29,7 +29,7 @@ function test_draw(canvas)
 	canvas.lineTo(100, 100);
 	canvas.stroke();
 	var tile = new Image();
-	tile.src = 'img/tile_bberry.png';
+	tile.src = 'images/tile_bberry.png';
 	canvas.translate(400, 200);
 	canvas.rotate(0.5);
 	canvas.drawImage(tile, -270/2, -270/2);
@@ -70,7 +70,7 @@ function setupWorld()
 	var size = 270;
 	tile = createBox(world, 200/scale, 200/scale, size/scale, size/scale); // center_x, center_y, width, height
 	// tile.SetCenterPosition(tile.GetCenterPosition(), -0.3); // rotate it  in box2D
-	tile.image = "img/tile_bberry.png"; // adding custom property to the object: its image
+	tile.image = "images/tile_bberry.png"; // adding custom property to the object: its image
 	
 	SleepWorld(world); // initially, do not run the physics
 	return world;

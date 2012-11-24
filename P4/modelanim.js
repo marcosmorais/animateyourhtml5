@@ -83,17 +83,17 @@ function setupWorld(width, height)
 	var size = 270;
 	tile = createBox(world, 190/scale, 450/scale, size/scale, size/scale); // center_x, center_y, width, height
 	tile.SetCenterPosition(tile.GetCenterPosition(), 1.1); // rotate it slightly in box2D
-	tile.image = "img/tile_bberry.png"; // adding custom property to the object: its image
+	tile.image = "images/tile_bberry.png"; // adding custom property to the object: its image
 	
 	tile = createBox(world, 420/scale, 150/scale, size/scale, size/scale); // center_x, center_y, width, height
-	tile.image = "img/tile_user.png"; // adding custom property to the object: its image
+	tile.image = "images/tile_user.png"; // adding custom property to the object: its image
 	
 	tile = createBox(world, 670/scale, 450/scale, size/scale, size/scale); // center_x, center_y, width, height
 	tile.SetCenterPosition(tile.GetCenterPosition(), 0.2); // rotate it slightly in box2D
-	tile.image = "img/tile_computer.png"; // adding custom property to the object: its image
+	tile.image = "images/tile_computer.png"; // adding custom property to the object: its image
 	
 	tile = createBox(world, 890/scale, 150/scale, size/scale, size/scale); // center_x, center_y, width, height
-	tile.image = "img/tile_world.png"; // adding custom property to the object: its image
+	tile.image = "images/tile_world.png"; // adding custom property to the object: its image
 	
 	SleepWorld(world); // initially, do not run the physics
 	return world;
