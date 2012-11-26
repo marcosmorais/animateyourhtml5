@@ -24,8 +24,8 @@
 	<script type="text/javascript" src="libBox2DJS/prototype-1.7.1.0.js"></script>
     
     <!-- WebGL stuff -->
-    <script type="text/javascript" src='webgl_libraries/three.js'></script>
-    <script type="text/javascript" src="webgl_libraries/ColladaLoader.js"></script>
+    <script type="text/javascript" src='../libraries/three.js'></script>
+    <script type="text/javascript" src="../libraries/ColladaLoader.js"></script>
     <script type="text/javascript" src='webgl_libraries/MyFlyControls.js'></script>
     <script type="text/javascript" src='webgl_libraries/first_render.js'></script>
 
@@ -3404,7 +3404,7 @@ img.src = url;</pre>
 /*4*/ ctx.rotate(4.5);
 /*3*/ ctx.scale(0.6, 0.6);
 /*2*/ ctx.translate(-width/2, -height/2);
-/*1*/ ctx.beginPath(); //et la suite du dessin</pre>
+/*1*/ ctx.beginPath(); // <span>et la suite du dessin</span></pre>
 	</div>
 	
 	<translation lang="en">
@@ -3415,6 +3415,7 @@ img.src = url;</pre>
 	4. Rotate
 	5. Position
 	Replay the transforms in reverse order:
+draw from here
 	</translation>
    <translation lang="pt">
 	Canvas: compondo transformações geométricas
@@ -3424,7 +3425,9 @@ img.src = url;</pre>
 	4. Rotação
 	5. Posição
 	Repita as transformações em ordem inversa:
+draw from here
 	</translation>
+    <!-- TODO: portugese translation to finish here -->
 	
 	</article>
 
@@ -3747,14 +3750,14 @@ function animate(t)
      window.requestAnimationFrame(animate);
 }</pre>
 	  
-	  <img src="images/android_c.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Cupcake.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_d.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Donut.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_e.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Eclair.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_f.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Froyo.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_g.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Gingerbread.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_h.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/Honeycomb.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_i.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/IceCreamSandwich.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
-	  <img src="images/android_j.jpg" onclick="modelshow(document.getElementById('art-ginger'), 'androidmodels/JellyBean.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_c.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/Cupcake.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_d.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/Donut.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_e.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/Eclair.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_f.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/Froyo.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_g.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/Gingerbread.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_h.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/Honeycomb.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_i.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/IceCreamSandwich.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
+	  <img src="images/android_j.jpg" onclick="modelshow(document.getElementById('art-ginger'), '../models/JellyBean.dae'); arguments[0].stopPropagation();" style="transform: translateZ(5px); width:50px; height:50px;"/>
 	  
 	  <translation lang='en'>
 	  WebGL+ THREE.js: summary

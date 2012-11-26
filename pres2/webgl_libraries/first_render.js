@@ -88,7 +88,7 @@ function firstLoadAndroid(scene)
 	loader.options.convertUpAxis= true;
 	loader.options.upAxis = 'Y';
 	
-	loader.load("androidmodels/Android.dae",
+	loader.load("../models/Android-s.dae",
 			function(collada)
 			{
 				var scale = new THREE.Vector3(3,3,3);
@@ -104,47 +104,9 @@ function firstLoadAndroid(scene)
 
 //----------------------------------------------------------------------------------
 
-function firstLoadAndroidTextured(scene)
-{
-	// this does not work yet ...
-	// only the wireframe display kind of works
-	
-	var loader = new THREE.ColladaLoader();
-	loader.options.convertUpAxis= true;
-	loader.options.upAxis = 'Y';
-	var texture = THREE.ImageUtils.loadTexture('images/vibrant.jpg');
-	
-	//var material = new THREE.MeshLambertMaterial({map: texture});
-	var material = new THREE.MeshBasicMaterial( { wireframe: true, color: "#FF0000" } );
-	
-	loader.load("androidmodels/Android.dae",
-			function(collada)
-			{
-				var scale = new THREE.Vector3(3,3,3);
-				var model = collada.scene;
-				model.position.z = 0;
-				model.position.y = -80;
-				model.scale.copy(scale);
-				model.name = "mymodel-android";
-				scene.add(model);
-				
-				collada.scene.traverse(function(child)
-				{
-					// replace all materials by texture
-					if (child.material)
-					{
-						//child.geometry.computeTangents();
-						child.material = material;
-					};
-				} );
-			} );
-}
-
-//----------------------------------------------------------------------------------
-
 function firstLoadCube(scene)
 {
-	var texture = THREE.ImageUtils.loadTexture('images/vibrant.jpg');
+	var texture = THREE.ImageUtils.loadTexture('../textures/FernandoTogni.png');
 	
 	// textured cube
 	var cube = new THREE.Mesh(

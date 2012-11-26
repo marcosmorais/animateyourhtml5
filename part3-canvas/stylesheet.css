@@ -1,0 +1,89 @@
+/*
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original version: Martin Gorner (mgorner@google.com)
+*/
+
+html, body
+{
+	width: inherit;
+    height: inherit;
+}
+
+.canvas
+{
+	top:10px;
+	left: 10px;
+}
+
+.movable
+{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+/*        caption decorations        */
+.caption
+{
+	position: absolute;
+	margin: 10px;
+	margin-top: 100px;
+	width: 250px;
+	height: 160px;
+	font-size: xx-large;
+	text-align: center;
+	font-style: normal;
+	font-variant: small-caps;
+	font-family: sans-serif;
+	font-weight: 900;
+	z-index: -1;
+	-webkit-text-fill-color: white; /* not supported on Firefox, opera, ... */
+  	-webkit-text-stroke-color: grey;
+  	-webkit-text-stroke-width: 1px;
+	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
+}
+.title
+{
+	width: 800px;
+	height: 50px;
+	margin: 10px;
+	text-align: left;
+	font-size: 35px;
+	transform-origin: 0% 0%;
+	transform: rotate(90Deg);
+	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
+}
+.ohno
+{
+	height: 45px;
+	font-size: 45px;
+	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
+	transition: 600ms linear;
+}
+#cap_ohno.end
+{
+	transform: rotate(340Deg);
+}
+#cap_click.end
+{
+	opacity: 0;
+}
+.off-screen
+{
+	position: absolute;
+	left: -300px;
+	top: -300px;
+}

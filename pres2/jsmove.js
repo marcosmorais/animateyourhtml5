@@ -197,7 +197,7 @@ function spacelaunch()
 	scene.add(light3);
 	
 	// ground plane
-	var groundTex = THREE.ImageUtils.loadTexture('androidmodels/ground.png');
+	var groundTex = THREE.ImageUtils.loadTexture('../models/ground.png');
 	groundTex.wrapS = groundTex.wrapT = THREE.RepeatWrapping;
 	groundTex.repeat.set(50, 50);
 	var groundGeo = new THREE.CubeGeometry(3000, 3000, 10, 1, 1, 1);
@@ -231,14 +231,14 @@ function spacelaunch()
 	animation.sequencer = sequencer;
 	animation.sequencer_fired = false;
 	
-	loadModel(scene, "androidmodels/Cupcake.dae",          new THREE.Vector3(-175,0,0), vec0, vec111, "androidmodel-cupcake", sequencer);
-	loadModel(scene, "androidmodels/Donut.dae",            new THREE.Vector3(-125,0,0), vec0, vec111, "androidmodel-donut", sequencer);
-	loadModel(scene, "androidmodels/Eclair.dae",           new THREE.Vector3(-75,0,0),  vec0, vec111, "androidmodel-eclair", sequencer);
-	loadModel(scene, "androidmodels/Froyo.dae",            new THREE.Vector3(-25,0,0),  vec0, vec111, "androidmodel-froyo", sequencer);
-	loadModel(scene, "androidmodels/Gingerbread.dae",      new THREE.Vector3(25,0,0),   vec0, vec111, "androidmodel-gingerbread", sequencer);
-	loadModel(scene, "androidmodels/Honeycomb.dae",        new THREE.Vector3(75,0,0),   vec0, vec111, "androidmodel-honeycomb", sequencer);
-	loadModel(scene, "androidmodels/IceCreamSandwich.dae", new THREE.Vector3(125,0,0),  vec0, vec111, "androidmodel-icecreamsandwich", sequencer);
-	loadModel(scene, "androidmodels/JellyBean.dae",        new THREE.Vector3(175,0,0),  vec0, vec111, "androidmodel-jellybean", sequencer);
+	loadModel(scene, "../models/Cupcake.dae",          new THREE.Vector3(-175,0,0), vec0, vec111, "androidmodel-cupcake", sequencer);
+	loadModel(scene, "../models/Donut.dae",            new THREE.Vector3(-125,0,0), vec0, vec111, "androidmodel-donut", sequencer);
+	loadModel(scene, "../models/Eclair.dae",           new THREE.Vector3(-75,0,0),  vec0, vec111, "androidmodel-eclair", sequencer);
+	loadModel(scene, "../models/Froyo.dae",            new THREE.Vector3(-25,0,0),  vec0, vec111, "androidmodel-froyo", sequencer);
+	loadModel(scene, "../models/Gingerbread.dae",      new THREE.Vector3(25,0,0),   vec0, vec111, "androidmodel-gingerbread", sequencer);
+	loadModel(scene, "../models/Honeycomb.dae",        new THREE.Vector3(75,0,0),   vec0, vec111, "androidmodel-honeycomb", sequencer);
+	loadModel(scene, "../models/IceCreamSandwich.dae", new THREE.Vector3(125,0,0),  vec0, vec111, "androidmodel-icecreamsandwich", sequencer);
+	loadModel(scene, "../models/JellyBean.dae",        new THREE.Vector3(175,0,0),  vec0, vec111, "androidmodel-jellybean", sequencer);
 }
 
 function spacelaunch_close()

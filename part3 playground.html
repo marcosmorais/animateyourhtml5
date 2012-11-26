@@ -1,39 +1,93 @@
 <!DOCTYPE HTML>
-<!--
-  Copyright 2011 Google Inc.
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-
-  Original version: Martin Gorner (mgorner@google.com)
--->
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>Animate Your HTML - Part 3</title>
-<link rel="stylesheet" type="text/css" href="P3/stylesheet.css" />
-<script type="text/javascript" src="part3 playground.js" ></script>
-</head>
-<body style="background-image: url('images/chromebg.png');">
+<title>Animate Your HTML - Part 4</title>
+<link rel="stylesheet" type="text/css" href="part4 playground.css" />
 
-<!-- tiles -->
-<img class="movable" onclick="move_to('tile_bberry',   300, 10, 1000)" id="tile_bberry" src="images/tile_bberry.png"/>
-<img class="movable" onclick="move_to('tile_browser',  580, 10, 1000)" id="tile_browser" src="images/tile_browser.png"/>
-<img class="movable" onclick="move_to('tile_computer', 860, 10, 1000)" id="tile_computer" src="images/tile_computer.png"/>
-<img class="movable" onclick="move_to('tile_console',  300, 290, 800)" id="tile_console" src="images/tile_console.png"/>
-<img class="movable" onclick="move_to('tile_world',    580, 290, 800)" id="tile_world" src="images/tile_world.png"/>
-<img class="movable" onclick="move_to('tile_game',     860, 290, 800)" id="tile_game" src="images/tile_game.png"/>
-<img class="movable" onclick="move_to('tile_phone',    300, 570, 600)" id="tile_phone" src="images/tile_phone.png"/>
-<img class="movable" onclick="move_to('tile_usb',      580, 570, 600)" id="tile_usb" src="images/tile_usb.png"/>
-<img class="movable" onclick="move_to('tile_user',     860, 570, 600)" id="tile_user" src="images/tile_user.png"/>
+<!-- required by box2djs -->
+<script src="part3-canvas/libBox2DJS/prototype-1.6.0.2.js"></script>
+<!-- box2djs -->
+<script src="part3-canvas/libBox2DJS/b2Settings.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Vec2.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Mat22.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Math.js"></script>
+<script src="part3-canvas/libBox2DJS/b2AABB.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Bound.js"></script>
+<script src="part3-canvas/libBox2DJS/b2BoundValues.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Pair.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PairCallback.js"></script>
+<script src="part3-canvas/libBox2DJS/b2BufferedPair.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PairManager.js"></script>
+<script src="part3-canvas/libBox2DJS/b2BroadPhase.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Collision.js"></script>
+<script src="part3-canvas/libBox2DJS/Features.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactID.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactPoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Distance.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Manifold.js"></script>
+<script src="part3-canvas/libBox2DJS/b2OBB.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Proxy.js"></script>
+<script src="part3-canvas/libBox2DJS/ClipVertex.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Shape.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ShapeDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2BoxDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2CircleDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2CircleShape.js"></script>
+<script src="part3-canvas/libBox2DJS/b2MassData.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PolyDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PolyShape.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Body.js"></script>
+<script src="part3-canvas/libBox2DJS/b2BodyDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2CollisionFilter.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Island.js"></script>
+<script src="part3-canvas/libBox2DJS/b2TimeStep.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactNode.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Contact.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactConstraint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactConstraintPoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactRegister.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactSolver.js"></script>
+<script src="part3-canvas/libBox2DJS/b2CircleContact.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Conservative.js"></script>
+<script src="part3-canvas/libBox2DJS/b2NullContact.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PolyAndCircleContact.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PolyContact.js"></script>
+<script src="part3-canvas/libBox2DJS/b2ContactManager.js"></script>
+<script src="part3-canvas/libBox2DJS/b2World.js"></script>
+<script src="part3-canvas/libBox2DJS/b2WorldListener.js"></script>
+<script src="part3-canvas/libBox2DJS/b2JointNode.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Joint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2JointDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2DistanceJoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2DistanceJointDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2Jacobian.js"></script>
+<script src="part3-canvas/libBox2DJS/b2GearJoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2GearJointDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2MouseJoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2MouseJointDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PrismaticJoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PrismaticJointDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PulleyJoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2PulleyJointDef.js"></script>
+<script src="part3-canvas/libBox2DJS/b2RevoluteJoint.js"></script>
+<script src="part3-canvas/libBox2DJS/b2RevoluteJointDef.js"></script>
+
+<!-- Box2D helpers -->
+<script src="part3-canvas/libBox2DJS/demo_base.js"></script>
+<script src="part3-canvas/libBox2DJS/draw_world.js"></script>
+  
+ <!-- our code -->  
+<script type="text/javascript" src="part3%20playground.js" ></script>
+
+</head>
+<body style="background-image: url('images/chromebg.png')" onload="startup()">
+
+<!-- the stage -->
+<canvas id="canvas" class="canvas" width="900" height="600" style="width:900px; height:600px; ">
+Canvas not supported !
+</canvas>
+
 </body>
 </html>

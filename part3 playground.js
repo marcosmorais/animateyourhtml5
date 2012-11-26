@@ -1,47 +1,109 @@
-// the set of ongoing animations
-var animations = new Object;
+// the physical world
+var physicalWorld = null;
+// where to draw the world
+var drawingCanvas = null;
 
-//move an HTML object with smooth animation
-//id:       the HTML id of the object
-//x, y:     final position
-//duration: time of the animation in milliseconds
-function move_to (id, x, y, duration)
+var scale = 50;
+
+function startup()
 {
-	/*  TODO: register the parameters of the animation somewhere
-	 * hint: you can use the "animations" object defined above
-	 * and key each animation by its id using:
-	 * animations[id] = new Object;
-	 * animations[id].my_parameter = my_value
-	 * for example; to save the starting time of the animation
-	 * use:
-	 * animations[id].starttime = new Date().getTime();*/
+	drawingCanvas = document.getElementById('canvas').getContext('2d');
 	
-	webkitRequestAnimationFrame(on_move);
+	test_draw(drawingCanvas);
+	
+	// physicalWorld = setupWorld();
+	// drawWorldIn(physicalWorld, drawingCanvas);
 }
 
-function on_move(time)
+function test_draw(canvas)
 {
-	var need_another_frame = false;
-	
-	/*TODO: iterate on all ongoing animations
-	 * and move tiles around using (nod is an HTMLNodeElement):
-	 * nod.style.left = <new position x> + "px";
-	 * nod.style.top  = <new position y> + "px";
-	 * 
-	 * the current position of a tile can be read using:
-	 * nod.offsetLeft
-	 * nod.offsetTop
-	 * */
-	
-	/* hint: you can iterate on all objects created in "animations"
-	 * using:
-	 * for (var id in animations) {}
-	 * When an animation is finished, you can remove it from the set
-	 * using:
-	 * delete animations[id] */
-	
-	if (need_another_frame)
-		webkitRequestAnimationFrame(on_move);
+	// experiment with drawing instructions
+
+	canvas.save();
+	canvas.lineWidth = 3;
+	canvas.strokeStyle = '#FF0000'; // red
+	canvas.beginPath();
+	canvas.moveTo(100, 100);
+	canvas.lineTo(200, 200);
+	canvas.lineTo(100, 200);
+	canvas.lineTo(100, 100);
+	canvas.stroke();
+	var tile = new Image();
+	tile.src = 'images/tile_bberry.png';
+	canvas.translate(400, 200);
+	canvas.rotate(0.5);
+	canvas.drawImage(tile, -270/2, -270/2);
+	canvas.restore();
 }
 
+function drawWorldIn(world, canvas)
+{	
+	// erase canvas
+	canvas.clearRect(0,0,drawingCanvas.canvas.clientWidth, drawingCanvas.canvas.clientHeight);
+	
+	// draw our tiles: those that have the 'image' property set
+	for (var b = world.GetBodyList(); b; b = b.GetNext())
+	{
+		if (typeof(b.image) != 'undefined')
+		{
+			canvas.save();
+			var tile = new Image();
+			tile.src = b.image;
+			var posV = b.GetCenterPosition();
+			canvas.translate(posV.x*scale, posV.y*scale);
+			canvas.rotate(b.GetRotation());
+			canvas.drawImage(tile, -tile.width/2, - tile.height/2);
+			canvas.restore();
+		}
+	}
+	
+	// wireframes for debugging
+	drawWorldWireframe(world, canvas, scale);
+}
+
+function setupWorld()
+{
+	var world = createWorldWithGravity();
+	
+	// add a tile body
+	var tile;
+	var size = 270;
+	tile = createBox(world, 200/scale, 200/scale, size/scale, size/scale); // center_x, center_y, width, height
+	// tile.SetCenterPosition(tile.GetCenterPosition(), -0.3); // rotate it  in box2D
+	tile.image = "images/tile_bberry.png"; // adding custom property to the object: its image
+	
+	SleepWorld(world); // initially, do not run the physics
+	return world;
+}
+
+function run()
+{
+	WakeWorld(physicalWorld);
+	runWorld();
+	runAnimation();
+}
+
+function runWorld()
+{
+	// starts a loop that moves the physical simulation of the world forward
+	// does nothing if no objects are moving so as to preserve the battery
+	// the world is updated 60 times per second.
+	if (!IsWorldAsleep(physicalWorld))
+	{
+		physicalWorld.Step(1.0/50, 1);
+		setTimeout(runWorld, 1000/50);
+	}
+}
+
+function runAnimation()
+{
+	// starts a loop that displays the state of the world
+	// does nothing if no objects are moving so as to preserve the battery
+	// the display is updated as often as the browser sees fit thanks to requestAnimationFrame
+	if (!IsWorldAsleep(physicalWorld))
+	{
+		drawWorldIn(physicalWorld, drawingCanvas);
+		webkitRequestAnimationFrame(runAnimation);
+	}
+}
 
