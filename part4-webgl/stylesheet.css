@@ -1,0 +1,42 @@
+html {height: 100%}
+body {height: inherit; margin: 0px;}
+#canvas-container
+{
+    width: 100%;
+    height: 100%;
+}
+.arrow
+{
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    opacity: 0.3;
+    transition: 0.2s;
+}
+canvas
+{
+    width: 100%;
+    height: 99%; /*bizarre bug: I get a v-scroll bar with 100%*/
+}
+.arrow:hover
+{
+    opacity: 1;
+}
+.arrow img
+{
+    height: 60px;
+}
+.hide
+{
+    opacity: 0 !important;
+}
+#prev
+{
+    left: 0px;
+    margin-left: 10px;
+}
+#next
+{
+    right: 0px;
+    margin-right: 10px;
+}

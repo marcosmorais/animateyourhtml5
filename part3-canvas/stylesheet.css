@@ -35,51 +35,47 @@ html, body
 	left: 10px;
 }
 
-/*        caption decorations        */
-.caption
+#cap-click
 {
-	position: absolute;
-	margin: 10px;
-	margin-top: 100px;
-	width: 250px;
-	height: 160px;
-	font-size: xx-large;
-	text-align: center;
-	font-style: normal;
-	font-variant: small-caps;
-	font-family: sans-serif;
-	font-weight: 900;
-	z-index: -1;
-	-webkit-text-fill-color: white; /* not supported on Firefox, opera, ... */
-  	-webkit-text-stroke-color: grey;
-  	-webkit-text-stroke-width: 1px;
-	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
+    left: 820px;
+    top: 350px;
+    opacity: 1;
+    transition: 600ms linear;
 }
-.title
+#cap-ohno
 {
-	width: 800px;
-	height: 50px;
-	margin: 10px;
-	text-align: left;
-	font-size: 35px;
-	transform-origin: 0% 0%;
-	transform: rotate(90Deg);
-	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
+    left: 820px;
+    top: 40px;
+    transform: rotate(-20Deg);
+    transition: 600ms;
 }
-.ohno
+#cap-reload
 {
-	height: 45px;
-	font-size: 45px;
-	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
-	transition: 600ms linear;
+    left: 40px;
+    top: 300px;
 }
-#cap_ohno.end
+#cap-click, #cap-reload, #cap-ohno
+{
+    z-index:-1;
+}
+#cap-ohno
+{
+    transform: rotate(-20Deg);
+    height: 30px;
+}
+#cap-ohno.end
 {
 	transform: rotate(340Deg);
 }
-#cap_click.end
+#cap-click.end
 {
 	opacity: 0;
+}
+#cap-title
+{
+    margin-top: 50px;
+    margin-left: 20px;
+
 }
 .off-screen
 {

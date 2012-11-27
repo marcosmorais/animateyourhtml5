@@ -45,26 +45,25 @@ example properties that can be animated
 }
 #tile_bberry.begin
 {
-	left: 860px;
+	left: 570px;
 	top: 570px;
 }
 #tile_bberry.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 	transform: rotateY(180Deg) rotateX(360Deg) rotateZ(180Deg);
 }
 #tile_bberry img
 {
 	position: relative;
-	transform: TranslateZ(-150px);
 }
 
 /*************************************/
 
 #tile_world
 {
-	left: 580px;
+	left: 290px;
 	top: 570px;
 	transform-origin: 0 100%;
 }
@@ -74,7 +73,7 @@ example properties that can be animated
 }
 #tile_world.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 	animation: skewanim 1s cubic-bezier(0,0.5,0.3,1);
 }
@@ -83,18 +82,18 @@ example properties that can be animated
 {
 	from
 	{
-		left: 580px;
+		left: 290px;
 		top: 570px;
 	}
 	70%
 	{
-		left: 10px;
+		left: -280px;
 		top: 10px;
 		transform: skew(10Deg, 0Deg);
 	}
 	to
 	{
-		left: 10px;
+		left: -280px;
 		top: 10px;
 	}
 }
@@ -103,18 +102,18 @@ example properties that can be animated
 {
 	from
 	{
-		left: 10px;
+		left: -280px;
 		top: 10px;
 	}
 	70%
 	{
-		left: 580px;
+		left: 290px;
 		top: 570px;
 		transform: skew(-10Deg, 0Deg);
 	}
 	to
 	{
-		left: 580px;
+		left: 290px;
 		top: 570px;
 	}
 }
@@ -123,7 +122,7 @@ example properties that can be animated
 
 #tile_computer
 {
-	left: 300px;
+	left: 10px;
 	top: 570px;
 }
 #tile_computer.begin
@@ -132,7 +131,7 @@ example properties that can be animated
 }
 #tile_computer.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 	animation-name: scaleanim;
     animation-duration: 1s;
@@ -145,18 +144,18 @@ example properties that can be animated
 {
 	from
 	{
-		left: 300px;
+		left: 10px;
 		top: 570px;
 	}
 	50%
 	{
-		left: 10px;
+		left: -280px;
 		top: 10px;
 		transform: scale(0.5);
 	}
 	to
 	{
-		left: 10px;
+		left: -280px;
 		top: 10px;
 	}
 }
@@ -165,18 +164,18 @@ example properties that can be animated
 {
 	from
 	{
-		left: 10px;
+		left: -280px;
 		top: 10px;
 	}
 	50%
 	{
-		left: 300px;
+		left: 10px;
 		top: 570px;
 		transform: scale(0.5);
 	}
 	to
 	{
-		left: 300px;
+		left: 10px;
 		top: 570px;
 	}
 }
@@ -191,12 +190,12 @@ example properties that can be animated
 }
 #tile_game.begin
 {
-	left: 860px;
+	left: 570px;
 	top: 290px;
 }
 #tile_game.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 	transform: rotate(360Deg);
 }
@@ -210,12 +209,12 @@ example properties that can be animated
 }
 #tile_phone.begin
 {
-	left: 580px;
+	left: 290px;
 	top: 290px;
 }
 #tile_phone.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
     transform: rotateX(360Deg);
 }
@@ -229,12 +228,12 @@ example properties that can be animated
 }
 #tile_usb.begin
 {
-	left: 300px;
+	left: 10px;
 	top: 290px;
 }
 #tile_usb.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 	transform: rotate(360Deg);
 	
@@ -248,13 +247,13 @@ example properties that can be animated
 }
 #tile_browser.begin
 {
-	left: 860px;
+	left: 570px;
 	top: 10px;
 	opacity: 1;
 }
 #tile_browser.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 	opacity: 0.1;
 }
@@ -268,12 +267,12 @@ example properties that can be animated
 }
 #tile_console.begin
 {
-	left: 580px;
+	left: 290px;
 	top: 10px;
 }
 #tile_console.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 }
 
@@ -286,43 +285,13 @@ example properties that can be animated
 }
 #tile_user.begin
 {
-	left: 300px;
+	left: 10px;
 	top: 10px;
 }
 #tile_user.end
 {
-	left: 10px;
+	left: -280px;
 	top: 10px;
 }
 
-/*************************************/
-/*        caption decorations        */
-.caption
-{
-	position: absolute;
-	margin: 10px;
-	margin-top: 100px;
-	width: 250px;
-	height: 160px;
-	font-size: xx-large;
-	text-align: center;
-	font-style: normal;
-	font-variant: small-caps;
-	font-family: sans-serif;
-	font-weight: 900;
-	text-fill-color: white;
-  	text-stroke-color: grey;
-  	text-stroke-width: 1px;
-	text-shadow: 2px 2px 2px rgb(100, 100, 130), -2px -2px 2px rgb(200,200,230), 2px -2px 2px rgb(200,200,230), -2px 2px 2px rgb(200,200,230);
-}
-.title
-{
-	width: 800px;
-	height: 50px;
-	margin: 10px;
-	text-align: left;
-	font-size: 40px;
-	transform-origin: 0% 0%;
-	transform: rotate(90Deg);
-	text-shadow: 2px 2px 2px rgb(130, 100, 100), -2px -2px 2px rgb(230,200,200), 2px -2px 2px rgb(200,230,200), -2px 2px 2px rgb(230,200,200);
-}
+

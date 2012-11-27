@@ -17,42 +17,49 @@
   Original version: Martin Gorner (mgorner@google.com)
 -->
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>Animate Your HTML - Part 1</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="../prescommon/prefixfree-antifouc.css" />
-<script type="text/javascript" src="../prescommon/prefixfree.min.js" ></script>
-</head>
-<body style="background-image: url('../images/chromebg.png')" class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Animate Your HTML</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="../styles.css" />
+        <link rel="stylesheet" type="text/css" href="../prescommon/prefixfree-antifouc.css" />
+        <script type="text/javascript" src="../prescommon/prefixfree.min.js" ></script>
+    </head>
+    <body class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
+        <script type="text/javascript" src="jsmove.js" ></script>
 
-<script type="text/javascript" src="jsmove.js" ></script>
 
-<!-- captions -->
-<div class="caption title" style="left:1180px; top:10px;">CSS3 transforms, transitions and animations</div>
-<div class="caption" style="left:10px; top:290px">CLICK on the tiles!</div>
-<div class="caption" style="left:300px; top:10px">slide</div>
-<div class="caption" style="left:580px; top:10px">slide with cubic BEZIER speed</div>
-<div class="caption" style="left:860px; top:10px">slide with OPACITY</div>
-<div class="caption" style="left:300px; top:290px">ROTATE</div>
-<div class="caption" style="left:580px; top:290px">rotateX</div>
-<div class="caption" style="left:860px; top:290px">rotate with modified ORIGIN</div>
-<div class="caption" style="left:300px; top:570px">scaling ANIMATION with keyframe</div>
-<div class="caption" style="left:580px; top:570px">skew ANIMATION with keyframe</div>
-<div class="caption" style="left:860px; top:570px; TranslateZ(-200px)">3D rotate</div>
+        <div class="screen-centered-lc">
 
-<!-- tiles -->
-<img class="movable begin" onclick="move('tile_user')" id="tile_user" src="../images/tile_user.png"/>
-<img class="movable begin" onclick="move('tile_console')"id="tile_console" src="../images/tile_console.png" />
-<img class="movable begin" onclick="move('tile_browser')" id="tile_browser" src="../images/tile_browser.png"/>
-<img class="movable begin" onclick="move('tile_usb')" id="tile_usb" src="../images/tile_usb.png"/>
-<img class="movable begin" onclick="move('tile_phone')" id="tile_phone" src="../images/tile_phone.png"/>
-<img class="movable begin" onclick="move('tile_game')" id="tile_game" src="../images/tile_game.png"/>
-<img class="movable" onclick="move('tile_computer')" id="tile_computer" src="../images/tile_computer.png"/>
-<img class="movable" onclick="move('tile_world')" id="tile_world" src="../images/tile_world.png"/>
-<div class="movable begin" id="tile_bberry" onclick="move('tile_bberry')">
-	<img src="../images/tile_bberry.png" />
-</div>
- 
-</body>
+                <div class="screen-left-column">
+                    <div class="caption tiled title" style="margin-top: 50px">CSS3<br/>transforms,<br/>transitions<br/>and animations</div>
+                    <div class="caption tiled" style="margin-top: 390px;">CLICK on the<br />tiles!</div>
+                </div>
+                <div class="screen-main-container-lc">
+                    <div class="caption tiled" style="left:10px; top:10px">slide</div>
+                    <div class="caption tiled" style="left:290px; top:10px">slide with cubic BEZIER speed</div>
+                    <div class="caption tiled" style="left:570px; top:10px">slide with OPACITY</div>
+                    <div class="caption tiled" style="left:10px; top:290px">ROTATE</div>
+                    <div class="caption tiled" style="left:290px; top:290px">rotateX</div>
+                    <div class="caption tiled" style="left:570px; top:290px">rotate with modified ORIGIN</div>
+                    <div class="caption tiled" style="left:10px; top:570px">scaling ANIMATION with keyframe</div>
+                    <div class="caption tiled" style="left:290px; top:570px">skew ANIMATION with keyframe</div>
+                    <div class="caption tiled" style="left:570px; top:570px; TranslateZ(-200px)">3D rotate</div>
+
+                    <!-- tiles -->
+                    <img class="movable begin" onclick="move('tile_user')" id="tile_user" src="../images/tile_user.png"/>
+                    <img class="movable begin" onclick="move('tile_console')"id="tile_console" src="../images/tile_console.png" />
+                    <img class="movable begin" onclick="move('tile_browser')" id="tile_browser" src="../images/tile_browser.png"/>
+                    <img class="movable begin" onclick="move('tile_usb')" id="tile_usb" src="../images/tile_usb.png"/>
+                    <img class="movable begin" onclick="move('tile_phone')" id="tile_phone" src="../images/tile_phone.png"/>
+                    <img class="movable begin" onclick="move('tile_game')" id="tile_game" src="../images/tile_game.png"/>
+                    <img class="movable" onclick="move('tile_computer')" id="tile_computer" src="../images/tile_computer.png"/>
+                    <img class="movable" onclick="move('tile_world')" id="tile_world" src="../images/tile_world.png"/>
+                    <div class="movable begin" id="tile_bberry" onclick="move('tile_bberry')">
+                        <img src="../images/tile_bberry.png" />
+                    </div>
+                </div>
+
+        </div>
+    </body>
 </html>

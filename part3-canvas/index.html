@@ -19,14 +19,15 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <title>Animate Your HTML - Part 4</title>
+        <title>Animate Your HTML</title>
 
+        <link rel="stylesheet" type="text/css" href="../styles.css" />
         <link rel="stylesheet" type="text/css" href="stylesheet.css" />
         <link rel="stylesheet" type="text/css" href="../prescommon/prefixfree-antifouc.css" />
         <script type="text/javascript" src="../prescommon/prefixfree.min.js" ></script>
         <script type="text/javascript" src="../prescommon/requestAnimationFrame.js" ></script>
     </head>
-    <body style="background-image: url(../images/chromebg.png)" class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
+    <body class="prefixfreeload" onload="document.body.classList.remove('prefixfreeload')">
 
         <!-- required by box2djs -->
         <script src="libBox2DJS/prototype-1.6.0.2.js"></script>
@@ -104,8 +105,14 @@
         <script type="text/javascript" src="jsmove.js" ></script>
         <script type="text/javascript" src="modelanim.js" ></script>
 
+        <!-- captions -->
+        <div class="caption tiled" id="cap-click">Click on the<br/>tiles!</div>
+        <div class="caption tiled" id="cap-ohno">oh NO!</div>
+        <div class="caption tiled" id="cap-reload">Reload the page<br/>to restart</div>
+        <div class="caption tiled title" id="cap-title">CANVAS<br/>animation using <br/>a physics-based<br/>MODEL.</div>
+
         <!-- the stage -->
-        <canvas id="canvas" class="canvas" width="100" height="100" onclick="run(); move('cap_ohno');move('cap_click')">
+        <canvas id="canvas" class="canvas" width="100" height="100" onclick="run(); move('cap-ohno');move('cap-click')">
         Canvas not supported !
         </canvas>
 
@@ -114,11 +121,5 @@
         <img class="off-screen" src="../images/tile_user.png" onload="startup()"/>
         <img class="off-screen" src="../images/tile_computer.png" onload="startup()"/>
         <img class="off-screen" src="../images/tile_world.png" onload="startup()"/>
-
-        <!-- captions -->
-        <div class="caption" id="cap_click" style="left: 10px; top: 10px">Click on the tiles!</div>
-        <div class="caption ohno" id="cap_ohno" style="left: 300px; top: 10px">OH No!</div>
-        <div class="caption" style="left: 10px; top: 300px">Reload the page<br/>to restart</div>
-        <div class="caption title" style="left: 1080px; top: 10px">Custom ANIMATION using a physics-based MODEL.</div>
     </body>
 </html>
