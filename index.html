@@ -22,6 +22,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>Animate Your HTML5</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|Droid+Sans+Mono">
     <script type="text/javascript" src="prescommon/prefixfree.min.js" ></script>
     <style type="text/css">
         .tile
@@ -40,51 +41,214 @@
             transform-origin: 0% 0%;
             transform: rotate(90Deg);
         }
-        .whitebox
+        body
         {
+            width: 100%;
+            margin: 0px;
+        }
+        .center-container-margin
+        {
+            width: 720px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .center-container
+        {
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .screen
+        {
+            position: absolute;
+            width: 740px;
+            height: 2000px;
+            left: 50%;
+            top: 0px;
+            margin-left: -370px;
             background-color: white;
             opacity: 0.8;
-            font-family: sans-serif;
-            padding: 10px;
+            z-index: -1;
+        }
+        .center-tile
+        {
+            position: relative;
+            width: 270px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .small-tile
+        {
+            width: 200px;
+        }
+        .flags
+        {
+            /* free flags from Icon Drawer: http://www.printableworldflags.com/flag-icon */
             position: absolute;
-            width:400px;
+            left: 275px;
+            width: 35px;
+        }
+        .codelab-explanations
+        {
+            font-family: "Open Sans", sans-serif;
+            color: black;
+            text-shadow: none;
+            font-weight: normal;
+            font-size: 12pt;
+            font-variant: normal;
+        }
+        .codelab-explanations a:link
+        {
+            color: blue;
+            text-decoration: none;
+        }
+        .codelab-explanations a:hover
+        {
+            text-decoration: underline;
+        }
+        .codelab-explanations a:visited
+        {
+            color: purple;
+        }
+        .arrow
+        {
+            margin: 0px;
+            vertical-align: -3px;
+            font-size: x-large;
+        }
+        .cep
+        {
+            margin-bottom: 10px;
+            margin-top: 1px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .ces
+        {/*small*/
+            font-size: 11pt;
+        }
+        .cef
+        {/*footer*/
+            text-align: center;
+            font-size: 10pt;
+        }
+        .cet
+        {
+            font-size: 20pt;
+            font-weight: normal;
+            margin-top: 1px;
+            margin-bottom: 10px;
+            color: #606060;
+        }
+        HR
+        {
+            width: 80%;
+            border: 0;
+            height: 1px;
+            background: #606060;
+            background-image: linear-gradient(left, #ccc, #606060, #ccc);
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-<body>
-<div class="caption title">Animate Your HTML5 codelab and tutorial</div>
-<div class="caption title2">CSS3 animations, CSS3 in 3D, SVG, Canvas, WebGL</div>
-<div class="tile caption" style="left: 620px; top: 100px;"><a href="pres2/index.html">Presentation<br /><img src="images/tile_user.png" /></a></div>
-<div class="tile caption" style="left: 460px; top: 470px;"><a href="part1-css3/index.html">Codelab part 1<br /><img src="images/tile_world.png" /></a>CSS3</div>
-<div class="tile caption" style="left: 780px; top: 470px;"><a href="part2-css3-3D/index.html">Codelab part 2<br /><img src="images/tile_computer.png" /></a>CSS3 3D</div>
-<div class="tile caption" style="left: 460px; top: 840px;"><a href="part3-canvas/index.html">Codelab part 3<br /><img src="images/tile_game.png" /></a>Canvas+Box2D</div>
-<div class="tile caption" style="left: 780px; top: 840px;"><a href="part4-webgl/index.html">Codelab part 4<br /><img src="images/tile_browser.png" /></a>WebGL+Three.js</div>
+<body><div class="screen" ></div>
+    <div class="center-container-margin">
+        <div class="center-container">
+            <div class="caption title center" style="letter-spacing: 3px; word-spacing: 7px">Animate Your HTML5</div>
+            <H1 class="codelab-explanations cet center" style="font-size: 25px;">A tour of HTML5 animation techniques
+                <div style="line-height: 1.3em">
+                    with CSS3, SVG, Canvas and WebGL
+                </div>
+            </H1>
+            <br/>
+            <div style="line-height: 0.9em; text-align: center" class="center-tile caption"><a href="pres2/index.html"><img src="images/tile_user.png" /></a>
+                <a href="pres2/index.html?lang=pt"><img style="top: 60px" title="Brazilian Portuguese" class="flags" src="prescommon/images/flag-pt.png" /></a>
+                <a href="pres2/index.html?lang=fr"><img style="top: 30px" title="French" class="flags" src="prescommon/images/flag-fr.png" /></a>
+                <a href="pres2/index.html?lang=en"><img style="top: 0px" title="English" class="flags" src="prescommon/images/flag-us.png" /></a>
+                presentation
+            </div>
+            <br/>
 
-<div  class="whitebox" style="top: 90px">
-<H2>Presentation</H2>
-<p><a target="_blank" href="pres2/index.html">Animate your HTML5</a> presentation (also <a target="_blank" href="pres2/index.html?lang=fr">in French</a> and <a target="_blank" href="pres2/index.html?lang=pt">in Portuguese</a>)</p>
-<p>This overview takes you though all 4 HTML5 animation techniques: CSS3, CSS3 in 3D, SVG, Canvas and WebGL.</p>
-<p><a target="_blank" href="pres/index.html">Another version</a> of the presentation is available too with a narrower focus on declarative techniques: CSS3 and SVG. (also <a target="_blank" href="pres/index.html?lang=fr">in French</a>.)</p>
-<H2>Codelab</H2>
-<ol>
-<li>Download and install <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-javascript-web-developers/indigor">Eclipse-js</a>, or any other web developemnt tools that offer javascript validation as you type. Life is too short to waste it on syntax errors.</li>
-<li>Download ans install the latest <a href="http://www.google.com/chrome">public version of Chrome</a>.</li>
-<li>Download the <a href="AnimateYourHTML5codelab.zip">ZIP of this codelab</a> and open it in eclipse by following this procedure:
-	<ul>
-	<li>unzip the file to a temporary folder of your choice</li>
-	<li>in eclipse, do File > New > New Javascript project</li>
-	<li>in the new project dialog, choose "create project from existing source" and select the temp folder where you unzipped the files</li>
-	</ul>
-<li>Test: you should have syntax highlighting in HTML, CSS and Javascript files. Also try to make a syntax error in a javascript file and save. Eclipse should complain.</li>
-<li>For the WebGL codelab, you must have a local HTTP server. See <a href="https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally">instructions here.</a></li>
-<li>Follow the teacher notes with steps to follow:
-    <a target="_blank" href="codelab-instructions/AnimateYHTML5-EN-part-1-2-css3-instructions.pdf">Part 1 &amp; 2</a>,
-    <a target="_blank" href="codelab-instructions/AnimateYHTML5-EN-part-3-canvas-instructions.pdf">Part 3</a> and
-    <a target="_blank" href="codelab-instructions/AnimateYHTML5-EN-part-4-webgl-instructions.pdf">Part 4</a> </li>
-</ol>
-<h2>What now ?</h2>
-The codelab is divided in 4 parts that will show you different animation techniques and best practices. You can click on the 4 tiles here to see the end result of each part.
-During the codelab, you will code in files called "partN playground.XXX" (found in the codelab zip). By following the teacher's step by step explanations, you will arrive at the final results presented here, and hopefully find it easy. 
-<br/>&nbsp;
+            <hr style="clear: both" />
 
+            <div class="codelab-explanations">
+                <H1 class="cet">Codelab part 1 and 2: CSS3 and CSS3 3D</H1>
+                <a href="part1-css3/index.html"><img class="small-tile" src="images/tile_world.png" /></a>
+                <a href="part2-css3-3D/index.html"><img class="small-tile" src="images/tile_computer.png" /></a>
+                <div class="codelab-explanations" style="width:260px; vertical-align: top; display: inline-block;">
+                    <div class="cep">CSS3 have <a href="part1-css3/index.html">animations built in</a>. Javascript is not required anymore, even for <a href="part2-css3-3D/index.html">3D animations</a>.</div>
+                    <br/>
+                    <div class="cep">Codelab duration: 1h + 1h</div>
+
+                    <div class="cep" style="line-height: 1.2em">
+                        <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
+                        <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-1-2-css3-instructions.pdf"><b>Codelab instructions</b></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="clear: both" />
+
+            <a href="part3-canvas/index.html"><img style="float: right" class="small-tile" src="images/tile_game.png" /></a>
+            <div class="codelab-explanations">
+                <H1 class="cet">Codelab part 3: Canvas + Box2Dweb.js</H1>
+                <div style="width:480px;">
+                <div class="cep">The HTML5 Canvas is the ideal solution when you need to compute the animation frame by frame, for example when using a <a href="part3-canvas/index.html">Newtonian physics model</a> (Box2Dweb.js)</div>
+                <div class="cep">Codelab duration: 2h</div>
+                <div class="cep" style="line-height: 1.2em">
+                    <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
+                    <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-3-canvas-instructions.pdf"><b>Codelab instructions</b></a>
+                </div>
+                </div>
+            </div>
+
+            <hr style="clear: both" />
+
+            <div class="codelab-explanations">
+                <H1 class="cet">Codelab part 4: WebGL + Three.js</H1>
+                <a href="part4-webgl/index.html"><img class="small-tile" src="images/tile_browser.png"/></a>
+                <div style="display: inline-block; width:495px; vertical-align: top">
+                    <div class="cep">
+                        Full, hardware-accelerated 3D is now available in Chrome and
+                        Firefox through WebGL. And thanks to the Three.js library,
+                        there is no need to be a shader expert to obtain
+                        <a href="part4-webgl/index.html">spectacular results</a>.
+                    </div>
+                    <br />
+                    <div class="cep">Codelab duration: 2h</div>
+                    <div class="cep" style="line-height: 1.2em">
+                        <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
+                        <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-4-webgl-instructions.pdf"><b>Codelab instructions</b></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="clear: both" />
+
+            <H1 class="codelab-explanations cet"><a name="setup" ></a>Codelab setup instructions</H1>
+            <div class="codelab-explanations ces">
+                <ol>
+                <li>Make sure you have a text editor that offers CSS and javascript validation as you type.</li>
+                <li>Download ans install the latest <a href="http://www.google.com/chrome">public version of Chrome</a>.</li>
+                <li>For the WebGL codelab, you must have a local HTTP server. See <a href="https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally">instructions here.</a></li>
+                <li>Download the <a href="AnimateYourHTML5codelab.zip">ZIP of this codelab</a>.
+                <li>Unzip it and locate the files named <kbd><b>"partXXX playground.html/.css/.js"</b></kbd> corresponding to your codelab.
+                    They are set up for you to start coding.
+                    Follow the codelab instructions in the <kbd>"codelab-instructions"</kbd> folder.
+                    You will find useful images and textures in the <kbd>"images"</kbd> and <kbd>"textures"</kbd> folders. Enjoy!
+
+                </ol>
+            </div>
+
+            <div class="codelab-explanations cef" style="margin-top: 40px">
+                <div>Author : <a href="https://plus.google.com/113532596314034732476/posts">Martin Gorner</a> - Google developer relations - <a href="https://plus.google.com/113532596314034732476/posts">follow me on G+</a></div>
+                <div>Artwork inspired from "Vibrant" Chrome theme by <a href="http://www.fernandovt.com/">Fernando Volken Togni</a></div>
+                <div><a href="https://developers.google.com/">developers.google.com</a></div>
+                <div><a href="http://www.html5rocks.com/">www.html5rocks.com</a></div>
+            </div>
+
+        </div>
+    </div>
 </body>
