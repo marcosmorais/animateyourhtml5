@@ -72,13 +72,13 @@ function setupWorld()
 	// tile.SetCenterPosition(tile.GetCenterPosition(), -0.3); // rotate it  in box2D
 	tile.image = "images/tile_bberry.png"; // adding custom property to the object: its image
 	
-	SleepWorld(world); // initially, do not run the physics
+	sleepWorld(world); // initially, do not run the physics
 	return world;
 }
 
 function run()
 {
-	WakeWorld(physicalWorld);
+	wakeWorld(physicalWorld);
 	runWorld();
 	runAnimation();
 }
@@ -88,7 +88,7 @@ function runWorld()
 	// starts a loop that moves the physical simulation of the world forward
 	// does nothing if no objects are moving so as to preserve the battery
 	// the world is updated 60 times per second.
-	if (!IsWorldAsleep(physicalWorld))
+	if (!isWorldAsleep(physicalWorld))
 	{
 		physicalWorld.Step(1.0/50, 1);
 		setTimeout(runWorld, 1000/50);
@@ -100,7 +100,7 @@ function runAnimation()
 	// starts a loop that displays the state of the world
 	// does nothing if no objects are moving so as to preserve the battery
 	// the display is updated as often as the browser sees fit thanks to requestAnimationFrame
-	if (!IsWorldAsleep(physicalWorld))
+	if (!isWorldAsleep(physicalWorld))
 	{
 		drawWorldIn(physicalWorld, drawingCanvas);
 		webkitRequestAnimationFrame(runAnimation);
