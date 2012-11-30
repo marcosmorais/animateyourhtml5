@@ -37,35 +37,23 @@ html, body
 
 #cap-click
 {
-    left: 820px;
-    top: 350px;
+    left: 830px;
+    top: 310px;
     opacity: 1;
-    transition: 600ms linear;
 }
 #cap-ohno
 {
     left: 820px;
     top: 40px;
-    transform: rotate(-20Deg);
-    transition: 600ms;
 }
 #cap-reload
 {
-    left: 40px;
-    top: 300px;
+    left: 60px;
+    top: 310px;
 }
 #cap-click, #cap-reload, #cap-ohno
 {
     z-index:-1;
-}
-#cap-ohno
-{
-    transform: rotate(-20Deg);
-    height: 30px;
-}
-#cap-ohno.end
-{
-	transform: rotate(340Deg);
 }
 #cap-click.end
 {
@@ -76,10 +64,4 @@ html, body
     margin-top: 50px;
     margin-left: 20px;
 
-}
-.off-screen
-{
-	position: absolute;
-	left: -300px;
-	top: -300px;
 }

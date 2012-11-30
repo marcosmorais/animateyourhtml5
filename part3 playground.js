@@ -1,109 +1,185 @@
-// the physical world
-var physicalWorld = null;
-// where to draw the world
-var drawingCanvas = null;
+// Box2D simualated to real world scale
+var scale = 200;
 
-var scale = 50;
+// ---------------------your code here-------------------------
 
-function startup()
+
+//           ___________  __,__
+//     ----- | ||| |||| | | |__|
+//      ---- | ._    _. |_|code|
+//       --- `-(o)--(o)----(o)-'
+
+
+// -------------------- shortcuts ----------------------------
+
+var b2Vec2         = Box2D.Common.Math.b2Vec2;
+var b2World        = Box2D.Dynamics.b2World;
+var b2FixtureDef   = Box2D.Dynamics.b2FixtureDef;
+var b2BodyDef      = Box2D.Dynamics.b2BodyDef;
+var b2Body         = Box2D.Dynamics.b2Body;
+var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
+var b2CircleShape  = Box2D.Collision.Shapes.b2CircleShape;
+var b2DebugDraw    = Box2D.Dynamics.b2DebugDraw;
+
+// ------------------- helpers functions ----------------------
+
+function createWorldWithGravity()
 {
-	drawingCanvas = document.getElementById('canvas').getContext('2d');
-	
-	test_draw(drawingCanvas);
-	
-	// physicalWorld = setupWorld();
-	// drawWorldIn(physicalWorld, drawingCanvas);
+    var gravity = new b2Vec2(0, 20); // used o be 100!
+    var allowSleep = true;
+    var world = new b2World(gravity, allowSleep);
+    return world;
 }
 
-function test_draw(canvas)
+function createBox(world, x, y, width, height, fixed)
 {
-	// experiment with drawing instructions
+    var fixDef = new b2FixtureDef;
+    fixDef.density = 1.0;
+    fixDef.friction = 0.5;
+    fixDef.restitution = 0.4;
 
-	canvas.save();
-	canvas.lineWidth = 3;
-	canvas.strokeStyle = '#FF0000'; // red
-	canvas.beginPath();
-	canvas.moveTo(100, 100);
-	canvas.lineTo(200, 200);
-	canvas.lineTo(100, 200);
-	canvas.lineTo(100, 100);
-	canvas.stroke();
-	var tile = new Image();
-	tile.src = 'images/tile_bberry.png';
-	canvas.translate(400, 200);
-	canvas.rotate(0.5);
-	canvas.drawImage(tile, -270/2, -270/2);
-	canvas.restore();
+    var bodyDef = new b2BodyDef;
+    bodyDef.type = (!fixed) ? b2Body.b2_dynamicBody : b2Body.b2_staticBody;
+
+    fixDef.shape = new b2PolygonShape;
+    fixDef.shape.SetAsBox(width/2.0/scale, height/2.0/scale);
+    bodyDef.position.Set(x/scale, y/scale);
+    var body = world.CreateBody(bodyDef);
+    body.CreateFixture(fixDef);
+
+    return body;
 }
 
-function drawWorldIn(world, canvas)
-{	
-	// erase canvas
-	canvas.clearRect(0,0,drawingCanvas.canvas.clientWidth, drawingCanvas.canvas.clientHeight);
-	
-	// draw our tiles: those that have the 'image' property set
-	for (var b = world.GetBodyList(); b; b = b.GetNext())
-	{
-		if (typeof(b.image) != 'undefined')
-		{
-			canvas.save();
-			var tile = new Image();
-			tile.src = b.image;
-			var posV = b.GetCenterPosition();
-			canvas.translate(posV.x*scale, posV.y*scale);
-			canvas.rotate(b.GetRotation());
-			canvas.drawImage(tile, -tile.width/2, - tile.height/2);
-			canvas.restore();
-		}
-	}
-	
-	// wireframes for debugging
-	drawWorldWireframe(world, canvas, scale);
-}
-
-function setupWorld()
+function createBall(world, r, x, y, fixed)
 {
-	var world = createWorldWithGravity();
-	
-	// add a tile body
-	var tile;
-	var size = 270;
-	tile = createBox(world, 200/scale, 200/scale, size/scale, size/scale); // center_x, center_y, width, height
-	// tile.SetCenterPosition(tile.GetCenterPosition(), -0.3); // rotate it  in box2D
-	tile.image = "images/tile_bberry.png"; // adding custom property to the object: its image
-	
-	sleepWorld(world); // initially, do not run the physics
-	return world;
+    var fixDef = new b2FixtureDef;
+    fixDef.density = 1.0;
+    fixDef.friction = 0.5;
+    fixDef.restitution = 0.8;
+
+    var bodyDef = new b2BodyDef;
+    bodyDef.type = (!fixed) ? b2Body.b2_dynamicBody : b2Body.b2_staticBody;
+
+    fixDef.shape = new b2CircleShape(r/scale);
+    bodyDef.position.Set(x/scale, y/scale);
+    var body = world.CreateBody(bodyDef);
+    body.CreateFixture(fixDef);
+
+    return body;
 }
 
-function run()
+function drawTarget(ctx)
 {
-	wakeWorld(physicalWorld);
-	runWorld();
-	runAnimation();
+    // paints a circle centered on (400, 400)
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = "#FFCC00";
+    ctx.lineWidth = 5;
+    ctx.arc(400, 400, 60, 0, 2*Math.PI, true);
+    ctx.stroke();
+    ctx.restore();
 }
 
-function runWorld()
+function drawGuy(ctx)
 {
-	// starts a loop that moves the physical simulation of the world forward
-	// does nothing if no objects are moving so as to preserve the battery
-	// the world is updated 60 times per second.
-	if (!isWorldAsleep(physicalWorld))
-	{
-		physicalWorld.Step(1.0/50, 1);
-		setTimeout(runWorld, 1000/50);
-	}
+    // total size: 250 x 300
+
+    // head
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(0, 300);
+    ctx.lineTo(0, 100);
+    ctx.bezierCurveTo(0,60, 36,0, 118,0);
+    ctx.bezierCurveTo(196,0, 227,65, 248,151);
+    ctx.lineTo(191, 151);
+    ctx.lineTo(191, 251);
+    ctx.bezierCurveTo(191, 276, 167, 300, 137, 300);
+    ctx.closePath();
+    ctx.fillStyle = "#E21E23";
+    ctx.shadowColor = "grey";
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.shadowBlur = 10;
+    ctx.fill();
+    ctx.restore();
+
+    //right eye
+    ctx.save();
+    ctx.beginPath();
+    ctx.fillStyle = "#ffd400";
+    ctx.arc(205, 90, 38, 0, 2*Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle="black";
+    ctx.arc(205, 90, 20, 0, 2*Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle="white";
+    ctx.arc(212, 90, 7, 0, 2*Math.PI);
+    ctx.fill();
+
+    //left eye
+    ctx.beginPath();
+    ctx.fillStyle = "#ffd400";
+    ctx.arc(105, 90, 55, 0, 2*Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle="black";
+    ctx.arc(105, 90, 30, 0, 2*Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle="white";
+    ctx.arc(115, 90, 10, 0, 2*Math.PI);
+    ctx.fill();
+
+    //mouth
+    ctx.beginPath();
+    ctx.moveTo(170, 180);
+    ctx.bezierCurveTo(164, 202, 134, 244, 101, 245);
+    ctx.bezierCurveTo(69, 243, 72, 204, 78, 182);
+    ctx.fillStyle="white";
+    ctx.fill();
+    ctx.restore();
 }
 
-function runAnimation()
+function setupDebugDraw(world, ctx)
 {
-	// starts a loop that displays the state of the world
-	// does nothing if no objects are moving so as to preserve the battery
-	// the display is updated as often as the browser sees fit thanks to requestAnimationFrame
-	if (!isWorldAsleep(physicalWorld))
-	{
-		drawWorldIn(physicalWorld, drawingCanvas);
-		webkitRequestAnimationFrame(runAnimation);
-	}
+    //setup debug draw
+    var debugDraw = new b2DebugDraw();
+    debugDraw.SetSprite(ctx);
+    debugDraw.SetDrawScale(scale);
+    debugDraw.SetFillAlpha(0.5);
+    debugDraw.SetLineThickness(1.0);
+    debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
+    world.SetDebugDraw(debugDraw);
 }
 
+function sleepWorld(world)
+{
+    for (var b = world.GetBodyList(); b; b = b.GetNext())
+    {
+        b.SetAwake(false);
+    }
+}
+
+function wakeWorld(world)
+{
+    for (var b = world.GetBodyList(); b; b = b.GetNext())
+    {
+        b.SetAwake(true);
+    }
+}
+
+function isWorldAsleep(world)
+{
+    var asleep = true;
+    for (var b = world.GetBodyList(); b; b = b.GetNext())
+    {
+        asleep = asleep && (!b.IsAwake() || b.GetType() == b2Body.b2_staticBody);
+    }
+    return asleep;
+}
