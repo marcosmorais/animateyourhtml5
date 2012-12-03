@@ -3,10 +3,20 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <title>Animate Your HTML - Part 1</title>
+        <title>Animate Your HTML - Part 1: CSS3 transitions and animations</title>
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <link rel="stylesheet" type="text/css" href="part1 playground.css" />
-        <script type="text/javascript" src="part1-css3/jsmove.js" ></script>
+
+        <!-- helper function that toggles the class of an element between 'begin' and 'end' -->
+        <script type="text/javascript">
+            function move(id) {
+                var el = document.getElementById(id); {
+                    el.classList.toggle('begin');
+                    el.classList.toggle('end');
+                }
+            }
+        </script>
+
     </head>
     <body>
 

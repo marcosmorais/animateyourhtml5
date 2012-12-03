@@ -1,14 +1,5 @@
-// Box2D simualated to real world scale
+// Box2D simulated to real world scale
 var scale = 200;
-
-// ---------------------your code here-------------------------
-
-
-//           ___________  __,__
-//     ----- | ||| |||| | | |__|
-//      ---- | ._    _. |_|code|
-//       --- `-(o)--(o)----(o)-'
-
 
 // -------------------- shortcuts ----------------------------
 
@@ -20,6 +11,15 @@ var b2Body         = Box2D.Dynamics.b2Body;
 var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 var b2CircleShape  = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw    = Box2D.Dynamics.b2DebugDraw;
+
+// ---------------------your code here-------------------------
+
+
+//           ___________  __,__
+//     ----- | ||| |||| | | |__|
+//      ---- | ._    _. |_|code|
+//       --- `-(o)--(o)----(o)-'
+
 
 // ------------------- helpers functions ----------------------
 

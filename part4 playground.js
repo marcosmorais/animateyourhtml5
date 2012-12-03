@@ -1,6 +1,10 @@
-document.addEventListener("DOMContentLoaded", startTHREE);
+document.addEventListener("DOMContentLoaded", function() {
 
-function startTHREE()
-{
-    // your code here
-}
+// ---------------------your code here-------------------------
+
+//           ___________  __,__
+//     ----- | ||| |||| | | |__|
+//      ---- | ._    _. |_|code|
+//       --- `-(o)--(o)----(o)-'
+
+});
