@@ -51,8 +51,9 @@ function startTHREE()
     createScene7(scene);
 
     // ANIMATION LOOP
-    function animate(t)
+    function animate()
     {
+    	var t = new Date().getTime();
         var scale;
         scene.traverse(function(obj) {
             if (obj instanceof THREE.Object3D)
@@ -146,7 +147,7 @@ function startTHREE()
         // let the browser decide the tempo
         requestAnimationFrame(animate);
     }
-    animate(new Date().getTime());
+    animate();
 }
 
 //-----------------------------------------------------------------------------------

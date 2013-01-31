@@ -124,6 +124,14 @@
             margin-left: 10px;
             margin-right: 10px;
         }
+        .cel
+        {/*column*/
+            margin-bottom: 1px;
+            margin-top: 1px;
+            margin-left: 10px;
+            margin-right: 10px;
+            line-height: 1.2em;
+        }
         .ces
         {/*small*/
             font-size: 11pt;
@@ -150,6 +158,20 @@
             background-image: linear-gradient(left, #ccc, #606060, #ccc);
             margin-top: 20px;
             margin-bottom: 20px;
+        }
+        table
+        {
+        	border: none;
+        	border-collapse: collapse;
+        	width: 100%;
+        	margin-top: 15px;
+        	margin-bottom: 0px;
+        }
+        table tr td
+        {
+        	border: none;
+        	margin: 0;
+        	padding: 0;
         }
     </style>
 </head>
@@ -178,13 +200,14 @@
                 <a href="part1-css3/index.html"><img class="small-tile" src="images/tile_world.png" /></a>
                 <a href="part2-css3-3D/index.html"><img class="small-tile" src="images/tile_computer.png" /></a>
                 <div class="codelab-explanations" style="width:260px; vertical-align: top; display: inline-block;">
-                    <div class="cep">CSS3 have <a href="part1-css3/index.html">animations built in</a>. Javascript is not required anymore, even for <a href="part2-css3-3D/index.html">3D animations</a>.</div>
-                    <br/>
+                    <div class="cep">CSS3 have animations built in. Javascript is not required anymore, even for 3D animations.</div>
+                    
                     <div class="cep">Codelab duration: 1h + 1h</div>
 
                     <div class="cep" style="line-height: 1.2em">
                         <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
-                        <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-1-2-css3-instructions.pdf"><b>Codelab instructions</b></a>
+                        <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-1-2-css3-instructions.pdf"><b>Codelab instructions</b></a><br/>
+                        <span class="arrow caption">➛ </span><a href="part1-css3/index.html">Demo 2D</a>, <a href="part2-css3-3D/index.html">Demo 3D</a> 
                     </div>
                 </div>
             </div>
@@ -195,33 +218,52 @@
             <div class="codelab-explanations">
                 <H1 class="cet">Codelab part 3: Canvas + Box2Dweb.js</H1>
                 <div style="width:480px;">
-                <div class="cep">The HTML5 Canvas is the ideal solution when you need to compute the animation frame by frame, for example when using a <a href="part3-canvas/index.html">Newtonian physics model</a> (Box2Dweb.js)</div>
-                <div class="cep">Codelab duration: 2h</div>
-                <div class="cep" style="line-height: 1.2em">
-                    <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
-                    <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-3-canvas-instructions.pdf"><b>Codelab instructions</b></a>
-                </div>
+                <div class="cep">The HTML5 Canvas is the ideal solution when you need to compute the animation frame by frame, for example when using a Newtonian physics model (Box2Dweb.js)</div>
+                
+                <br/>
+                <table><tr><td>
+                   <p class="cel">
+                   <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
+                   <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-3-canvas-instructions.pdf">Codelab instructions</a>
+                   </p>
+                </td>
+                <td>
+                   <p class="cel">
+                   <span class="arrow caption">➛ </span><a href="part3-canvas/index.html">Demo</a><br/>
+                   Codelab duration: 2h
+                   </p>
+                </td></tr></table>
                 </div>
             </div>
 
             <hr style="clear: both" />
 
             <div class="codelab-explanations">
-                <H1 class="cet">Codelab part 4: WebGL + Three.js</H1>
-                <a href="part4-webgl/index.html"><img class="small-tile" src="images/tile_browser.png"/></a>
+                <a href="part4-webgl/index.html"><img style="float: left" class="small-tile" src="images/tile_browser.png"/></a>
+                <H1 class="cet">&nbsp;Codelab part 4: WebGL + Three.js</H1>
+                
                 <div style="display: inline-block; width:495px; vertical-align: top">
                     <div class="cep">
                         Full, hardware-accelerated 3D is now available in Chrome and
-                        Firefox through WebGL. And thanks to the Three.js library,
+                        Firefox through WebGL. Thanks to the Three.js library,
                         there is no need to be a shader expert to obtain
-                        <a href="part4-webgl/index.html">spectacular results</a>.
+                        spectacular results.
                     </div>
-                    <br />
-                    <div class="cep">Codelab duration: 2h</div>
-                    <div class="cep" style="line-height: 1.2em">
-                        <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
-                        <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-4-webgl-instructions.pdf"><b>Codelab instructions</b></a>
-                    </div>
+                    
+                    <br/>
+                    <table><tr><td>
+                       <p class="cel">
+                       <span class="arrow caption">➛ </span><a href="#setup">Codelab preparation</a><br/>
+                       <span class="arrow caption">➛ </span><a href="codelab-instructions/AnimateYHTML5-EN-part-4-webgl-instructions.pdf">Codelab instructions</a>
+                       </p>
+                    </td>
+                    <td>
+                       <p class="cel">
+                       <span class="arrow caption">➛ </span><a href="part4-webgl/index.html">Demo</a><br/>
+                       Codelab duration: 2h
+                       </p>
+                    </td></tr></table>
+                        
                 </div>
             </div>
 
@@ -252,7 +294,7 @@
                 <div><a href="https://developers.google.com/">developers.google.com</a></div>
                 <div><a href="http://www.html5rocks.com/">www.html5rocks.com</a></div>
                 <br/>
-                <div>➛ A <a href="pres-css3-svg">different version of the presentation</a> with a narrower focus on CSS3 and SVG.</div>
+                <div>➛ A <a href="pres-css3-svg/index.html">different version of the presentation</a> with a narrower focus on CSS3 and SVG.</div>
             </div>
 
         </div>

@@ -59,8 +59,9 @@ function firstRender(id)
 	
 	var t0 = new Date().getTime();
 	
-	var anim = function(t)
+	var anim = function()
 	{
+		var t = new Date().getTime();
 		// when the canvas dies, abort animation loop
 		if (canvascontainer.animation)
 		{

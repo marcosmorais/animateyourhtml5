@@ -346,8 +346,9 @@ function setProgress3D(scene, model, waitShape, progressShape, progressShapeMaxH
 	};
 }
 
-function animate(t)
+function animate()
 {
+	var t = new Date().getTime();
 	
 	// if no animation, return and don't relaunch animation loop
 	if (animation == null)
@@ -412,8 +413,17 @@ function animate(t)
 
 function move(id)
 {
-	swapBeginEndClass(id);
-	//document.getElementById(id).className = "end";
+	var nod = document.getElementById(id);
+	if (nod != null)
+	{
+		if (!nod.classList.contains('begin') && !nod.classList.contains('end'))
+			nod.classList.add('end');
+		else
+		{
+			nod.classList.toggle('begin');
+			nod.classList.toggle('end');
+		}
+	}
 }
 
 function step(id, classroot, max)
@@ -430,36 +440,6 @@ function step(id, classroot, max)
 				el.classList.add(classroot + 1);
 			break;
 		}
-	}
-}
-
-// swaps classes "begin" and "end" in the node with the specified HTML id.
-// adds class "end" if none are found
-function swapBeginEndClass(id)
-{
-	var nod = document.getElementById(id);
-	if (nod != null)
-	{
-		var new_class = "";
-		var found = false;
-		for (var i=0; i<nod.classList.length; i++)
-		{
-			var clas = nod.classList[i];
-			if (clas == "end")
-			{
-				clas = "begin";
-				found = true;
-			}
-			else if (clas == "begin")
-			{
-				clas = "end";
-				found = true;
-			}
-			new_class += " " + clas;
-		}
-		if (!found)
-			new_class += " " + "end";
-		nod.setAttribute("class", new_class);
 	}
 }
 
