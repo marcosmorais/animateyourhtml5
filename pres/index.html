@@ -48,6 +48,8 @@
     <script type="text/javascript" src="../libraries/ColladaLoader.js"></script>
     <script type="text/javascript" src='webgl_libraries/MyFlyControls.js'></script>
     <script type="text/javascript" src='webgl_libraries/first_render.js'></script>
+    <!-- CSS shaders stuff -->
+      <script type="text/javascript" src='css_shaders/wind.js'></script>
 
     <!-- freedom from browser prefixes, yay! -->
     <script type="text/javascript" src="../prescommon/prefixfree.min.js" ></script>
@@ -3795,21 +3797,157 @@ function animate(t)
 // animação: mude a cena aqui dependendo to tempo t
 	  </translation>
       </article>
-      
+
 <!-- ------------------------------------------------------------------------------- -->
-<!-- Three.js: free goodies -->
-<!-- 
-	<article onclick="firstRender('three-free-render-container')" onslideleave="killFirstRender('three-free-render-container')">
-	<H3>THREE.js: free goodies</H3>
-	
-	
-	   <div id="three-free-render-container" class="fullslidecanvas"></div>
-	   
-	   <translation lang="en">
-	   --self--
-	   </translation>
-	</article>
- -->
+<!-- CSS shaders -->
+
+      <article onslideenter="windStop('leaf'); stopFan('fan')">
+
+              <h1>Filtres CSS custom:<br/>Des shaders GLSL en CSS</h1>
+
+          <translation lang='en'>
+              Custom CSS filters
+              GLSL shaders in CSS
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              Custom CSS filters
+              GLSL shaders in CSS
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- CSS shaders -->
+
+      <style type="text/css">
+         #cssshaders
+         {
+             overflow: visible;
+             background: none;
+             border: none;
+             box-shadow: none;
+         }
+         #cssshaders H3
+         {
+             background: rgba(255, 255, 255, 0.8);
+         }
+         #fan
+         {
+             position: absolute;
+             bottom: -150px;
+             width: 140px;
+             height: 280px;
+             /*
+             fan on the other side:
+             left: 900px;
+             transform: rotate(-110Deg);
+             */
+             left: -100px;
+             background: url('images/fanstatic.png');
+             transition: 0.5s;
+             opacity: 0;
+         }
+         .fanleft {transform: rotate(-60Deg) scale(0.8);}
+         .fancenter {transform: rotate(-90Deg) scale(0.8);}
+         .fanright {transform: rotate(-120Deg) scale(0.8);}
+         #leaf
+         {
+             position: absolute;
+             top: -100px;
+             left: -100px;
+             border: 100px solid rgba(0, 0, 0, 0);
+             width: 100%;
+             height: 100%;
+             transition: 1s ease-out;
+             transform: translateZ(-280px);
+             -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform perspective(1000) scale(1) translateZ(-280px) rotateX(0deg) rotateY(0deg) rotateZ(0deg), curlRadius 0.1, bleedThrough 0.3,
+                             curlPosition 1.0 1.0,
+                             curlDirection 180,
+                             phase 0);
+             background: url(../images/chromebg.png);
+         }
+         .corner-border
+         {
+             /*border: solid rgb(0, 86, 185) 5px;*/
+             border: solid rgb(254, 191, 65) 5px;
+             position: absolute;
+         }
+         .corner-border1
+         {
+             width: 40px;
+             height: 40px;
+         }
+         .corner-border2
+         {
+             border: none;
+             width: 30px;
+             height: 30px;
+             top: 5px;
+             left: 5px;
+         }
+         .corner-border3
+         {
+             width: 20px;
+             height: 20px;
+         }
+         .inner-border
+         {
+             border: solid rgb(254, 191, 65) 5px;
+             position: absolute;
+         }
+         .inner-border1
+         {
+             width: 1010px;
+             height: 810px;
+         }
+         .inner-border2
+         {
+             border: none;
+             width: 1000px;
+             height: 800px;
+             top: 5px;
+             left: 5px;
+         }
+         .inner-border3
+         {
+             width: 990px;
+             height: 790px;
+         }
+
+      </style>
+      <article id="cssshaders" onslideenter="setWind('leaf', 1, 0.78);windStart('leaf'); startFan('fan')" onslideleave="windStop('leaf'); stopFan('fan')">
+          <div id="leaf">
+                <h1 style="margin-top:0px; margin-left:-10px; text-align: center; width: 300px">
+                    GLSL<br/>shaders<br/> in CSS
+                </h1>
+
+                <img src="images/nearyou.png" style="position:absolute; transform:rotate(20Deg) scale(0.8); top: -20px; left: 270px">
+                <img src="images/awesome.png" style="position:absolute; transform:rotate(-15Deg) scale(0.8); top: 200px; left: -100px">
+                <img src="images/canary.png" style="position: absolute; bottom: 100px; right: -30px">
+                <img src="images/littleguy_nosurf.svg" style="position: absolute; bottom: -30px; right: 430px" width="200px">
+                <img id="hand" src="images/hand_point.svg" style="position: absolute; bottom: 60px; right: 180px; transform: rotate(-20deg)">
+
+                <div class="corner-border corner-border1" style="top:-95px; left:-95px"><div class="corner-border corner-border2"><div class="corner-border corner-border3"></div></div></div>
+                <div class="corner-border corner-border1" style="top:745px; left:-95px"><div class="corner-border corner-border2"><div class="corner-border corner-border3"></div></div></div>
+                <div class="corner-border corner-border1" style="top:745px; left:945px"><div class="corner-border corner-border2"><div class="corner-border corner-border3"></div></div></div>
+                <div class="corner-border corner-border1" style="top:-95px; left:945px"><div class="corner-border corner-border2"><div class="corner-border corner-border3"></div></div></div>
+                <div class="inner-border inner-border1" style="top:-60px; left:-60px"><div class="inner-border inner-border2"><div class="inner-border inner-border3"></div></div></div>
+          </div>
+
+          <div id="fan" class="fanleft"></div>
+
+          <!-- this slide stays in english in all languages: it's a flyer -->
+          <translation lang='en'>
+              --self--
+              --self--
+              --self--
+          </translation>
+          <translation lang='pt'>
+              --self--
+              --self--
+              --self--
+          </translation>
+      </article>
  
  <!-- ------------------------------------------------------------------------------- -->
 <!-- slide finale: résumé -->

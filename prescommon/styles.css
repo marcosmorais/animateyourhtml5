@@ -43,7 +43,7 @@ body {
   min-height: 740px;
   
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 
   background: rgb(215, 215, 215);
   background: -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
