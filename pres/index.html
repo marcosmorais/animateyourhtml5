@@ -3863,7 +3863,9 @@ function animate(t)
              -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform perspective(1000) scale(1) translateZ(-280px) rotateX(0deg) rotateY(0deg) rotateZ(0deg), curlRadius 0.1, bleedThrough 0.3,
                              curlPosition 1.0 1.0,
                              curlDirection 180,
-                             phase 0);
+                             phase 0,
+                             lightEffectsIntensity 1,
+                             flutterAmp 0.15);
              background: url(../images/chromebg.png);
          }
          .corner-border
@@ -3949,6 +3951,136 @@ function animate(t)
           </translation>
       </article>
  
+ <!-- ------------------------------------------------------------------------------- -->
+ <!-- CSS shaders syntax -->
+
+      <article>
+          <H3>CSS shaders: la syntaxe</H3>
+          <pre class="big">
+<b>-webkit-filter: custom(</b>
+    url(<b>wind.vs</b>) mix(url(<b>wind.fs</b>) normal source-atop),
+    150 150,
+    transform perspective(1000) rotateY(10deg),
+    /* <span>Paramètres utilisateurs</span>, */
+    /* <span>modifiables depuis une animation CSS</span> */
+    curlPosition 0.2 0.5,
+    curlDirection -45);</pre>
+          <table class="table-noborders">
+              <tr style="text-align: center"><td><img src="images/vertexshader.png" width="300px"/><br/>Vertex Shader: X Y Z ?</td><td><img src="images/pixelshader.png" width="300px"/><br/>Pixel Shader: R G B ?</td></tr>
+          </table>
+
+
+          <translation lang='en'>
+              --self--
+              --self--
+              --self--
+              --self--
+User-defined parameters
+usable in CSS animations
+              --self--
+              --self--
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+          </translation>
+      </article>
+
+ <!-- ------------------------------------------------------------------------------- -->
+ <!-- CSS shaders explained -->
+      <style type="text/css">
+      article#behindtheshader div p.to-build~p.to-build~p.to-build~p.to-build~p.to-build~span#martyr
+      {
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(0deg), curlRadius 0.15, bleedThrough 0.5, curlPosition 0.5 0.5, curlDirection 100, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          background: url(images/vibrantmed.png) !important;
+          transition: 0s;
+      }
+      article#behindtheshader div p.to-build~p.to-build~p.to-build~p.to-build~span#martyr
+      {
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(0deg), curlRadius 0.15, bleedThrough 0.5, curlPosition 0.5 0.5, curlDirection 100, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          transition: 0.5s;
+          background: url(images/shadergrid.png), url(images/vibrantmed.png);
+      }
+      article#behindtheshader div p.to-build~p.to-build~p.to-build~span#martyr
+      {
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(0deg) rotateY(0deg) translateZ(-200px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          transition: 5s;
+          background: url(images/shadergrid.png), url(images/vibrantmed.png);
+      }
+      article#behindtheshader div p.to-build~p.to-build~span#martyr
+      {
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          transition: 5s;
+          background: url(images/shadergrid.png), url(images/vibrantmed.png);
+      }
+      article#behindtheshader div p.to-build~span#martyr
+      {
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 20, lightEffectsIntensity 0, flutterAmp 0.15);
+          transition: 8s;
+          background: url(images/shadergrid.png), url(images/vibrantmed.png);
+      }
+      article#behindtheshader div span.to-build#martyr
+      {
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 20, lightEffectsIntensity 1, flutterAmp 0.15);
+          transition: 0.5s;
+          background: url(images/shadergrid.png), url(images/vibrantmed.png);
+      }
+      article#behindtheshader div span#martyr
+      {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          transition: 1s;
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(40deg) rotateZ(-20deg) translateX(40px) translateY(-120px) translateZ(-100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.2 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0.25);
+          background: url(images/vibrantmed.png);
+      }
+      article#behindtheshader div p
+      {
+          transition: 0.2s;
+      }
+      .shabox
+      {
+          width: 250px;
+          border: solid rgb(224, 224, 224) 1px;
+          background-color: rgb(245, 245, 255);
+          padding: 20px;
+          margin-top: -20px;
+          margin-bottom: 50px;
+          margin-left: 490px;
+      }
+      </style>
+      <article style="perspective:1000px" id="behindtheshader" onslideenter="makeBuildList(document.getElementById('behindtheshader'))">
+          <H3>Les shaders à l'oeuvre</H3>
+          <div class="build">
+              <p></p>
+              <p></p>
+              <p class="shabox">Vertex Shader: enroulement cylindrique</p>
+              <p class="shabox">Vertex Shader: perturbation sinusoïdale</p>
+              <p class="shabox" style="background-color: rgb(255, 245, 245)">Pixel Shader: ombrage Lambert et transparence</p>
+              <span id="martyr" style="display:block; width:698px; height:698px; position: absolute; top: 0px; left: 0px; opacity:1;"></span>
+          </div>
+
+          <translation lang='en'>
+              The shaders behind the scene
+              Vertex Shader: cylinder wrap
+              Vertex Shader: sinusoidal flutter
+              Pixel Shader: Lambert shading and see-through effect
+          </translation>
+          <translation lang='pt'>
+              --self--
+              --self--
+              --self--
+              --self--
+          </translation>
+      </article>
+
  <!-- ------------------------------------------------------------------------------- -->
 <!-- slide finale: résumé -->
       

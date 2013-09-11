@@ -43,6 +43,7 @@ precision mediump float;
 // Uniforms passed in from CSS.
 
 uniform float bleedThrough;
+uniform float lightEffectsIntensity;
 
 // Varyings
 
@@ -51,7 +52,7 @@ varying float v_gradient;
 
 // constant light
 vec3 light = normalize(vec3(0.0, -0.5, -1.0));
-const float shadow_intensity = 0.15;
+const float lambertShadowIntensity = 0.2;
 
 // Main
 
@@ -59,12 +60,12 @@ void main()
 {
     if (gl_FrontFacing) {
         // Front shadows.
-        css_MixColor = vec4(vec3(0.0), 1.0 - v_normal.z);
+        css_MixColor = vec4(vec3(0.0), lightEffectsIntensity * (1.0 - v_normal.z));
     } else {
         // Back shine.
         float gradient = clamp(v_gradient, 0.0, 1.0);
         // back shadow
-        float shadow = 1.0 - shadow_intensity*((1.0 - dot(v_normal, light)));
-        css_MixColor = vec4(vec3(shadow), gradient * bleedThrough + (1.0 - bleedThrough));
+        float shadow = 1.0 - lightEffectsIntensity*lambertShadowIntensity*((1.0 - dot(v_normal, light)));
+        css_MixColor = vec4(vec3(shadow), lightEffectsIntensity * (gradient * bleedThrough + (1.0 - bleedThrough)));
     }
 }

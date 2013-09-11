@@ -62,6 +62,7 @@ uniform vec2  curlPosition;
 uniform float curlDirection;
 uniform float curlRadius;
 uniform float phase;
+uniform float flutterAmp;  // flutter amplitude as a fraction of the curlRadius
 
 // Varyings
 
@@ -113,8 +114,7 @@ void main()
 
     // the coordinates of the original div's ranges are [-0.5 .. 0.5][-0.5 .. 0.5]
     // modify position using circular sine wave
-    float amp = 0.15; // amplitude as a fraction of the curl radius
-    amp = mix(0.0, amp, clamp(d/PI/curlRadius -1.0, 0.0, 1.0));
+    float amp = mix(0.0, flutterAmp, clamp(d/PI/curlRadius -1.0, 0.0, 1.0));
     float frq1 = 20.0 / 2.0 / PI;
     float frq2 = 23.0 / 2.0 / PI;
     float frq3 = 17.5 / 2.0 / PI;
