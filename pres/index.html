@@ -3956,11 +3956,12 @@ function animate(t)
 
       <article>
           <H3>CSS shaders: la syntaxe</H3>
-          <pre class="big">
+          <pre class="big" style="margin:25px 0px 25px 0px">
 <b>-webkit-filter: custom(</b>
+
     url(<b>wind.vs</b>) mix(url(<b>wind.fs</b>) normal source-atop),
-    150 150,
-    transform perspective(1000) rotateY(10deg),
+
+    90 90, transform perspective(1000) rotateY(10deg),
     /* <span>Paramètres utilisateurs</span>, */
     /* <span>modifiables depuis une animation CSS</span> */
     curlPosition 0.2 0.5,
@@ -3971,7 +3972,7 @@ function animate(t)
 
 
           <translation lang='en'>
-              --self--
+              CSS shader syntax
               --self--
               --self--
               --self--
@@ -3982,12 +3983,12 @@ usable in CSS animations
           </translation>
           <!-- missing portuguese translation here -->
           <translation lang='pt'>
+              CSS shader syntax
               --self--
               --self--
               --self--
-              --self--
-              --self--
-              --self--
+User-defined parameters
+usable in CSS animations
               --self--
               --self--
           </translation>
@@ -4038,7 +4039,7 @@ usable in CSS animations
           top: 0px;
           left: 0px;
           transition: 1s;
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(40deg) rotateZ(-20deg) translateX(40px) translateY(-120px) translateZ(-100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.2 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0.25);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(40deg) rotateZ(-20deg) translateX(40px) translateY(-120px) translateZ(-100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.2 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0.4);
           background: url(images/vibrantmed.png);
       }
       article#behindtheshader div p
@@ -4073,15 +4074,127 @@ usable in CSS animations
               Vertex Shader: sinusoidal flutter
               Pixel Shader: Lambert shading and see-through effect
           </translation>
+          <!-- missing portuguese translation here -->
           <translation lang='pt'>
+              The shaders behind the scene
+              Vertex Shader: cylinder wrap
+              Vertex Shader: sinusoidal flutter
+              Pixel Shader: Lambert shading and see-through effect
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- GLSL Vertex shader: cylinder -->
+      <article>
+          <H3>GLSL Vertex shader: on enroule sur un cylindre</H3>
+<table class="table-noborders" style="margin-top:20px;margin-left:-10px"><tr><td>
+          <pre style="margin: 0px 10px 10px 0px; font-size: 0.5em; line-height:1.4em; width:280px">// Valeurs "attributs" standard
+attribute vec4 a_position;
+<span>// Valeurs "uniforms" standard</span>
+uniform mat4 u_projectionMatrix;
+<span>// "Uniforms" en provenance des CSS</span>
+uniform mat4 transform;
+uniform vec2 cylPos;
+uniform vec2 N; <span>//dir. d'enroulement</span>
+uniform float R; <span>//rayon cylindre</span>
+<span>// Valeurs "varyings" passées</span>
+<span>// au pixel shader</span>
+varying vec3  v_normal;
+
+</pre>
+<img src="images/curlexplanation.jpg" width="302px"/>
+</td>
+<td><pre style="margin: 0px; font-size: 0.6em">
+void main() {
+    <span>// distance à l'axe du cylindre</span>
+    float d = dot(<b>a_position.xy</b> - cylPos, N);
+
+    <span>// Projection du vertex sur l'axe du cylindre</span>
+    vec3 C = vec3(a_position.xy - d * N, R);
+
+    <span>// Vertex enroulé sur le cylindre</span>
+    vec3 V = C.xy + R * vec3( sin(d/R) * N.x,
+                              sin(d/R) * N.y,
+                              1.0 - cos(d/R));
+    <span>// vecteur normal à la surface du cylindre</span>
+    v_normal = (C - V) / R;
+
+    <span>// On positionne le vertex</span>
+    <b>gl_Position</b> = u_projectionMatrix
+                            * transform * V;}</pre>
+</td></tr></table>
+
+          <translation lang='en'>
+              GLSL Vertex shader (part): roll onto a cylinder
+// Built-in uniforms
+// Uniforms passed in from CSS
+// curl direction
+// curl radius
+// Varyings passed
+// to pixel shader
+// distance to the curl axis
+              --self--
+// Projection of vertex on the curl axis
+// Vertex rolled onto the curl
+// normal to the cylider surface
+// Position the vertex.
+              --self--
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              GLSL Vertex shader (part): roll onto a cylinder
+// Built-in uniforms
+// Uniforms passed in from CSS
+// curl direction
+// curl radius
+// Varyings passed
+// to pixel shader
+// distance to the curl axis
+              --self--
+// Projection of vertex on the curl axis
+// Vertex rolled onto the curl
+// normal to the cylider surface
+// Position the vertex.
+              --self--
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- GLSL Pixel shader: Lambert -->
+
+      <article>
+          <H3>GLSL Pixel shader: ombrage de Lambert</H3>
+          <pre class="big" style="margin:25px 0px 25px 0px">
+<span>// valeurs "Varyings" passées par le vertex shader</span>
+varying vec3 v_normal;
+<span>// valeurs "uniforms" en provenence des CSS</span>
+uniform float u_shadows;
+
+void main() {
+     vec3 light = vec3(0.0, 0.0, -1.0);
+
+     float shadow = <b>dot</b>(v_normal, -light) * u_shadows;
+     <b>css_MixColor</b> = vec4(vec3(0.0), 1.0-shadow);
+}</pre>
+           <center><img src="images/lambert.svg"/> </center>
+          <translation lang='en'>
+              GLSL Pixel shader: Lambert lighting
+// Varyings passed from vertex shader
+// Uniforms passed from CSS
               --self--
               --self--
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              GLSL Pixel shader: Lambert lighting
+// Varyings passed from vertex shader
+// Uniforms passed from CSS
               --self--
               --self--
           </translation>
       </article>
 
- <!-- ------------------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------- -->
 <!-- slide finale: résumé -->
       
       <style>

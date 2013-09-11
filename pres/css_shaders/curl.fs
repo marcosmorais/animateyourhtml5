@@ -51,8 +51,8 @@ varying vec3 v_normal;
 varying float v_gradient;
 
 // constant light
-vec3 light = normalize(vec3(0.0, -0.5, -1.0));
-const float lambertShadowIntensity = 0.2;
+vec3 light = normalize(vec3(0.0, 0.5, 1.0));
+const float lambertShadowIntensity = 0.25;
 
 // Main
 
@@ -65,7 +65,7 @@ void main()
         // Back shine.
         float gradient = clamp(v_gradient, 0.0, 1.0);
         // back shadow
-        float shadow = 1.0 - lightEffectsIntensity*lambertShadowIntensity*((1.0 - dot(v_normal, light)));
+        float shadow = 1.0 - lightEffectsIntensity*lambertShadowIntensity*((1.0 - dot(v_normal, -light)));
         css_MixColor = vec4(vec3(shadow), lightEffectsIntensity * (gradient * bleedThrough + (1.0 - bleedThrough)));
     }
 }
