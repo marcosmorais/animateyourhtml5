@@ -254,7 +254,8 @@
 		➛ <a onclick="document.location.hash='#3'; getCurSlideFromHash(); updateSlides()">CSS3</a><br/>
 		➛ <a onclick="document.location.hash='#18'; getCurSlideFromHash(); updateSlides()">SVG</a><br/>
 		➛ <a onclick="document.location.hash='#31'; getCurSlideFromHash(); updateSlides()">Canvas</a><br/>
-		➛ <a onclick="document.location.hash='#38'; getCurSlideFromHash(); updateSlides()">WebGL</a>
+		➛ <a onclick="document.location.hash='#38'; getCurSlideFromHash(); updateSlides()">WebGL</a><br/>
+        ➛ <a onclick="document.location.hash='#45'; getCurSlideFromHash(); updateSlides()">CSS shaders</a>
 		</div>
 		<div style="margin-top: 60px; width: 100%; text-align: center">précédent<img style="vertical-align: -240px" src="../prescommon/images/keyboard.svg" width="350"/>suivant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 		action
@@ -269,6 +270,8 @@
 			--self--
 			--self--
 			--self--
+            --self--
+            --self--
 			--self--
 			previous
 			next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -280,7 +283,9 @@
 			--self--
 			--self--
 			--self--
+            --self--
 			--self--
+            --self--
 			--self--
 			--self--
 			--self--
@@ -304,20 +309,20 @@
         <p>
           Martin Gorner
           <br />
-          Devoxx France, 29 Mars 2013
+          Generate London, 13 septembre 2013
         </p>
         
 	      <translation lang='en'>
 		      Animate your HTML5
 		      with CSS3, SVG, Canvas and WebGL
 		      Martin Gorner
-              Devoxx France, March 29, 2013
+              Generate London, Septembre 13, 2013
 	      </translation>
          <translation lang='pt'>
 		      Anime seu HTML5
 		      com CSS3, SVG, Canvas e WebGL
 		      Martin Gorner [ Tradução: Átila Camurça ]
-              Devoxx France 2013
+             Generate London 2013
 	      </translation>
       </article>
       
@@ -3099,57 +3104,81 @@ Grupos primitivos SVG
         </translation>
       </article>
 
-<!-- ------------------------------------------------------------------------------- -->
-<!-- slide finale: résumé -->
-      
+      <!-- ------------------------------------------------------------------------------- -->
+      <!-- slide finale: résumé -->
+
       <style>
-      table#tabsum tr td
-      {
-      	padding: 10px;
-      }
+          table#tabsum2 tr td
+          {
+              padding: 8px;
+          }
+          td.vertical-cell
+          {
+              border-top: none;
+              border-right: none;
+              border-bottom: none;
+              max-width: 0em;
+              vertical-align: middle;
+          }
+          td.vertical-cell div
+          {
+              position: relative;
+              font-size: 23px;
+              width:10em;
+              text-align: center;
+          }
+          td.vertical-cell div div
+          {
+              position: relative;
+              transform: rotate(-90deg) translate(0em, -4.3em);
+              transform-origin: 50% 50%;
+              color: maroon;
+              letter-spacing: 0.05em;
+          }
       </style>
       <article>
-        <H3>Les 4 techniques d'animation en HTML5</H3>
-        
-        <table id="tabsum" style="margin-top: 20px">
-        	<tr><td style="color: black; font-weight: bold; width:170px">CSS3</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot2.png); width:150px; height:100px">déclaratif</td><td style="font-size:smaller;">objets HTML uniquement, aucun contrôle de trajectoire</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot1.png); width:100px; height:100px">déclaratif</td><td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot3.png); width:100px; height:100px">programmatique</td><td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">WebGL + Three.js</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/gingerbread3d.png); width:100px; height:100px">program-<br/>matique</td><td style="font-size:smaller;">full 3D</td></tr>
-        </table>
-        
-        <translation lang='en'>
-        4 HTML5 animation techniques
-        --self--
-        declarative
-        only HTML objects, no control over trajectory
-        --self--
-        declarative
-        curves, curved trajectories, but only preprogrammed ones
-        --self--
-        programmatic
-        animation loop with interactive world model, 2D only
-        --self--
-        program-
-        matic
-        full 3D 
-        </translation>
-        <translation lang='pt'>
-        4 técnicas de animação em HTML5
-        --self--
-        declarativa
-        somente objetos HTML, sem controle sobre a trajetória
-        --self--
-        declarativa
-        curvas, trajetórias em curva, mas já preprogramadas
-        --self--
-        programática
-        loop de animação interativo, somente 2D
-        --self--
-        progra-
-        mática
-        totalmente 3D 
-        </translation>
+          <H3>Les 5 techniques d'animation en HTML5</H3>
+
+          <table id="tabsum2" style="margin-top: 20px">
+              <tr><td style="color: black; font-weight: bold;">CSS3</td>                <td style="text-align:center"><img style="height:75px" src="../prescommon/images/scrshot2.png"/></td> <td style="font-size:smaller;"><p>objets HTML uniquement, aucun contrôle de trajectoire</p></td>           <td rowspan="2" class="vertical-cell"><div><div>D&Eacute;CLARATIF</div></div></td></tr>
+              <tr><td style="color: black; font-weight: bold;">SVG + SMIL</td>          <td style="text-align:center"><img style="height:75px" src="../prescommon/images/scrshot1.png"/></td> <td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td>                      </tr>
+              <tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td> <td style="text-align:center"><img style="height:75px" src="../prescommon/images/scrshot3.png"/></td> <td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td>   <td rowspan="2" class="vertical-cell"><div><div>PROGRAM.</div></div></td></tr>
+              <tr><td style="color: black; font-weight: bold;">WebGL + Three.js</td>    <td style="text-align:center"><img style="height:75px" src="images/gingerbread3d.png"/></td>          <td style="font-size:smaller;">full 3D</td>                                                                </tr>
+              <tr><td style="color: black; font-weight: bold;">CSS shaders</td>         <td style="text-align:center"><img style="height:75px" src="images/shader.png" width="100px"/></td>   <td style="font-size:smaller;">shaders 3D paramétrables depuis les CSS</td>                                       <td class="vertical-cell"><div><div></div></div></td></tr>
+          </table>
+
+          <translation lang='en'>
+              5 HTML5 animation techniques
+              --self--
+              only HTML objects, no control over trajectory
+              DECLARATIVE
+              --self--
+              curves, curved trajectories, but only preprogrammed ones
+              --self--
+              animation loop with interactive world model, 2D only
+              PROGRAM.
+              --self--
+              full 3D
+              CSS Shaders
+              3D shaders controllable from CSS
+          </translation>
+
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              5 técnicas de animação em HTML5
+              --self--
+              somente objetos HTML, sem controle sobre a trajetória
+              DECLARATIVA
+              --self--
+              curvas, trajetórias em curva, mas já preprogramadas
+              --self--
+              loop de animação interativo, somente 2D
+              PROGRAM.
+              --self--
+              totalmente 3D
+              CSS Shaders
+              3D shaders controllable from CSS
+          </translation>
       </article>
       
 <!-- ------------------------------------------------------------------------------- -->
@@ -4200,50 +4229,74 @@ void main() {
       <style>
       table#tabsum2 tr td
       {
-      	padding: 10px;
+      	padding: 8px;
+      }
+      td.vertical-cell
+      {
+          border-top: none;
+          border-right: none;
+          border-bottom: none;
+          max-width: 0em;
+          vertical-align: middle;
+      }
+      td.vertical-cell div
+      {
+          position: relative;
+          font-size: 23px;
+          width:10em;
+          text-align: center;
+      }
+      td.vertical-cell div div
+      {
+          position: relative;
+          transform: rotate(-90deg) translate(0em, -4.3em);
+          transform-origin: 50% 50%;
+          color: maroon;
+          letter-spacing: 0.05em;
       }
       </style>
       <article>
-        <H3>Les 4 techniques d'animation en HTML5</H3>
+        <H3>Les 5 techniques d'animation en HTML5</H3>
         
         <table id="tabsum2" style="margin-top: 20px">
-        	<tr><td style="color: black; font-weight: bold; width:170px">CSS3</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot2.png); width:150px; height:100px">déclaratif</td><td style="font-size:smaller;">objets HTML uniquement, aucun contrôle de trajectoire</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot1.png); width:100px; height:100px">déclaratif</td><td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(../prescommon/images/scrshot3.png); width:100px; height:100px">programmatique</td><td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td></tr>
-        	<tr><td style="color: black; font-weight: bold;">WebGL + Three.js</td><td style="font-size: large; background-position:100% 100%; background-repeat:no-repeat; background-image: url(images/gingerbread3d.png); width:100px; height:100px">program-<br/>matique</td><td style="font-size:smaller;">full 3D</td></tr>
+        	<tr><td style="color: black; font-weight: bold;">CSS3</td>                <td style="text-align:center"><img style="height:75px" src="../prescommon/images/scrshot2.png"/></td> <td style="font-size:smaller;"><p>objets HTML uniquement, aucun contrôle de trajectoire</p></td>           <td rowspan="2" class="vertical-cell"><div><div>D&Eacute;CLARATIF</div></div></td></tr>
+        	<tr><td style="color: black; font-weight: bold;">SVG + SMIL</td>          <td style="text-align:center"><img style="height:75px" src="../prescommon/images/scrshot1.png"/></td> <td style="font-size:smaller;">courbes, trajectoires courbes mais préprogrammées</td>                      </tr>
+        	<tr><td style="color: black; font-weight: bold;">Canvas + Javascript</td> <td style="text-align:center"><img style="height:75px" src="../prescommon/images/scrshot3.png"/></td> <td style="font-size:smaller;">boucle d'animation avec modèle et interactions libres, 2D uniquement</td>   <td rowspan="2" class="vertical-cell"><div><div>PROGRAM.</div></div></td></tr>
+        	<tr><td style="color: black; font-weight: bold;">WebGL + Three.js</td>    <td style="text-align:center"><img style="height:75px" src="images/gingerbread3d.png"/></td>          <td style="font-size:smaller;">full 3D</td>                                                                </tr>
+            <tr><td style="color: black; font-weight: bold;">CSS shaders</td>         <td style="text-align:center"><img style="height:75px" src="images/shader.png" width="100px"/></td>   <td style="font-size:smaller;">shaders 3D paramétrables depuis les CSS</td>                                       <td class="vertical-cell"><div><div></div></div></td></tr>
         </table>
         
         <translation lang='en'>
-        4 HTML5 animation techniques
+        5 HTML5 animation techniques
         --self--
-        declarative
         only HTML objects, no control over trajectory
+        DECLARATIVE
         --self--
-        declarative
         curves, curved trajectories, but only preprogrammed ones
         --self--
-        programmatic
         animation loop with interactive world model, 2D only
+        PROGRAM.
         --self--
-        program-
-        matic
-        full 3D 
+        full 3D
+        CSS Shaders
+        3D shaders controllable from CSS
         </translation>
+
+          <!-- missing portuguese translation here -->
         <translation lang='pt'>
-        4 técnicas de animação em HTML5
+        5 técnicas de animação em HTML5
         --self--
-        declarativa
         somente objetos HTML, sem controle sobre a trajetória
+        DECLARATIVA
         --self--
-        declarativa
         curvas, trajetórias em curva, mas já preprogramadas
         --self--
-        programática
         loop de animação interativo, somente 2D
+        PROGRAM.
         --self--
-        progra-
-        mática
-        totalmente 3D 
+        totalmente 3D
+        CSS Shaders
+        3D shaders controllable from CSS
         </translation>
       </article>
       
@@ -4339,16 +4392,14 @@ void main() {
 <!-- slide finale: contact info -->
       <article>
         
-        <p style="margin-left: 3em; margin-top: 1em; text-indent: -3em;">Contact: <br/><b >Martin Gorner</b>, Relations Développeurs, Google<br/>
-        Google+: <a href="https://plus.google.com/u/1/113532596314034732476/posts">gplus.to/martin.gorner</a>
+        <p style="margin-left: 2em; margin-top: 1em; text-indent: -2em;">Contact: <br/><b >Martin Gorner</b>, Relations Développeurs, Google<br/>
+        Google+: <a href="https://plus.google.com/+MartinGorner">plus.google.com/+MartinGorner</a>
         
         </p>
-        <p style="margin-left: 1em; margin-top: 70px; text-indent: -1em;">Cette présentation est en ligne:<br/>
+        <p style="margin-left: 2em; margin-top: 70px; text-indent: -2em;">Cette présentation est en ligne:<br/>
         <a href="http://animateyourhtml5.appspot.com">http://<b><big>animateyourhtml5</big></b>.appspot.com</a><br/>
-        
-        <p style="margin-left: 1em; margin-top: 70px; text-indent: -1em;">Tutoriel WebGL et THREE.JS<br/>
-        <a href="http://fhtr.org/BasicsOfThreeJS/">http://fhtr.org/<b><big>BasicsOfThreeJS</big></b></a> par Ilmari Heikkinen<br/>
-        <p style="margin-left: 1em; margin-top: 1em; text-indent: -1em;">Plus d'infos:<br/>
+
+        <p style="margin-left: 2em; margin-top: 70px; text-indent: -2em;">Plus d'infos:<br/>
         <a href="http://html5rocks.com">http://<b><big>html5rocks</big></b>.com</a>
         </p>
       
@@ -4362,10 +4413,6 @@ void main() {
       --self--
       --self--
       --self--
-      WebGL and THREE.js tutorial:
-      --self--
-      --self--
-      by Ilmari Heikkinen
       And much more on:
       --self--
       --self--
@@ -4381,10 +4428,6 @@ void main() {
       --self--
       --self--
       --self--
-      Tutorial WebGL e THREE.js:
-      --self--
-      --self--
-      por Ilmari Heikkinen
       E muito mais em:
       --self--
       --self--
