@@ -50,6 +50,7 @@
     <script type="text/javascript" src='webgl_libraries/first_render.js'></script>
     <!-- CSS shaders stuff -->
       <script type="text/javascript" src='css_shaders/wind.js'></script>
+      <script type="text/javascript" src='css_shaders/apply_filter.js'></script>
 
     <!-- freedom from browser prefixes, yay! -->
     <script type="text/javascript" src="../prescommon/prefixfree.min.js" ></script>
@@ -251,7 +252,7 @@
 		<article id="usage-explanations" class="biglogo">
 		<div class="summary">
 		Accès rapide:<br/>
-		➛ <a onclick="document.location.hash='#3'; getCurSlideFromHash(); updateSlides()">CSS3</a><br/>
+		➛ <a onclick="document.location.hash='#4'; getCurSlideFromHash(); updateSlides()">CSS3</a><br/>
 		➛ <a onclick="document.location.hash='#18'; getCurSlideFromHash(); updateSlides()">SVG</a><br/>
 		➛ <a onclick="document.location.hash='#31'; getCurSlideFromHash(); updateSlides()">Canvas</a><br/>
 		➛ <a onclick="document.location.hash='#38'; getCurSlideFromHash(); updateSlides()">WebGL</a><br/>
@@ -304,28 +305,26 @@
         <h1>
           Animez vos pages HTML5<br/>
         </h1>
-        <p style="color: black">avec CSS3, SVG, Canvas et WebGL</p>
+        <br/>
         <br />
         <p>
           Martin Gorner
           <br />
-          Generate London, 13 septembre 2013
+          GDG DevFest Berlin 2013
         </p>
         
 	      <translation lang='en'>
 		      Animate your HTML5
-		      with CSS3, SVG, Canvas and WebGL
 		      Martin Gorner
-              Generate London, Septembre 13, 2013
+              --self--
 	      </translation>
          <translation lang='pt'>
 		      Anime seu HTML5
-		      com CSS3, SVG, Canvas e WebGL
 		      Martin Gorner [ Tradução: Átila Camurça ]
-             Generate London 2013
+              --self--
 	      </translation>
       </article>
-      
+
 <!-- ------------------------------------------------------------------------------- -->
 <!-- 1. Transitions and Animations -->
 
@@ -340,59 +339,6 @@
         Transições e Animações em CSS3
         </translation>
       </article>
-
-<!-- ------------------------------------------------------------------------------- -->
-<!-- Transitions and Animations demo -->
-
-		<article class="nobackground" style="overflow: visible" onclick="move('tile_user'); move('tile_console'); move('tile_browser'); move('tile_usb'); move('tile_phone'); move('tile_game'); move('tile_computer'); move('tile_world'); move('tile_bberry');">
-		
-		<!-- captions -->
-			<div class="caption" style="left:155px; top:45px">slide</div>
-			<div class="caption" style="left:355px; top:45px">slide with cubic BEZIER speed</div>
-			<div class="caption" style="left:555px; top:45px">slide with OPACITY</div>
-			<div class="caption" style="left:155px; top:245px">ROTATE</div>
-			<div class="caption" style="left:355px; top:245px">rotateX</div>
-			<div class="caption" style="left:555px; top:245px">rotate with modified ORIGIN</div>
-			<div class="caption" style="left:155px; top:445px">scaling ANIMATION with keyframe</div>
-			<div class="caption" style="left:355px; top:445px">skew ANIMATION with keyframe</div>
-			<div class="caption" style="left:555px; top:445px; TranslateZ(-200px)">3D rotate</div>
-			
-			<!-- tiles -->
-			<img class="movable begin" onclick="move('tile_user'); arguments[0].stopPropagation();" id="tile_user" src="../images/tile_user.png"/>
-			<img class="movable begin" onclick="move('tile_console'); arguments[0].stopPropagation();"id="tile_console" src="../images/tile_console.png" />
-			<img class="movable begin" onclick="move('tile_browser'); arguments[0].stopPropagation();" id="tile_browser" src="../images/tile_browser.png"/>
-			<img class="movable begin" onclick="move('tile_usb'); arguments[0].stopPropagation();" id="tile_usb" src="../images/tile_usb.png"/>
-			<img class="movable begin" onclick="move('tile_phone'); arguments[0].stopPropagation();" id="tile_phone" src="../images/tile_phone.png"/>
-			<img class="movable begin" onclick="move('tile_game'); arguments[0].stopPropagation();" id="tile_game" src="../images/tile_game.png"/>
-			<img class="movable" onclick="move('tile_computer'); arguments[0].stopPropagation();" id="tile_computer" src="../images/tile_computer.png"/>
-			<img class="movable" onclick="move('tile_world'); arguments[0].stopPropagation();" id="tile_world" src="../images/tile_world.png"/>
-			<div class="movable begin" id="tile_bberry" onclick="move('tile_bberry'); arguments[0].stopPropagation();">
-				<img src="../images/tile_bberry.png" />
-			</div>
-			
-			<translation lang="en">
-			--self--
-			--self--
-			--self--
-			--self--
-			--self--
-			--self--
-			--self--
-			--self--
-			--self--
-			</translation>
-         <translation lang="pt">
-			--self--
-			slide com velocidade BÉZIER cúbica
-			slide com opacidade
-			ROTAÇÃO
-			rotaçãoX
-			rotação com origem modificada
-			ANIMAÇÃO em escala com keyframe
-			ANIMAÇÃO enviesada com keyframe
-			rotação 3D
-			</translation>
-		</article>
 		      
 <!-- ------------------------------------------------------------------------------- -->
 <!-- On peut combiner les propriétés CSS et les transitions -->
@@ -3846,6 +3792,83 @@ function animate(t)
       </article>
 
 <!-- ------------------------------------------------------------------------------- -->
+<!-- CSS filters -->
+
+      <style type="text/css">
+          #filter-select label {font-family: monospace; font-size: xx-large}
+          #filter-select input[type="range"] {position: relative}
+          #filter-select table tr td {border: none; padding-left: 0px}
+          .range-percent:before, .range-percent:after { position: absolute; top:1.4em; }
+          .range-percent:before { content: attr(min)"%"; left: 0em; }
+          .range-percent:after { content: attr(max)"%"; right: 0em; }
+          .range-pixel:before, .range-pixel:after {  position: absolute; top:1.4em;}
+          .range-pixel:before { content: attr(min)"px"; left: 0em; }
+          .range-pixel:after { content: attr(max)"px"; right: 0em; }
+          .range-degree:before, .range-degree:after {  position: absolute; top:1.4em;}
+          .range-degree:before { content: attr(min)"°"; left: 0em; }
+          .range-degree:after { content: attr(max)"°"; right: 0em; }
+      </style>
+      <article onslideenter="document.getElementById('filter-demo-img').src = 'images/littleguy_noshadow.svg';
+                             apply_css_filters('filter-demo-img', filterselect_grayscale.value, filterselect_sepia.value, filterselect_blur.value, filterselect_dropshadow.value, filterselect_huerotate.value);
+                             change_filter_text_dropshadow('filter-demo-txt', filterselect_dropshadow.value)"
+               onslideleave="document.getElementById('filter-demo-img').src = 'images/littleguy_static_noshadow.svg'" >
+          <h3>Filtres CSS: nouveau mais classique</h3>
+
+          <img id="filter-demo-img" src="images/littleguy_static_noshadow.svg" style="position: absolute; top: -50px; right: -100px; "/>
+
+          <pre class="big" id="filter-demo-txt">-webkit-filter: </pre>
+
+          <form id="filter-select" style="margin-top: 70px" oninput="apply_css_filters('filter-demo-img', filterselect_grayscale.value, filterselect_sepia.value, filterselect_blur.value, filterselect_dropshadow.value, filterselect_huerotate.value)">
+              <table style="width:330px; " >
+                  <tr>
+                    <td><label>grayscale</label></td><td><input id="filterselect_grayscale" class="range-percent" type="range"  min="0" max="100" value="0" onchange="change_filter_text_grayscale('filter-demo-txt', value)"></td>
+                  </tr>
+                  <tr>
+                    <td><label>sepia</label></td><td><input id="filterselect_sepia" class="range-percent" type="range"  min="0" max="100" value="0" onchange="change_filter_text_sepia('filter-demo-txt', value)"></td>
+                  </tr>
+                  <tr>
+                      <td><label>blur</label></td><td><input id="filterselect_blur" class="range-pixel" type="range"  min="0" max="100" value="0" onchange="change_filter_text_blur('filter-demo-txt', value)"></td>
+                  </tr>
+                  <tr>
+                      <td><label>drop-shadow</label></td><td><input id="filterselect_dropshadow" class="range-pixel" type="range"  min="0" max="100" value="16" onchange="change_filter_text_dropshadow('filter-demo-txt', value)"></td>
+                  </tr>
+                  <tr>
+                      <td><label>hue-rotate</label></td><td><input id="filterselect_huerotate" class="range-degree" type="range"  min="0" max="360" value="0" onchange="change_filter_text_huerotate('filter-demo-txt', value)"></td>
+                  </tr>
+                  <tr style="text-align: center">
+                      <td colspan="2">
+                          <input type="button" onclick="filterselect_grayscale.value = 1;
+                                                        filterselect_sepia.value = 0;
+                                                        filterselect_blur.value = 0;
+                                                        filterselect_dropshadow.value = 0;
+                                                        filterselect_huerotate.value = 0;
+                                                        apply_css_filters('filter-demo-img', filterselect_grayscale.value, filterselect_sepia.value, filterselect_blur.value, filterselect_dropshadow.value, filterselect_huerotate.value)"
+                                 value="Reset" />
+                      </td>
+                  </tr>
+              </table>
+          </form>
+
+          <translation lang='en'>
+              CSS filters: new but familiar
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              CSS filters: new but familiar
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
 <!-- CSS shaders -->
 
       <style type="text/css">
@@ -3889,7 +3912,7 @@ function animate(t)
              height: 100%;
              transition: 1s ease-out;
              transform: translateZ(-280px);
-             -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform perspective(1000) scale(1) translateZ(-280px) rotateX(0deg) rotateY(0deg) rotateZ(0deg), curlRadius 0.1, bleedThrough 0.3,
+             -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform perspective(1000) scale(1) translateZ(-280px) rotateX(0deg) rotateY(0deg) rotateZ(0deg), curlRadius 0.1, bleedThrough 0.3,
                              curlPosition 1.0 1.0,
                              curlDirection 180,
                              phase 0,
@@ -3982,19 +4005,21 @@ function animate(t)
  
  <!-- ------------------------------------------------------------------------------- -->
  <!-- CSS shaders syntax -->
+      <style type="text/css">
+          #shadersyntax pre div {line-height: 10px; font-size: xx-small}
 
-      <article>
+      </style>
+      <article id="shadersyntax">
           <H3>CSS shaders: la syntaxe</H3>
           <pre class="big" style="margin:25px 0px 25px 0px">
-<b>-webkit-filter: custom(</b>
-
-    url(<b>wind.vs</b>) mix(url(<b>wind.fs</b>) normal source-atop),
-
-    90 90, transform perspective(1000) rotateY(10deg),
+<b>-webkit-filter: custom(</b><div>
+    </div>    url(<b>wind.vs</b>) mix(url(<b>wind.fs</b>) normal source-over),<div>
+    </div>    90 90, transform perspective(1000) rotateY(10deg),
     /* <span>Paramètres utilisateurs</span>, */
     /* <span>modifiables depuis une animation CSS</span> */
     curlPosition 0.2 0.5,
-    curlDirection -45);</pre>
+    curlDirection -45,
+    curlRadius 0.15);</pre>
           <table class="table-noborders">
               <tr style="text-align: center"><td><img src="images/vertexshader.png" width="300px"/><br/>Vertex Shader: X Y Z ?</td><td><img src="images/pixelshader.png" width="300px"/><br/>Pixel Shader: R G B ?</td></tr>
           </table>
@@ -4023,42 +4048,131 @@ usable in CSS animations
           </translation>
       </article>
 
- <!-- ------------------------------------------------------------------------------- -->
- <!-- CSS shaders explained -->
+<!-- ------------------------------------------------------------------------------- -->
+<!-- GLSL: beautiful language for geometry -->
+
+      <style type="text/css">
+          #glslfuncs div div {position: relative; border: 1px grey solid; padding: 10px; margin-bottom: 30px;}
+          #glslfuncs div div span {color: brown; font-weight: bold}
+          #glslfuncs div div ul li:before {content:""}
+          #glslfuncs div div ul {margin-left: 10px; margin-top: 0px}
+          #glslfuncs div div ul li {margin: 0px; font-family: monospace; font-size: xx-large;}
+          #glslfuncs div {position: relative; box-sizing: border-box}
+      </style>
+      <article id="glslfuncs">
+          <H3>GLSL: idéal pour la géométrie</H3>
+          <div style="margin-top: 30px">
+              <div style="width:45%">
+                  <span>Vecteurs et matrices:</span>
+                  <ul>
+                      <li>mat2, mat3, mat4</li>
+                      <li>vec2, vec3, vec4</li>
+                      <li>vec3 vector =</li><li style="text-align: right">vec3(1.0, 3.0, -2.5)</li>
+                      <li>opérateurs + - * /</li>
+                  </ul>
+              </div>
+              <div style="width: 100%">
+                  <span>Exemples d'opérations:</span>
+                  <ul>
+                      <li>vec2 point = vector.xy;</li>
+                      <li>vec4 color = vec4(vector.xxx, 0.5);</li>
+                      <li>vec3 brga_color = color.brga;</li>
+                      <li>vec3 v = 2.0*inverse(transform_matrix) * vector;</li>
+                  </ul>
+              </div>
+              <div style="position: absolute; top: 0px; right: 0px; width: 50%">
+                  <span>Fonctions géométriques:</span>
+                  <ul>
+                      <li>dot, cross, normalize</li>
+                      <li>inverse, transpose</li>
+                      <li>length, distance</li>
+                      <li>reflect, refract</li>
+                      <li>mix, clamp</li>
+                  </ul>
+              </div>
+
+          </div>
+
+          <translation lang='en'>
+              GLSL: the ideal language for geometry
+              Vectors and matrices:
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+              Examples:
+              --self--
+              --self--
+              --self--
+              --self--
+              Geometry functions:
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              GLSL: the ideal language for geometry
+              Vectors and matrices:
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+              Examples:
+              --self--
+              --self--
+              --self--
+              --self--
+              Geometry functions:
+              --self--
+              --self--
+              --self--
+              --self--
+              --self--
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- CSS shaders explained -->
+
       <style type="text/css">
       article#behindtheshader div p.to-build~p.to-build~p.to-build~p.to-build~p.to-build~span#martyr
       {
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(0deg), curlRadius 0.15, bleedThrough 0.5, curlPosition 0.5 0.5, curlDirection 100, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(0deg), curlRadius 0.15, bleedThrough 0.5, curlPosition 0.5 0.5, curlDirection 100, phase 0, lightEffectsIntensity 1, flutterAmp 0);
           background: url(images/vibrantmed.png) !important;
           transition: 0s;
       }
       article#behindtheshader div p.to-build~p.to-build~p.to-build~p.to-build~span#martyr
       {
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(0deg), curlRadius 0.15, bleedThrough 0.5, curlPosition 0.5 0.5, curlDirection 100, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(0deg), curlRadius 0.15, bleedThrough 0.5, curlPosition 0.5 0.5, curlDirection 100, phase 0, lightEffectsIntensity 1, flutterAmp 0);
           transition: 0.5s;
           background: url(images/shadergrid.png), url(images/vibrantmed.png);
       }
       article#behindtheshader div p.to-build~p.to-build~p.to-build~span#martyr
       {
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(0deg) rotateY(0deg) translateZ(-200px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(0deg) rotateY(0deg) translateZ(-200px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0);
           transition: 5s;
           background: url(images/shadergrid.png), url(images/vibrantmed.png);
       }
       article#behindtheshader div p.to-build~p.to-build~span#martyr
       {
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0);
           transition: 5s;
           background: url(images/shadergrid.png), url(images/vibrantmed.png);
       }
       article#behindtheshader div p.to-build~span#martyr
       {
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 20, lightEffectsIntensity 0, flutterAmp 0.15);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 20, lightEffectsIntensity 0, flutterAmp 0.15);
           transition: 8s;
           background: url(images/shadergrid.png), url(images/vibrantmed.png);
       }
       article#behindtheshader div span.to-build#martyr
       {
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 20, lightEffectsIntensity 1, flutterAmp 0.15);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(75deg) rotateZ(-30deg) translateX(100px) translateY(100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.4 0.2, curlDirection 130, phase 20, lightEffectsIntensity 1, flutterAmp 0.15);
           transition: 0.5s;
           background: url(images/shadergrid.png), url(images/vibrantmed.png);
       }
@@ -4068,7 +4182,7 @@ usable in CSS animations
           top: 0px;
           left: 0px;
           transition: 1s;
-          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 150 150 border-box, transform  perspective(1000) rotateX(40deg) rotateZ(-20deg) translateX(40px) translateY(-120px) translateZ(-100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.2 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0.4);
+          -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-over), 150 150 border-box, transform  perspective(1000) rotateX(40deg) rotateZ(-20deg) translateX(40px) translateY(-120px) translateZ(-100px), curlRadius 0.15, bleedThrough 0.5, curlPosition -0.2 0.2, curlDirection 130, phase 0, lightEffectsIntensity 1, flutterAmp 0.4);
           background: url(images/vibrantmed.png);
       }
       article#behindtheshader div p
@@ -4113,11 +4227,69 @@ usable in CSS animations
       </article>
 
 <!-- ------------------------------------------------------------------------------- -->
+<!-- GLSL Vertex shader: ins and outs -->
+      <article>
+          <H3>Vertex shader: en entrée et en sortie</H3>
+          <img src="images/vertexshader_complex.png" />
+          <translation lang='en'>
+              Vertex shader: inputs and outputs
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              Vertex shader: inputs and outputs
+          </translation>
+      </article>
+<!-- ------------------------------------------------------------------------------- -->
+<!-- GLSL Vertex shader: ins and outs -->
+
+      <article>
+            <H3 style="margin-bottom:30px">Vertex shader: en entrée et en sortie</H3>
+            <pre class="big" style="margin-top: 20px">
+<span>// attribut standard</span>
+attribute vec4 a_position;
+
+<span>// uniforme standard</span>
+uniform mat4 u_projectionMatrix;
+
+<span>// uniforme correspondant à la transformation CSS</span>
+uniform mat4  transform;
+
+<span>// uniformes définis par l'utilisateur dans les CSS</span>
+uniform vec2  curlPosition;
+uniform float curlDirection;
+uniform float curlRadius;
+
+<span>// sortie: variant passé au pixel shader</span>
+varying vec3 v_normal;
+<span>// sortie: variable standard gl_Position</span>
+</pre>
+          <translation lang='en'>
+              Vertex shader: inputs and outputs
+// built-in attribute
+// built-in uniform
+// uniform representing the CSS transform matrix
+// uniforms defined by the user in CSS
+// output: variants passed to the pixel shader
+// output: built-in variable gl_Position
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              Vertex shader: inputs and outputs
+// built-in attribute
+// built-in uniform
+// uniform representing the CSS transform matrix
+// uniforms defined by the user in CSS
+// output: variants passed to the pixel shader
+// output: built-in variable gl_Position
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
 <!-- GLSL Vertex shader: cylinder -->
       <article>
-          <H3>GLSL Vertex shader: on enroule sur un cylindre</H3>
+          <H3>Vertex shader: on enroule sur un cylindre</H3>
 <table class="table-noborders" style="margin-top:20px;margin-left:-10px"><tr><td>
-          <pre style="margin: 0px 10px 10px 0px; font-size: 0.5em; line-height:1.4em; width:280px">// Valeurs "attributs" standard
+          <pre style="margin: 0px 10px 10px 0px; font-size: 0.5em; line-height:1.4em; width:280px"><span>// Valeurs "attributs" standard</span>
 attribute vec4 a_position;
 <span>// Valeurs "uniforms" standard</span>
 uniform mat4 u_projectionMatrix;
@@ -4142,9 +4314,9 @@ void main() {
     vec3 C = vec3(a_position.xy - d * N, R);
 
     <span>// Vertex enroulé sur le cylindre</span>
-    vec3 V = C.xy + R * vec3( sin(d/R) * N.x,
-                              sin(d/R) * N.y,
-                              1.0 - cos(d/R));
+    vec3 V = C + R * vec3( sin(d/R) * N.x,
+                           sin(d/R) * N.y,
+                          -cos(d/R));
     <span>// vecteur normal à la surface du cylindre</span>
     v_normal = (C - V) / R;
 
@@ -4154,7 +4326,8 @@ void main() {
 </td></tr></table>
 
           <translation lang='en'>
-              GLSL Vertex shader (part): roll onto a cylinder
+              Vertex shader (part): roll onto a cylinder
+// Built-in attributes
 // Built-in uniforms
 // Uniforms passed in from CSS
 // curl direction
@@ -4172,6 +4345,7 @@ void main() {
           <!-- missing portuguese translation here -->
           <translation lang='pt'>
               GLSL Vertex shader (part): roll onto a cylinder
+// Built-in attributes
 // Built-in uniforms
 // Uniforms passed in from CSS
 // curl direction
@@ -4189,10 +4363,24 @@ void main() {
       </article>
 
 <!-- ------------------------------------------------------------------------------- -->
+<!-- GLSL Pixel shader: inputs and outputs -->
+      <article>
+          <H3>Pixel Shader: en entrée et en sortie</H3>
+          <img src="images/pixelshader_complex.png" />
+          <translation lang='en'>
+              Pixel shader: inputs and outputs
+          </translation>
+          <!-- missing portuguese translation here -->
+          <translation lang='pt'>
+              Pixel shader: inputs and outputs
+          </translation>
+      </article>
+
+<!-- ------------------------------------------------------------------------------- -->
 <!-- GLSL Pixel shader: Lambert -->
 
       <article>
-          <H3>GLSL Pixel shader: ombrage de Lambert</H3>
+          <H3>Pixel shader: ombrage de Lambert</H3>
           <pre class="big" style="margin:25px 0px 25px 0px">
 <span>// valeurs "Varyings" passées par le vertex shader</span>
 varying vec3 v_normal;
@@ -4207,7 +4395,7 @@ void main() {
 }</pre>
            <center><img src="images/lambert.svg"/> </center>
           <translation lang='en'>
-              GLSL Pixel shader: Lambert lighting
+              Pixel shader: Lambert lighting
 // Varyings passed from vertex shader
 // Uniforms passed from CSS
               --self--
@@ -4308,10 +4496,10 @@ void main() {
           Show time !
         </h2>
         <ul>
-        <li><a href="../part4-webgl/index.html">Android skins (normal map, bump map, enviro. map)</a></li>
+        <li><a href="http://html.adobe.com/webplatform/graphics/customfilters/cssfilterlab/">Le CSS filter lab d'Adobe</a> (CSS shaders)</li>
+        <li><a href="../part4-webgl/index.html">Android skins</a> (WebGL)</li>
 
-        <li><a href="http://mrdoob.github.com/three.js/examples/webgl_shader_lava.html">Lava shader</a></li>
-        <li><a href="http://www.neveroccurs.com/lab/three.js/gpu_particles/index.html?particles=256">Particules et GPGPU</a></li>
+        <li><a href="http://mrdoob.github.com/three.js/examples/webgl_shader_lava.html">Lava shader</a>, <a href="http://www.neveroccurs.com/lab/three.js/gpu_particles/index.html?particles=256">Particules et GPGPU</a></li>
 
         
         <li><a href="http://2012.beercamp.com/">Beercamp 2012</a> (CSS3 + SVG)</li>
@@ -4329,6 +4517,10 @@ void main() {
         </ul>
         
         <translation lang='en'>
+        --self--
+        Adobe's CSS filter lab
+        --self--
+        --self--
         --self--
         --self--
         --self--
@@ -4352,6 +4544,10 @@ void main() {
 
         <translation lang='pt'>
         Hora do show!
+        Adobe's CSS filter lab
+        --self--
+        --self--
+        --self--
         --self--
         --self--
         Partículas e GPGPU

@@ -104,8 +104,7 @@ void main()
     float dr = d/(PI*curlRadius);
     float s = sin(PI*dr);
     float c = cos(PI*dr);
-    vec3 v1 = vec3(s*n.x, s*n.y, 1.0 - c)*curlRadius;
-    v1.xy += center.xy;
+    vec3 v1 = vec3(s*n.x, s*n.y, -c)*curlRadius + center;
 
     // Vertex beyond the curl (v2)
     vec3 v2;

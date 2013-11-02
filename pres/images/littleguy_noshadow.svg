@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+						
+<defs>
+   <!-- animation paths -->
+  <path
+     style="fill:none;"
+     id="eyeroll1"
+     d="m 0,0 a 7.9464288,7.9464288 0 1 1 -15.89285,0 7.9464288,7.9464288 0 1 1 15.89285,0 z"
+     transform="matrix(1.3060337,0,0,1,-143.15464,-3.0357143)" />
+  <path
+     style="fill:none;"
+     id="eyeroll2"
+     d="m 0,0 a 15.267858,11.428572 0 1 1 -30.53572,0 15.267858,11.428572 0 1 1 30.53572,0 z"
+     transform="translate(-3.2142857,0)" />
+  <path
+     style="fill:none;"
+     d="M 0,0 C -84.283497,378.99925 -348.74872,342.85803 -603.55572,58.095847 -768.36754,-126.0913 -816.19442,-101.99374 -1071.3608,-179.6129"
+     id="wave" />
+</defs>
+		<g style="stroke:#00FF00;stroke-width:0;stroke-opacity:0" id="littleguysurfing">
+						   
+						   <g id="surfboard">
+							    <path
+							       d="m 397.28581,718.29757 c 19.95816,0 43.47861,-16.13459 43.47889,-30.2114 0.002,-95.29525 -0.89808,-451.15422 -1.05248,-510.0469 -0.0378,-14.40022 -14.80841,-34.51851 -41.41626,-34.51851 -26.60785,0 -40.8174,18.48928 -41.08045,31.44647 -1.07471,52.93832 -0.91016,422.27417 -1.47483,512.09694 -0.0865,13.75375 21.58697,31.2334 41.54513,31.2334 z"
+							       style="fill:#1cbaed;">
+							       
+							       <!-- transform the blue background rectangle into a surf board -->
+							    	<animate begin="0s" dur="2s" attributeName="d" fill="freeze"
+							    	values="m 397.28581,718.29757 c 19.95816,0 43.47861,-16.13459 43.47889,-30.2114 0.002,-95.29525 -0.89808,-451.15422 -1.05248,-510.0469 -0.0378,-14.40022 -14.80841,-34.51851 -41.41626,-34.51851 -26.60785,0 -40.8174,18.48928 -41.08045,31.44647 -1.07471,52.93832 -0.91016,422.27417 -1.47483,512.09694 -0.0865,13.75375 21.58697,31.2334 41.54513,31.2334 z;
+							    	        m 397.28581,718.29757 c 45.67245,0 42.88765,-92.66815 52.05032,-142.35426 13.77844,-74.71583 12.5248,-152.49869 3.23323,-227.90404 -8.62587,-70.00299 -27.66555,-204.51851 -54.2734,-204.51851 -26.60785,0 -43.90641,135.96298 -52.50902,206.44647 -9.05589,74.19742 -11.2965,150.57492 1.38231,224.2398 8.62562,50.11558 4.44411,144.09054 50.11656,144.09054 z" />
+							    </path>
+						    
+							    <g
+							       id="redcircle">
+							      <path
+							         style="fill:#ffffff;"
+							         d="m 426.28437,187.16653 a 28.789347,28.789347 0 1 1 -57.57869,0 28.789347,28.789347 0 1 1 57.57869,0 z"
+							         transform="translate(1.0101525,-2.020305)" />
+							      <path
+							         style="fill:#e21e23;"
+							         d="m 416.18286,189.18683 a 20.708128,20.708128 0 1 1 -41.41626,0 20.708128,20.708128 0 1 1 41.41626,0 z"
+							         transform="translate(3.0304576,-4.0406102)" />
+							      <path
+							         style="fill:#000000;"
+							         d="m 409.11178,186.15637 a 11.616755,11.616755 0 1 1 -23.23351,0 11.616755,11.616755 0 1 1 23.23351,0 z"
+							         transform="translate(2.0203049,-1.0101525)" />
+							         
+							         <!-- migrate decoration circle towards the middle of the board -->
+							         <animateTransform begin="0s" dur="1s" attributeName="transform" additive="sum" type="translate" values="0,0; 0,100" fill="freeze" />
+							    </g><!-- end redcircle -->
+							    <g
+							       id="blackcircle">
+							      <path
+							         style="fill:#000000;"
+							         d="m 428.30468,679.61591 a 29.294424,29.294424 0 1 1 -58.58885,0 29.294424,29.294424 0 1 1 58.58885,0 z"
+							         transform="translate(-1.0101525,-3.0304576)" />
+							      <path
+							         style="fill:#ffffff;"
+							         d="m 408.10163,663.95856 a 10.606602,10.606602 0 1 1 -21.21321,0 10.606602,10.606602 0 1 1 21.21321,0 z" />
+							         
+							       <!-- migrate decoration circle towards the middle of the board -->
+							       <animateTransform begin="0s" dur="1s" attributeName="transform" additive="sum" type="translate" values="0,0; 0,-50" fill="freeze" />
+							    </g><!-- end blackcircle -->
+						    
+						      <!-- move the surf board under the feet of the little guy -->
+						
+						      <animateTransform begin="0s" keySplines="0.3 0 0.70 1" calcMode="spline" dur="1s" attributeName="transform" additive="sum" type="translate" values="0,0; 800,150" fill="freeze" />
+						      <animateTransform begin="0s" keySplines="0.3 0 0.70 1" calcMode="spline" dur="1s" attributeName="transform" additive="sum" type="rotate" values="0; 90" fill="freeze" />
+						     
+						      <!-- animate the surfboard on waves -->
+						      <!-- translations -->
+						      <animateTransform begin="0s" keySplines="0.3 0 0.70 1; 0.3 0 0.70 1; 0.3 0 0.70 1" calcMode="spline" dur="2s" repeatCount="indefinite" attributeName="transform" additive="sum" type="translate" values="0,0; -50,0; 50,0; 0,0" />
+							  <animateTransform begin="0s" keySplines="0.3 0 0.70 1; 0.3 0 0.70 1; 0.3 0 0.70 1" calcMode="spline" dur="4s" repeatCount="indefinite" attributeName="transform" additive="sum" type="translate" values="0,0; 0,30; 0,-30; 0,0" />
+							  <!-- rotations -->
+						      <animateTransform begin="0s" keySplines="0.3 0 0.70 1; 0.3 0 0.70 1; 0.3 0 0.70 1" calcMode="spline" dur="3s" repeatCount="indefinite" attributeName="transform" additive="sum" type="translate" values="0,0; 200,-130;  -100,200; 0" />
+						      <animateTransform begin="0s" keySplines="0.3 0 0.70 1; 0.3 0 0.70 1; 0.3 0 0.70 1" calcMode="spline" dur="3s" repeatCount="indefinite" attributeName="transform" additive="sum" type="rotate" values="0; 20; -20; 0" />
+						  </g><!-- end surfboard -->
+						
+						  <g id="littleguy">
+								<path
+								   d="m 249.50768,527.08286 -1.01015,-196.97975 c -0.21241,-41.42075 35.35345,-102.18078 116.16754,-102.0254 78.79785,0.1515 112.47733,66.4553 130.30968,151.52288 l -55.55839,-1e-5 0,100.00511 c 0,24.24366 -25.25708,49.93465 -54.54824,49.49747 z"
+								   style="fill:#e21e23;" />
+								<g
+								   id="eye1">
+								  <path
+								     style="fill:#ffd400;"
+								     id="path4044"
+								     d="m 414.16256,324.54727 a 54.548237,56.063465 0 1 1 -109.09648,0 54.548237,56.063465 0 1 1 109.09648,0 z"
+								     transform="matrix(0.72222222,0,0,0.72222222,197.87766,85.690512)" />
+								  <path
+								     style="fill:#000000;"
+								     id="path4046"
+								     d="m 479.28572,320.04074 a 21.071428,21.071428 0 1 1 -42.14285,0 21.071428,21.071428 0 1 1 42.14285,0 z" >
+								     <animate begin="0s" attributeName="d" dur="1s" values="
+								     m 479.28572,320.04074 a 21.071428,21.071428 0 1 1 -42.14285,0 21.071428,21.071428 0 1 1 42.14285,0 z;
+								     m 477.32144,320.39789 a 19.107143,19.107143 0 1 1 -38.21429,0 19.107143,19.107143 0 1 1 38.21429,0 z;
+								     m 481.78572,319.86218 a 23.571428,23.571428 0 1 1 -47.14285,0 23.571428,23.571428 0 1 1 47.14285,0 z;
+								     m 479.28572,320.04074 a 21.071428,21.071428 0 1 1 -42.14285,0 21.071428,21.071428 0 1 1 42.14285,0 z"
+								     repeatCount="indefinite" />
+								     </path>
+								  <path
+								     style="fill:#ffffff;"
+								     id="path4048"
+								     d="m 380.8275,320.00159 a 9.5964489,9.0913725 0 1 1 -19.1929,0 9.5964489,9.0913725 0 1 1 19.1929,0 z"
+								     transform="matrix(0.72222222,0,0,0.72222222,197.87766,88.60873)">
+								     
+								     <animateMotion begin="0s" dur="1s" repeatCount="indefinite">
+								     		<mpath xlink:href="#eyeroll1" />
+								     </animateMotion>
+								  </path>
+						    	</g><!-- end eye1 -->
+							    <path
+							       id="mouth"
+							       d="m 338.4011,407.88486 89.90358,-1.01015 c 1.01015,15.15228 -13.13198,45.45686 -45.45687,45.45686 -32.32489,0 -44.29639,-28.91021 -44.44671,-44.44671 z"
+							       fill="#fdfdfd">
+							       <animate begin="0s" attributeName="d" dur="2s" keySplines="0 .5 0.75 1; 0 0 1 1; 0.5 0 0.5 1" calcMode="spline"
+							       values="m 338.4011,407.88486 89.90358,-1.01015 c 1.01015,15.15228 -13.13198,45.45686 -45.45687,45.45686 -32.32489,0 -44.29639,-28.91021 -44.44671,-44.44671 z;
+							               m 338.4011,407.88486 89.90358,-1.01015 c -4.04061,15.15228 -66.67006,106.06601 -98.99495,106.06601 -32.32489,0 3.18077,-89.51936 9.09137,-105.05586 z;
+							               m 338.4011,407.88486 89.90358,-1.01015 c -4.04061,15.15228 -66.67006,106.06601 -98.99495,106.06601 -32.32489,0 3.18077,-89.51936 9.09137,-105.05586 z;
+							               m 338.4011,407.88486 89.90358,-1.01015 c 1.01015,15.15228 -13.13198,45.45686 -45.45687,45.45686 -32.32489,0 -44.29639,-28.91021 -44.44671,-44.44671 z"
+							       repeatCount="indefinite" />
+							    </path>
+							    <g
+							       id="eye2">
+							      <path
+							         style="fill:#ffd400;"
+							         d="m 416.18284,325.05234 a 55.558392,55.558392 0 1 1 -111.11678,0 55.558392,55.558392 0 1 1 111.11678,0 z"
+							         transform="translate(-2.0203076,-5.0507618)" />
+							      <path
+							         style="fill:#000000;"
+							         d="m 387.89858,321.01175 a 29.294424,29.294424 0 1 1 -58.58885,0 29.294424,29.294424 0 1 1 58.58885,0 z"
+							         transform="translate(1.0101524,-2.0203018)">
+							         <animate begin="0s" attributeName="d" dur="1s" values="
+							         m 387.89858,321.01175 a 29.294424,29.294424 0 1 1 -58.58885,0 29.294424,29.294424 0 1 1 58.58885,0 z;
+							         m 395.53571,319.05862 a 36.160713,36.160713 0 1 1 -72.32142,0 36.160713,36.160713 0 1 1 72.32142,0 z;
+							         m 387.89858,321.01175 a 29.294424,29.294424 0 1 1 -58.58885,0 29.294424,29.294424 0 1 1 58.58885,0 z"
+							         repeatCount="indefinite" />
+							         </path>
+							      <path
+							         style="fill:#ffffff;"
+							         d="m 381.83766,323.03204 a 11.111678,11.111678 0 1 1 -22.22336,0 11.111678,11.111678 0 1 1 22.22336,0 z"
+							         transform="matrix(0.86363637,0,0,0.86363637,50.048465,39.504133)">
+							         <animateMotion begin="0s" dur="1s" repeatCount="indefinite">
+							         		<mpath xlink:href="#eyeroll2" />
+							         </animateMotion>
+							         </path>
+							    </g><!-- end eye2 -->
+						    
+						      	<!-- translations -->
+						      	<animateTransform begin="0s" keySplines="0 0.5 1 1; 0 0 0.70 1" calcMode="spline" dur="1s" attributeName="transform" additive="sum" type="translate" values="0,0; 50,-50; 0,0" />
+						      	<animateTransform begin="0s" keySplines="0.3 0 0.70 1; 0.3 0 0.70 1; 0.3 0 0.70 1" calcMode="spline" dur="2s" repeatCount="indefinite" attributeName="transform" additive="sum" type="translate" values="0,0; 10,0; -20,0; 0,0" />
+								<animateTransform begin="0s" keySplines="0.3 0 0.70 1; 0.3 0 0.70 1; 0.3 0 0.70 1" calcMode="spline" dur="3s" repeatCount="indefinite" attributeName="transform" additive="sum" type="translate" values="0,0; 0,30; 0,-40; 0,0" />
+						  </g><!-- end littleguy -->
+					  </g><!-- end littleguysurfing -->
+		   
+</svg>
