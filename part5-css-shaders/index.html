@@ -23,25 +23,17 @@
     <script type="text/javascript" src="../prescommon/prefixfree.min.js" ></script>
     <link rel="stylesheet" type="text/css" href="../styles.css" />
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script src="../pres/css_shaders/wind.js" type="text/javascript" ></script>
 </head>
 <body>
 
 <!-- captions -->
-<div class="caption title">CSS3 and 3D transforms</div>
-<div class="caption">HOVER over the cube!</div>
+<div class="caption title">CSS3 custom filters</div>
+<div class="caption">It's windy here...</div>
 <!-- tiles -->
 
     <div class="stage screen-centered">
-        <div class="stage2">
-        <div class=" cube">
-            <img class="cubeface" id="tile_bberry"   src="../images/tile_bberry.png" />
-            <img class="cubeface" id="tile_world"    src="../images/tile_world.png" />
-            <img class="cubeface" id="tile_user"     src="../images/tile_user.png" />
-            <img class="cubeface" id="tile_usb"      src="../images/tile_usb.png" />
-            <img class="cubeface" id="tile_computer" src="../images/tile_computer.png" />
-            <img class="cubeface" id="tile_game"     src="../images/tile_game.png" />
-        </div>
-        </div>
+    <img id="vibrant" src="../images/vibrantbig.png" onload="windStart('vibrant', 1.0, 0.8)"/>
     </div>
  
 </body>

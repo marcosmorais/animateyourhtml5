@@ -15,67 +15,19 @@
  *
  *   Author: Martin Gorner (mgorner@google.com)
  */
-.stage
-{
-	perspective: 1000px;
-	/* perspective-origin: 50% 50%;*/ /* this is the default*/
-    transform-style: preserve-3d;
-}
 
-.stage2
+#vibrant
 {
-    transform-style: preserve-3d;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    transform:  translateZ(200px);
-}
-.cube
-{
-	/*background-color: blue;*/
-	position: relative;
-	left: 0px;
-	top: 0px;
-	width: 300px;
-	height: 300px;
     top: 50%;
     left: 50%;
-    margin-top: -150px;
-    margin-left: -150px;
-	transform-style: preserve-3d;
-	animation: rotate-cube 15s linear infinite;
+    margin-top: -450px;
+    margin-left: -450px;
+    width: 900px;
+    height: 900px;
+
+    transition: 1s;
+    -webkit-filter: custom(url(../pres/css_shaders/curl.vs) mix(url(../pres/css_shaders/curl.fs) normal source-atop), 50 50 border-box, transform perspective(1000) scale(1) translateZ(-280px) rotateX(0deg) rotateY(0deg) rotateZ(0deg), curlRadius 0.1, bleedThrough 0.5,
+                    curlPosition 1 1,
+                    curlDirection 180);
 }
-
-.cubeface
-{
-	position: absolute;
-	transition: all 600ms;
-	top: 15px;
-	left: 15px;
-}
-
-@keyframes rotate-cube
-{
-	from
-	{
-        transform: rotateZ(0Deg) rotateY(0Deg);
-	}
-	to
-	{
-		transform: rotateZ(1080Deg) rotateY(360Deg);
-	}
-}
-
-#tile_bberry   { transform: translateZ(150px); }
-#tile_world    { transform: translateX(150px) rotateY(90Deg); }
-#tile_user     { transform: translateX(-150px) rotateY(-90Deg); }
-#tile_usb      { transform: translateZ(-150px); }
-#tile_computer { transform: translateY(150px) rotateX(90Deg); }
-#tile_game     { transform: translateY(-150px) rotateX(-90Deg); }
-
-:hover > #tile_bberry   { transform: translateZ(250px); }
-:hover > #tile_world    { transform: translateX(250px) rotateY(90Deg); }
-:hover > #tile_user     { transform: translateX(-250px) rotateY(-90Deg); }
-:hover > #tile_usb      { transform: translateZ(-250px); }
-:hover > #tile_computer { transform: translateY(250px) rotateX(90Deg); }
-:hover > #tile_game     { transform: translateY(-250px) rotateX(-90Deg); }
