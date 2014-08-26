@@ -30,7 +30,7 @@ function firstRender(id)
 		canvascontainer.animation = true;
 	
 	var width  = canvascontainer.clientWidth;
-	var height = canvascontainer.clientHeight-2; // unfathomable bug: why do I get a scroll bar with the full height ???
+	var height = canvascontainer.clientHeight;
 	
 	// renderer
 	var renderer = new THREE.WebGLRenderer ({alpha:true, antialias: true});
@@ -106,7 +106,7 @@ function firstLoadAndroid(scene)
 	loader.options.convertUpAxis= true;
 	loader.options.upAxis = 'Y';
 	
-	loader.load("../models/Android-s.dae",
+	loader.load("../models/Android.dae",
 			function(collada)
 			{
 				var scale = new THREE.Vector3(3,3,3);
@@ -142,7 +142,7 @@ function firstLoadCube(scene)
 function killFirstRender(id)
 {
 	var canvascontainer = document.getElementById(id);
-	canvascontainer.animation = -1; // dying (set this wether the animation is running or not)
+	canvascontainer.animation = -1; // dying (set this whether the animation is running or not)
 	window.setTimeout(function()
 	{
 		// signal death of this animation
