@@ -1,5 +1,7 @@
+/**
+ * @author James Baicoianu / http://www.baicoianu.com/
+ */
 
-// Modified and debugged flight controls from THREE.js
 THREE.MyFlyControls = function ( object, domElement ) {
 
 	this.object = object;
@@ -16,8 +18,6 @@ THREE.MyFlyControls = function ( object, domElement ) {
 	this.autoForward = false;
 
 	// disable default target object behavior
-
-	this.object.useQuaternion = true;
 
 	// internals
 
@@ -53,6 +53,8 @@ THREE.MyFlyControls = function ( object, domElement ) {
 
 			case 16: /* shift */ this.movementSpeedMultiplier = 5; break;
 
+			case 86: /*V*/ this.moveState.back = 1; break;
+
 			case 87: /*W*/ this.moveState.left = 1; break;
 			case 67: /*C*/ this.moveState.right = 1; break;
 
@@ -75,6 +77,8 @@ THREE.MyFlyControls = function ( object, domElement ) {
 
 			case 16: /* shift */ this.movementSpeedMultiplier = 1; break;
 
+			case 86: /*V*/ this.moveState.back = 0; break;
+
 			case 87: /*W*/ this.moveState.left = 0; break;
 			case 67: /*C*/ this.moveState.right = 0; break;
 
@@ -83,7 +87,7 @@ THREE.MyFlyControls = function ( object, domElement ) {
 
 			case 81: /*Q*/ this.moveState.rollLeft = 0; break;
 			case 68: /*D*/ this.moveState.rollRight = 0; break;
-			
+
 			case 27: /*Esc*/ spaceland(); break;
 
 		}
@@ -111,16 +115,16 @@ THREE.MyFlyControls = function ( object, domElement ) {
 		} else {
 
 			switch ( event.button ) {
-			
+
 				case 0: this.moveState.forward = 1; break;
 				case 1: this.moveState.back = 1; break;
+
 			}
+
+			this.updateMovementVector();
+
 		}
-		
-		this.updateMovementVector();
-		this.updateRotationVector();
-		
-		return false;
+
 	};
 
 	this.mousemove = function( event ) {
@@ -134,8 +138,8 @@ THREE.MyFlyControls = function ( object, domElement ) {
 			this.moveState.yawLeft   = - ( ( event.pageX - container.offset[ 0 ] ) - halfWidth  ) / halfWidth;
 			this.moveState.pitchDown =   ( ( event.pageY - container.offset[ 1 ] ) - halfHeight ) / halfHeight;
 
-			this.updateMovementVector();
 			this.updateRotationVector();
+
 		}
 
 	};
@@ -154,17 +158,18 @@ THREE.MyFlyControls = function ( object, domElement ) {
 		} else {
 
 			switch ( event.button ) {
-			
+
 				case 0: this.moveState.forward = 0; break;
 				case 1: this.moveState.back = 0; break;
+
 			}
+
+			this.updateMovementVector();
 
 		}
 
-		this.updateMovementVector();
 		this.updateRotationVector();
-		
-		return false;
+
 	};
 
 	this.update = function( delta ) {
@@ -177,11 +182,10 @@ THREE.MyFlyControls = function ( object, domElement ) {
 		this.object.translateZ( this.moveVector.z * moveMult );
 
 		this.tmpQuaternion.set( this.rotationVector.x * rotMult, this.rotationVector.y * rotMult, this.rotationVector.z * rotMult, 1 ).normalize();
-		this.object.quaternion.multiplySelf( this.tmpQuaternion );
+		this.object.quaternion.multiply( this.tmpQuaternion );
 
-		this.object.matrix.setPosition( this.object.position );
-		this.object.matrix.setRotationFromQuaternion( this.object.quaternion );
-		this.object.matrixWorldNeedsUpdate = true;
+		// expose the rotation vector for convenience
+		this.object.rotation.setFromQuaternion( this.object.quaternion, this.object.rotation.order );
 
 
 	};
@@ -227,14 +231,14 @@ THREE.MyFlyControls = function ( object, domElement ) {
 		}
 
 	};
-	
+
 	this.removeEventListeners = function()
 	{
-		this.domElement.removeEventListener('mousemove');
-		this.domElement.removeEventListener('mousedown');
-		this.domElement.removeEventListener('mouseup');
-		this.domElement.removeEventListener('keydown');
-		this.domElement.removeEventListener('keyup');
+		this.domElement.removeEventListener('mousemove', this.mousemoveEventListener, false);
+		this.domElement.removeEventListener('mousedown', this.mousedownEventListener, false);
+		this.domElement.removeEventListener('mouseup', this.mouseupEventListener, false);
+		this.domElement.removeEventListener('keydown', this.keydownEventListener, false );
+		this.domElement.removeEventListener('keyup', this.keyupEventListener, false);
 	};
 
 	function bind( scope, fn ) {
@@ -247,12 +251,17 @@ THREE.MyFlyControls = function ( object, domElement ) {
 
 	};
 
-	this.domElement.addEventListener( 'mousemove', bind( this, this.mousemove ), false );
-	this.domElement.addEventListener( 'mousedown', bind( this, this.mousedown ), false );
-	this.domElement.addEventListener( 'mouseup',   bind( this, this.mouseup ), false );
+    this.mousemoveEventListener = bind( this, this.mousemove);
+	this.domElement.addEventListener( 'mousemove', this.mousemoveEventListener, false );
+    this.mousedownEventListener = bind( this, this.mousedown);
+	this.domElement.addEventListener( 'mousedown', this.mousedownEventListener, false );
+    this.mouseupEventListener = bind( this, this.mouseup);
+	this.domElement.addEventListener( 'mouseup',   this.mouseupEventListener, false );
 
-	this.domElement.addEventListener( 'keydown', bind( this, this.keydown ), false );
-	this.domElement.addEventListener( 'keyup',   bind( this, this.keyup ), false );
+    this.keydownEventListener =  bind( this, this.keydown );
+	this.domElement.addEventListener( 'keydown', this.keydownEventListener, false );
+    this.keyupEventListener =  bind( this, this.keyup );
+	this.domElement.addEventListener( 'keyup',   this.keyupEventListener, false );
 
 	this.updateMovementVector();
 	this.updateRotationVector();

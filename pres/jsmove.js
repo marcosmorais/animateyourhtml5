@@ -39,13 +39,12 @@ function modelshow(el, modelURL)
 	var height = canvascontainer.clientHeight-2; // unfathomable bug: why do I get a scroll bar with the full height ???
 	
 	// renderer
-	var renderer = new THREE.WebGLRenderer ({antialias: true});
+	var renderer = new THREE.WebGLRenderer ({alpha:true, antialias: true});
 	renderer.setSize(width, height);
 	
 	// glue to HTML element
 	canvascontainer.insertBefore(renderer.domElement,canvascontainer.firstChild);
-	renderer.setClearColorHex(0x000000, 0);
-	renderer.clear();
+	renderer.setClearColor(0x000000, 0);
 	
 	// camera
 	var camera = new THREE.PerspectiveCamera(35, width / height, 1, 3000);
@@ -80,7 +79,7 @@ function modelshow(el, modelURL)
 	animation.gettingclose_event = null;
 	window.requestAnimationFrame(animate);
 	
-	var vec0 = new THREE.Vector3(0,0,0);
+	var rot0 = new THREE.Euler(0,0,0);
 	var vec111 = new THREE.Vector3(1,1,1);
 	
 	var sequencer = new Object();
@@ -90,7 +89,7 @@ function modelshow(el, modelURL)
 	sequencer.add = function(f) {sequencer.todo[sequencer.end++] = f;};
 	sequencer.go = function() {if (sequencer.begin < sequencer.end) sequencer.todo[sequencer.begin++]();};
 	
-	loadModel(scene, modelURL, new THREE.Vector3(0,0,0), vec0, vec111, "androidmodel-gingerbread", sequencer);
+	loadModel(scene, modelURL, new THREE.Vector3(0,0,0), rot0, vec111, "androidmodel-gingerbread", sequencer);
 	
 	window.setTimeout(function(){sequencer.go();}, 1000);
 }
@@ -161,9 +160,7 @@ function spacelaunch()
 	
 	// glue to HTML element
 	canvascontainer.insertBefore(renderer.domElement,canvascontainer.firstChild);
-	//canvas.appendChild(renderer.domElement);
-	renderer.setClearColorHex(0x000000, 0);
-	renderer.clear();
+	renderer.setClearColor(0x000000, 0);
 	
 	// camera
 	var camera = new THREE.PerspectiveCamera(35, width / height, 1, 3000);
@@ -200,12 +197,12 @@ function spacelaunch()
 	var groundTex = THREE.ImageUtils.loadTexture('../models/ground.png');
 	groundTex.wrapS = groundTex.wrapT = THREE.RepeatWrapping;
 	groundTex.repeat.set(50, 50);
-	var groundGeo = new THREE.CubeGeometry(3000, 3000, 10, 1, 1, 1);
+	var groundGeo = new THREE.BoxGeometry(3000, 3000, 10, 1, 1, 1);
 	var groundMat = new THREE.MeshBasicMaterial({map: groundTex, emissive:0x444444});
 	var ground    = new THREE.Mesh(groundGeo, groundMat);
 	ground.rotation.x = Math.PI/2;
 	ground.rotation.z = 1;
-	ground.translateY(-5);
+	ground.translateZ(15);
 	scene.add(ground);
 	
 	// launch animation
@@ -219,7 +216,7 @@ function spacelaunch()
 	animation.gettingclose_event_fired = false;
 	window.requestAnimationFrame(animate);
 	
-	var vec0 = new THREE.Vector3(0,0,0);
+	var rot0 = new THREE.Euler(0,0,0);
 	var vec111 = new THREE.Vector3(1,1,1);
 	
 	var sequencer = new Object();
@@ -231,14 +228,14 @@ function spacelaunch()
 	animation.sequencer = sequencer;
 	animation.sequencer_fired = false;
 	
-	loadModel(scene, "../models/Cupcake.dae",          new THREE.Vector3(-175,0,0), vec0, vec111, "androidmodel-cupcake", sequencer);
-	loadModel(scene, "../models/Donut.dae",            new THREE.Vector3(-125,0,0), vec0, vec111, "androidmodel-donut", sequencer);
-	loadModel(scene, "../models/Eclair.dae",           new THREE.Vector3(-75,0,0),  vec0, vec111, "androidmodel-eclair", sequencer);
-	loadModel(scene, "../models/Froyo.dae",            new THREE.Vector3(-25,0,0),  vec0, vec111, "androidmodel-froyo", sequencer);
-	loadModel(scene, "../models/Gingerbread.dae",      new THREE.Vector3(25,0,0),   vec0, vec111, "androidmodel-gingerbread", sequencer);
-	loadModel(scene, "../models/Honeycomb.dae",        new THREE.Vector3(75,0,0),   vec0, vec111, "androidmodel-honeycomb", sequencer);
-	loadModel(scene, "../models/IceCreamSandwich.dae", new THREE.Vector3(125,0,0),  vec0, vec111, "androidmodel-icecreamsandwich", sequencer);
-	loadModel(scene, "../models/JellyBean.dae",        new THREE.Vector3(175,0,0),  vec0, vec111, "androidmodel-jellybean", sequencer);
+	loadModel(scene, "../models/Cupcake.dae",          new THREE.Vector3(-175,0,0), rot0, vec111, "androidmodel-cupcake", sequencer);
+	loadModel(scene, "../models/Donut.dae",            new THREE.Vector3(-125,0,0), rot0, vec111, "androidmodel-donut", sequencer);
+	loadModel(scene, "../models/Eclair.dae",           new THREE.Vector3(-75,0,0),  rot0, vec111, "androidmodel-eclair", sequencer);
+	loadModel(scene, "../models/Froyo.dae",            new THREE.Vector3(-25,0,0),  rot0, vec111, "androidmodel-froyo", sequencer);
+	loadModel(scene, "../models/Gingerbread.dae",      new THREE.Vector3(25,0,0),   rot0, vec111, "androidmodel-gingerbread", sequencer);
+	loadModel(scene, "../models/Honeycomb.dae",        new THREE.Vector3(75,0,0),   rot0, vec111, "androidmodel-honeycomb", sequencer);
+	loadModel(scene, "../models/IceCreamSandwich.dae", new THREE.Vector3(125,0,0),  rot0, vec111, "androidmodel-icecreamsandwich", sequencer);
+	loadModel(scene, "../models/JellyBean.dae",        new THREE.Vector3(175,0,0),  rot0, vec111, "androidmodel-jellybean", sequencer);
 }
 
 function spacelaunch_close()
@@ -374,7 +371,7 @@ function animate()
 		// loading shapes: fast rotation
 		if (object instanceof THREE.Object3D && object.name.indexOf("loading") >= 0)
 		{
-			object.rotation.y = t/500;
+            object.rotation.y = t/500;
 		}
 		
 		// loading progress shapes: continuously update height

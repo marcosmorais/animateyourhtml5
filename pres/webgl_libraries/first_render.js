@@ -33,13 +33,12 @@ function firstRender(id)
 	var height = canvascontainer.clientHeight-2; // unfathomable bug: why do I get a scroll bar with the full height ???
 	
 	// renderer
-	var renderer = new THREE.WebGLRenderer ({antialias: true});
+	var renderer = new THREE.WebGLRenderer ({alpha:true, antialias: true});
 	renderer.setSize(width, height);
 	
 	// glue to HTML element
 	canvascontainer.appendChild(renderer.domElement);
-	renderer.setClearColorHex(0x000000, 0);
-	renderer.clear();
+	renderer.setClearColor(0x000000, 0);
 	
 	// camera
 	var camera = new THREE.PerspectiveCamera(35, width / height, 1, 3000);
@@ -129,7 +128,7 @@ function firstLoadCube(scene)
 	
 	// textured cube
 	var cube = new THREE.Mesh(
-	        new THREE.CubeGeometry(95, 95, 95),
+	        new THREE.BoxGeometry(95, 95, 95),
 	        new THREE.MeshLambertMaterial({map: texture}) );
 		cube.position.y = -7;
 		cube.rotation.x = 0.5;

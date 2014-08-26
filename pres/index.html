@@ -3573,9 +3573,9 @@ seu código de simulação
 	<H2 class="preslide">THREE.js: camera, lumières, action !</H2>
 	<div class="preheader">Créer un moteur de rendu WebGL</div>
 	<pre class="prewithheader">
-var renderer = new THREE.WebGLRenderer({antialias: true});
+var renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
 renderer.setSize(width, height);
-renderer.setClearColorHex(0x000000, 0); // color, transparency</pre>
+renderer.setClearColor(0x000000, 0); // color, transparency</pre>
 	<div class="preheader">L'ajouter au document</div>
 	<pre class="prewithheader">
 document.<span>ouvousvoulez</span>.appendChild(renderer.domElement);</pre>
@@ -3618,7 +3618,7 @@ light.position.set(1, 1, 0.3); // direction</pre>
     <pre class="prewithheader">
 var texture = THREE.ImageUtils.loadTexture('Fernando Togni.jpg');
 var cube = new THREE.Mesh(
-               new THREE.CubeGeometry(100, 100, 100),
+               new THREE.BoxGeometry(100, 100, 100),
                new THREE.MeshLambertMaterial({map: texture}) );</pre>
       
     <div class="preheader">Une scène avec tout ça</div>
@@ -3707,25 +3707,29 @@ e loop
 var loader = new THREE.ColladaLoader();
 
 loader.load("Android.dae", function(collada)
-           {
-               var model = collada.scene;
-               model.position = ...; // x, y, z
-               model.rotation = ...; // x, y, z
-               scene.add(model);
-           },
-               function progress(p) {} );</pre>
+    {
+      var model = collada.scene;
+      model.position.set(x, y, z); // <span>votre position</span>
+      model.rotation.set(φ, θ, ψ); // <span>angles d'Euler</span>
+      scene.add(model);
+    },
+    function progress(p) {} );</pre>
        <p style="position:absolute; top: 595px; left: 0; width: 100%; text-align: center;">utilisez: <img valign="middle" src="images/sketchup.png" height="70px" /> SKETCHUP</p>
 	   <div id="three-model-render-container" class="fullslidecanvas"></div>
 	   
 	   <translation lang="en">
 	   THREE.js: load a model
 	   Open 3D model data format: COLLADA (.dae)
+your position
+Euler angles
 	   use
 	   --self--
 	   </translation>
       <translation lang="pt">
 	   THREE.js: carregue um modelo
       Abra um modelo 3D no formato: COLLADA (.dae)
+your position
+Euler angles
 	   use
 	   --self--
 	   </translation>

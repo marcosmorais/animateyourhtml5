@@ -23,7 +23,7 @@ var nbScenes = 8;
 var sceneDistance = 300;
 var sceneTransitionT0;
 var sceneTransitionV0;
-var sceneTransitionD = 50000;
+var sceneTransitionDuration = 500;
 var loader = new THREE.ColladaLoader();
 loader.options.convertUpAxis= true;
 loader.options.upAxis = 'Y';
@@ -40,20 +40,20 @@ function startTHREE()
     arrowVisibility();
 
     var container = document.getElementById('canvas-container');
-    renderer = new THREE.WebGLRenderer ({antialias: true});
+    renderer = new THREE.WebGLRenderer ( {antialias: true, alpha: true});
     renderer.setSize(container.clientWidth, container.clientHeight);
 
     // THREE.js creates the 3D <canvas> element for you
     container.appendChild(renderer.domElement);
 
     // make it pretty (black and transparent)
-    renderer.setClearColorHex(0x000000, 0);
+    renderer.setClearColor(0x000000, 0);
     renderer.clear();
 
     // CAMERA: field of view (angle), aspect ratio, near, far
     var aspect = container.clientWidth / container.clientHeight;
     camera = new THREE.PerspectiveCamera(35, aspect, 1, 3000);
-    camera.position = cameraPositionsForScene(currentScene);
+    camera.position.copy(cameraPositionsForScene(currentScene));
 
     var scene = new THREE.Scene();
 
@@ -132,24 +132,25 @@ function startTHREE()
                 {
                     if (obj.name.startsWith("scene-" + i))
                     {
-                        obj.position.addSelf(new THREE.Vector3(i*sceneDistance, 0, 0));
+                        obj.position.add(new THREE.Vector3(i*sceneDistance, 0, 0));
                     }
                 }
 
                 // move camera if in transition
                 if (sceneTransitionT0 !== undefined && sceneTransitionV0 !== undefined)
                 {
-                    // parameter between 0 and 1
-                    var s = (t - sceneTransitionT0)/sceneTransitionD;
+                    // parameter between 0 and 1, ease-in speed profile
+                    var s = (t - sceneTransitionT0)/sceneTransitionDuration;
                     if (s<=1)
                     {
                         // V = s * V1 + (1-s) * V0
+                        s = Math.sqrt(1-(s-1)*(s-1)); // ease-in speed profile
                         var v = new THREE.Vector3();
                         v.copy(sceneTransitionV0);
                         v.multiplyScalar(1-s);
                         var w = cameraPositionsForScene(currentScene);
                         w.multiplyScalar(s);
-                        camera.position.add(v, w);
+                        camera.position.addVectors(v, w);
                     }
                     else
                     {
@@ -173,7 +174,7 @@ function startTHREE()
 function createScene0(scene)
 {
     var scale = 1;
-    var geo = new THREE.CubeGeometry(100, 100, 100, 10, 10, 10); // w, h, d
+    var geo = new THREE.BoxGeometry(100, 100, 100, 10, 10, 10); // w, h, d
     var mat = new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true, wireframeLinewidth:1});
     var cube = new THREE.Mesh(geo, mat);
     cube.scale.set(scale, scale, scale);
@@ -193,7 +194,7 @@ function createScene0(scene)
 
 function createScene1(scene)
 {
-    var geo = new THREE.CubeGeometry(100, 100, 100); // w, h, d
+    var geo = new THREE.BoxGeometry(100, 100, 100); // w, h, d
     var mat = new THREE.MeshLambertMaterial({color: 0xFFFFFF});
     var cube = new THREE.Mesh(geo, mat);
     cube.name = "scene-1-lambert-cube";
@@ -206,7 +207,7 @@ function createScene2(scene)
 {
     var texture = THREE.ImageUtils.loadTexture('../textures/FernandoTogni.png');
 
-    var geo = new THREE.CubeGeometry(100, 100, 100); // w, h, d
+    var geo = new THREE.BoxGeometry(100, 100, 100); // w, h, d
     var mat = new THREE.MeshLambertMaterial({map: texture});
     var cube = new THREE.Mesh(geo, mat);
     cube.name = "scene-2-textured-cube";
@@ -297,11 +298,11 @@ function loadSkinnedModel(scene, modelURL, newName, newMaterial, scale)
         function(collada) {
             model = collada.scene;
             if (scale !== undefined)
-                model.scale = scale;
+                model.scale.copy(scale);
             model.name = newName;
             model.traverse(function(child) {
                 if (child instanceof THREE.Mesh
-                    && !(child.name in {ID79:0, ID93:0})) { // keep eyes white :)
+                    && (child.parent.name != 'eye' )) { // keep eyes white :)
                     child.geometry.computeTangents(); // ask Mr. Doob
                     if (newMaterial !== undefined)
                         child.material = newMaterial;
@@ -417,7 +418,8 @@ function arrowVisibility()
 function moveCamera()
 {
     sceneTransitionT0 = new Date().getTime();
-    sceneTransitionV0 = camera.position;
+    sceneTransitionV0 = new THREE.Vector3();
+    sceneTransitionV0.copy(camera.position);
 }
 
 //-----------------------------------------------------------------------------------
