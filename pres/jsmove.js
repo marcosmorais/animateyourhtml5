@@ -228,14 +228,15 @@ function spacelaunch()
 	animation.sequencer = sequencer;
 	animation.sequencer_fired = false;
 	
-	loadModel(scene, "../models/Cupcake.dae",          new THREE.Vector3(-175,0,0), rot0, vec111, "androidmodel-cupcake", sequencer);
-	loadModel(scene, "../models/Donut.dae",            new THREE.Vector3(-125,0,0), rot0, vec111, "androidmodel-donut", sequencer);
-	loadModel(scene, "../models/Eclair.dae",           new THREE.Vector3(-75,0,0),  rot0, vec111, "androidmodel-eclair", sequencer);
-	loadModel(scene, "../models/Froyo.dae",            new THREE.Vector3(-25,0,0),  rot0, vec111, "androidmodel-froyo", sequencer);
-	loadModel(scene, "../models/Gingerbread.dae",      new THREE.Vector3(25,0,0),   rot0, vec111, "androidmodel-gingerbread", sequencer);
-	loadModel(scene, "../models/Honeycomb.dae",        new THREE.Vector3(75,0,0),   rot0, vec111, "androidmodel-honeycomb", sequencer);
-	loadModel(scene, "../models/IceCreamSandwich.dae", new THREE.Vector3(125,0,0),  rot0, vec111, "androidmodel-icecreamsandwich", sequencer);
-	loadModel(scene, "../models/JellyBean.dae",        new THREE.Vector3(175,0,0),  rot0, vec111, "androidmodel-jellybean", sequencer);
+	loadModel(scene, "../models/Cupcake.dae",          new THREE.Vector3(-200,0,0), rot0, vec111, "androidmodel-cupcake", sequencer);
+	loadModel(scene, "../models/Donut.dae",            new THREE.Vector3(-150,0,0), rot0, vec111, "androidmodel-donut", sequencer);
+	loadModel(scene, "../models/Eclair.dae",           new THREE.Vector3(-100,0,0), rot0, vec111, "androidmodel-eclair", sequencer);
+	loadModel(scene, "../models/Froyo.dae",            new THREE.Vector3(-50,0,0),  rot0, vec111, "androidmodel-froyo", sequencer);
+	loadModel(scene, "../models/Gingerbread.dae",      new THREE.Vector3(0,0,0),    rot0, vec111, "androidmodel-gingerbread", sequencer);
+	loadModel(scene, "../models/Honeycomb.dae",        new THREE.Vector3(50,0,0),   rot0, vec111, "androidmodel-honeycomb", sequencer);
+	loadModel(scene, "../models/IceCreamSandwich.dae", new THREE.Vector3(100,0,0),  rot0, vec111, "androidmodel-icecreamsandwich", sequencer);
+	loadModel(scene, "../models/JellyBean.dae",        new THREE.Vector3(150,0,0),  rot0, vec111, "androidmodel-jellybean", sequencer);
+    loadModel(scene, "../models/KitKat.dae",           new THREE.Vector3(200,0,0),  rot0, vec111, "androidmodel-kitkat", sequencer);
 }
 
 function spacelaunch_close()
@@ -251,7 +252,7 @@ function loadModel(scene, url, position, rotation, scale, name, sequencer)
 	loader.options.convertUpAxis= true;
 	loader.options.upAxis = 'Y';
 	
-	var loadheight = 50;
+	var loadheight = 46;
 	
 	// create a loding shape (kind of 3D progres bar)
 	var loadingGeometry = new THREE.CylinderGeometry(20, 20, loadheight, 20, 10, false);
